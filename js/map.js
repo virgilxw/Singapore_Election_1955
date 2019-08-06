@@ -9,11 +9,13 @@ var layerOneMapSG_Default = L.tileLayer('https://maps-{s}.onemap.sg/v3/Default/{
 });
 
 var Layer1953Topo = L.WMS.tileLayer("https://libmaps.nus.edu.sg/gis/services/Sing_Hist_Maps/1953/MapServer/WMSServer?", {
-	"layers": "11,12,13,14,15,16,17,18,19,20,21,22"
+	"layers": "11,12,13,14,15,16,17,18,19,20,21,22",
+	attribution: '<a href="https://libmaps.nus.edu.sg/">National University of Singapore<a>'
 })
 
 var Layer1953Aerial = L.WMS.tileLayer("https://libmaps.nus.edu.sg/gis/services/Sing_Hist_Maps/1950/MapServer/WMSServer?", {
-	"layers": "11,12,13,14,15,16,17,18,19,20,21,22"
+	"layers": "11,12,13,14,15,16,17,18,19,20,21,22",
+	attribution: '<a href="https://libmaps.nus.edu.sg/">National University of Singapore<a>'
 });
 
 // Default base Map
@@ -58,7 +60,3 @@ var styledLayerControlOptions = {
 
 var styledLayerControl = L.Control.styledLayerControl(baseMaps, overlays, styledLayerControlOptions);
 map.addControl(styledLayerControl, overlays);
-
-// initiate default layers
-Layer1953Topo.addTo(map);
-Layer1955Wards.addTo(map);
