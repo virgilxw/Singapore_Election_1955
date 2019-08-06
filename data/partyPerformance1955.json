@@ -1,0 +1,37 @@
+﻿[
+	{
+		"Party": "DP",
+		"Vote_Count": 32115,
+		"Vote_Share": "25.32%"
+	},
+	{
+		"Party": "Independent",
+		"Vote_Count": 15098,
+		"Vote_Share": "12.66%"
+	},
+	{
+		"Party": "LP",
+		"Vote_Count": 1325,
+		"Vote_Share": "1.27%"
+	},
+	{
+		"Party": "PAP",
+		"Vote_Count": 13634,
+		"Vote_Share": "5.06%"
+	},
+	{
+		"Party": "PP",
+		"Vote_Count": 38695,
+		"Vote_Share": "27.85%"
+	},
+	{
+		"Party": "SA",
+		"Vote_Count": 13157,
+		"Vote_Share": "6.33%"
+	},
+	{
+		"Party": "SLF",
+		"Vote_Count": 42300,
+		"Vote_Share": "21.52%"
+	}
+]

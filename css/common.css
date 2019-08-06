@@ -37,6 +37,7 @@ header {
 	border-right: 2px solid rgba(158,158,158,1);
 }
 
+
 #map {
 	order: 1;
 	flex: 5;
