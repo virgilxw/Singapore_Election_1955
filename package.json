@@ -17,10 +17,10 @@
   },
   "homepage": "https://github.com/virgilxw/Singapore_Election_1955#readme",
   "devDependencies": {
-    "d3.js": "0.0.2-security",
     "jquery": "^3.4.1",
     "leaflet": "^1.5.1",
     "leaflet-ajax": "^2.1.0",
     "leaflet.wms": "^0.2.0"
-  }
+  },
+  "dependencies": {}
 }
