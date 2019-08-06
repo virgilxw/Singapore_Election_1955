@@ -12,6 +12,10 @@ var Layer1953Topo = L.WMS.tileLayer("https://libmaps.nus.edu.sg/gis/services/Sin
 	"layers": "11,12,13,14,15,16,17,18,19,20,21,22"
 })
 
+var Layer1953Aerial = L.WMS.tileLayer("https://libmaps.nus.edu.sg/gis/services/Sing_Hist_Maps/1950/MapServer/WMSServer?", {
+	"layers": "11,12,13,14,15,16,17,18,19,20,21,22"
+});
+
 // Default base Map
 map.addLayer(layerOneMapSG_Default);
 
@@ -21,20 +25,26 @@ var baseMaps = [
 		groupName: "Base Maps",
 		expanded: true,
 		layers: {
-			"OneMap": layerOneMapSG_Default,
-			"1953 Topological": Layer1953Topo
+			"OneMap": layerOneMapSG_Default
 		}
 	}];
 
 var overlays = [
-	];
+		{
+			groupName: "Map overlays",
+			expanded: "true",
+			layers: {
+				"1953 Topological": Layer1953Topo,
+				"1953 Aerial Photographs": Layer1953Aerial
+			}
+		}];
 
 var styledLayerControlOptions = {
-	container_width: "300px",
-	container_maxHeight: "350px",
-	group_maxHeight: "80px",
-	exclusive: true
-};
+			container_width: "300px",
+			container_maxHeight: "350px",
+			group_maxHeight: "80px",
+			exclusive: false
+		};
 
 var styledLayerControl = L.Control.styledLayerControl(baseMaps, overlays, styledLayerControlOptions);
-map.addControl(styledLayerControl);
+map.addControl(styledLayerControl, overlays);
