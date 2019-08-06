@@ -19,6 +19,9 @@ var Layer1953Aerial = L.WMS.tileLayer("https://libmaps.nus.edu.sg/gis/services/S
 // Default base Map
 map.addLayer(layerOneMapSG_Default);
 
+// Add geojson
+var Layer1955Wards = new L.GeoJSON.AJAX("data/wards1955.geojson");
+
 // Styled Layer Control
 var baseMaps = [
 	{
@@ -30,21 +33,32 @@ var baseMaps = [
 	}];
 
 var overlays = [
-		{
-			groupName: "Map overlays",
-			expanded: "true",
-			layers: {
-				"1953 Topological": Layer1953Topo,
-				"1953 Aerial Photographs": Layer1953Aerial
-			}
-		}];
+	{
+		groupName: "data",
+		expaned: "true",
+		layers: {
+			"Constituencies": Layer1955Wards
+		}
+	},
+	{
+		groupName: "Map Overlays",
+		expanded: "true",
+		layers: {
+			"1953 Topological": Layer1953Topo,
+			"1953 Aerial Photographs": Layer1953Aerial
+		}
+			}];
 
 var styledLayerControlOptions = {
-			container_width: "300px",
-			container_maxHeight: "350px",
-			group_maxHeight: "80px",
-			exclusive: false
-		};
+	container_width: "300px",
+	container_maxHeight: "350px",
+	group_maxHeight: "80px",
+	exclusive: false
+};
 
 var styledLayerControl = L.Control.styledLayerControl(baseMaps, overlays, styledLayerControlOptions);
 map.addControl(styledLayerControl, overlays);
+
+// initiate default layers
+Layer1953Topo.addTo(map);
+Layer1955Wards.addTo(map);
