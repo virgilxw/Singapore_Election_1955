@@ -1,7 +1,7 @@
 {
   "name": "ism",
   "version": "1.0.0",
-  "description": "https://www.colourlovers.com/palette/28/1950s\r Green: 68,175,105\r Red: 212,67,84\r Yellow: 255,241,96\r Blue: 118,175,186\r Orange: 230,85,64\r White: 255, 250, 240",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

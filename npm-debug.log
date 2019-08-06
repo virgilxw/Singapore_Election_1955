@@ -1,0 +1,497 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/nodejs', '/usr/bin/npm', 'i', 'leaflet' ]
+2 info using npm@3.5.2
+3 info using node@v4.2.6
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData leaflet
+8 silly fetchNamedPackageData leaflet
+9 silly mapToRegistry name leaflet
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry uri https://registry.npmjs.org/leaflet
+13 verbose request uri https://registry.npmjs.org/leaflet
+14 verbose request no auth needed
+15 info attempt registry request try #1 at 1:44:08 PM
+16 verbose request id a82ebc99ccb496b1
+17 verbose etag W/"6b7d6435787a7ec17d947818bc3edf82"
+18 verbose lastModified Wed, 08 May 2019 17:00:49 GMT
+19 http request GET https://registry.npmjs.org/leaflet
+20 http 304 https://registry.npmjs.org/leaflet
+21 verbose headers { date: 'Tue, 06 Aug 2019 05:49:16 GMT',
+21 verbose headers   connection: 'keep-alive',
+21 verbose headers   'set-cookie': [ '__cfduid=dbe2632a479866bcd41e194f9c06c86de1565070556; expires=Wed, 05-Aug-20 05:49:16 GMT; path=/; domain=.npmjs.org; HttpOnly' ],
+21 verbose headers   'cf-cache-status': 'HIT',
+21 verbose headers   'cache-control': 'max-age=300',
+21 verbose headers   'cf-ray': '501eba04ec254d4a-PER',
+21 verbose headers   age: '5246',
+21 verbose headers   etag: '"6b7d6435787a7ec17d947818bc3edf82"',
+21 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+21 verbose headers   'last-modified': 'Wed, 08 May 2019 17:00:49 GMT',
+21 verbose headers   vary: 'accept-encoding, accept',
+21 verbose headers   'x-amz-meta-rev': '96-922932e5cd2712453e02e273fc007c8d',
+21 verbose headers   server: 'cloudflare' }
+22 silly get cb [ 304,
+22 silly get   { date: 'Tue, 06 Aug 2019 05:49:16 GMT',
+22 silly get     connection: 'keep-alive',
+22 silly get     'set-cookie': [ '__cfduid=dbe2632a479866bcd41e194f9c06c86de1565070556; expires=Wed, 05-Aug-20 05:49:16 GMT; path=/; domain=.npmjs.org; HttpOnly' ],
+22 silly get     'cf-cache-status': 'HIT',
+22 silly get     'cache-control': 'max-age=300',
+22 silly get     'cf-ray': '501eba04ec254d4a-PER',
+22 silly get     age: '5246',
+22 silly get     etag: '"6b7d6435787a7ec17d947818bc3edf82"',
+22 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+22 silly get     'last-modified': 'Wed, 08 May 2019 17:00:49 GMT',
+22 silly get     vary: 'accept-encoding, accept',
+22 silly get     'x-amz-meta-rev': '96-922932e5cd2712453e02e273fc007c8d',
+22 silly get     server: 'cloudflare' } ]
+23 verbose etag https://registry.npmjs.org/leaflet from cache
+24 verbose get saving leaflet to /home/virgilxw/.npm/registry.npmjs.org/leaflet/.cache.json
+25 silly install normalizeTree
+26 silly loadCurrentTree Finishing
+27 silly loadIdealTree Starting
+28 silly install loadIdealTree
+29 silly cloneCurrentTree Starting
+30 silly install cloneCurrentTreeToIdealTree
+31 silly cloneCurrentTree Finishing
+32 silly loadShrinkwrap Starting
+33 silly install loadShrinkwrap
+34 silly loadShrinkwrap Finishing
+35 silly loadAllDepsIntoIdealTree Starting
+36 silly install loadAllDepsIntoIdealTree
+37 silly resolveWithNewModule leaflet@1.5.1 checking installable status
+38 silly cache add args [ 'leaflet', null ]
+39 verbose cache add spec leaflet
+40 silly cache add parsed spec Result {
+40 silly cache add   raw: 'leaflet',
+40 silly cache add   scope: null,
+40 silly cache add   name: 'leaflet',
+40 silly cache add   rawSpec: '',
+40 silly cache add   spec: 'latest',
+40 silly cache add   type: 'tag' }
+41 silly addNamed leaflet@latest
+42 verbose addNamed "latest" is being treated as a dist-tag for leaflet
+43 info addNameTag [ 'leaflet', 'latest' ]
+44 silly mapToRegistry name leaflet
+45 silly mapToRegistry using default registry
+46 silly mapToRegistry registry https://registry.npmjs.org/
+47 silly mapToRegistry uri https://registry.npmjs.org/leaflet
+48 verbose addNameTag registry:https://registry.npmjs.org/leaflet not in flight; fetching
+49 verbose get https://registry.npmjs.org/leaflet not expired, no request
+50 silly addNameTag next cb for leaflet with tag latest
+51 silly addNamed leaflet@1.5.1
+52 verbose addNamed "1.5.1" is a plain semver version for leaflet
+53 silly cache afterAdd leaflet@1.5.1
+54 verbose afterAdd /home/virgilxw/.npm/leaflet/1.5.1/package/package.json not in flight; writing
+55 verbose afterAdd /home/virgilxw/.npm/leaflet/1.5.1/package/package.json written
+56 silly loadAllDepsIntoIdealTree Finishing
+57 silly idealTree:prePrune ism@1.0.0
+57 silly idealTree:prePrune ├── align-text@0.1.4
+57 silly idealTree:prePrune ├── camelcase@1.2.1
+57 silly idealTree:prePrune ├── center-align@0.1.3
+57 silly idealTree:prePrune ├── cliui@2.1.0
+57 silly idealTree:prePrune ├── decamelize@1.2.0
+57 silly idealTree:prePrune ├── is-buffer@1.1.6
+57 silly idealTree:prePrune ├── kind-of@3.2.2
+57 silly idealTree:prePrune ├── lazy-cache@1.0.4
+57 silly idealTree:prePrune ├── leaflet.wms@0.2.0
+57 silly idealTree:prePrune ├── leaflet@1.5.1
+57 silly idealTree:prePrune ├── longest@1.0.1
+57 silly idealTree:prePrune ├── repeat-string@1.6.1
+57 silly idealTree:prePrune ├── right-align@0.1.3
+57 silly idealTree:prePrune ├── source-map@0.5.7
+57 silly idealTree:prePrune ├── uglify-js@2.8.29
+57 silly idealTree:prePrune ├── uglify-to-browserify@1.0.2
+57 silly idealTree:prePrune ├── window-size@0.1.0
+57 silly idealTree:prePrune ├── wordwrap@0.0.2
+57 silly idealTree:prePrune └── yargs@3.10.0
+58 silly loadIdealTree Finishing
+59 silly currentTree ism@1.0.0
+59 silly currentTree ├── align-text@0.1.4
+59 silly currentTree ├── camelcase@1.2.1
+59 silly currentTree ├── center-align@0.1.3
+59 silly currentTree ├── cliui@2.1.0
+59 silly currentTree ├── decamelize@1.2.0
+59 silly currentTree ├── is-buffer@1.1.6
+59 silly currentTree ├── kind-of@3.2.2
+59 silly currentTree ├── lazy-cache@1.0.4
+59 silly currentTree ├── leaflet.wms@0.2.0
+59 silly currentTree ├── leaflet@1.5.1
+59 silly currentTree ├── longest@1.0.1
+59 silly currentTree ├── repeat-string@1.6.1
+59 silly currentTree ├── right-align@0.1.3
+59 silly currentTree ├── source-map@0.5.7
+59 silly currentTree ├── uglify-js@2.8.29
+59 silly currentTree ├── uglify-to-browserify@1.0.2
+59 silly currentTree ├── window-size@0.1.0
+59 silly currentTree ├── wordwrap@0.0.2
+59 silly currentTree └── yargs@3.10.0
+60 silly idealTree ism@1.0.0
+60 silly idealTree ├── align-text@0.1.4
+60 silly idealTree ├── camelcase@1.2.1
+60 silly idealTree ├── center-align@0.1.3
+60 silly idealTree ├── cliui@2.1.0
+60 silly idealTree ├── decamelize@1.2.0
+60 silly idealTree ├── is-buffer@1.1.6
+60 silly idealTree ├── kind-of@3.2.2
+60 silly idealTree ├── lazy-cache@1.0.4
+60 silly idealTree ├── leaflet.wms@0.2.0
+60 silly idealTree ├── leaflet@1.5.1
+60 silly idealTree ├── longest@1.0.1
+60 silly idealTree ├── repeat-string@1.6.1
+60 silly idealTree ├── right-align@0.1.3
+60 silly idealTree ├── source-map@0.5.7
+60 silly idealTree ├── uglify-js@2.8.29
+60 silly idealTree ├── uglify-to-browserify@1.0.2
+60 silly idealTree ├── window-size@0.1.0
+60 silly idealTree ├── wordwrap@0.0.2
+60 silly idealTree └── yargs@3.10.0
+61 silly generateActionsToTake Starting
+62 silly install generateActionsToTake
+63 silly generateActionsToTake Finishing
+64 silly diffTrees action count 2
+65 silly diffTrees update leaflet@1.5.1
+66 silly diffTrees update leaflet.wms@0.2.0
+67 silly decomposeActions action count 16
+68 silly decomposeActions fetch leaflet@1.5.1
+69 silly decomposeActions extract leaflet@1.5.1
+70 silly decomposeActions test leaflet@1.5.1
+71 silly decomposeActions preinstall leaflet@1.5.1
+72 silly decomposeActions build leaflet@1.5.1
+73 silly decomposeActions install leaflet@1.5.1
+74 silly decomposeActions postinstall leaflet@1.5.1
+75 silly decomposeActions finalize leaflet@1.5.1
+76 silly decomposeActions fetch leaflet.wms@0.2.0
+77 silly decomposeActions extract leaflet.wms@0.2.0
+78 silly decomposeActions test leaflet.wms@0.2.0
+79 silly decomposeActions preinstall leaflet.wms@0.2.0
+80 silly decomposeActions build leaflet.wms@0.2.0
+81 silly decomposeActions install leaflet.wms@0.2.0
+82 silly decomposeActions postinstall leaflet.wms@0.2.0
+83 silly decomposeActions finalize leaflet.wms@0.2.0
+84 silly executeActions Starting
+85 silly install executeActions
+86 silly doSerial global-install 0
+87 silly doParallel fetch 2
+88 verbose lock using /home/virgilxw/.npm/_locks/staging-f5cce69918faf4e7.lock for /mnt/d/programming/ism/node_modules/.staging
+89 silly doParallel extract 2
+90 silly extract leaflet@1.5.1
+91 silly extract leaflet.wms@0.2.0
+92 verbose unbuild node_modules/.staging/leaflet.wms-9fd70b55
+93 silly gentlyRm /mnt/d/programming/ism/node_modules/.staging/leaflet.wms-9fd70b55 is being purged from base /mnt/d/programming/ism
+94 verbose gentlyRm don't care about contents; nuking /mnt/d/programming/ism/node_modules/.staging/leaflet.wms-9fd70b55
+95 verbose unbuild node_modules/.staging/leaflet-09df80e4
+96 verbose tar unpack /home/virgilxw/.npm/leaflet.wms/0.2.0/package.tgz
+97 verbose tar unpacking to /mnt/d/programming/ism/node_modules/.staging/leaflet.wms-9fd70b55
+98 silly gentlyRm /mnt/d/programming/ism/node_modules/.staging/leaflet.wms-9fd70b55 is being purged
+99 verbose gentlyRm don't care about contents; nuking /mnt/d/programming/ism/node_modules/.staging/leaflet.wms-9fd70b55
+100 silly gunzTarPerm modes [ '777', '666' ]
+101 silly gentlyRm /mnt/d/programming/ism/node_modules/.staging/leaflet-09df80e4 is being purged from base /mnt/d/programming/ism
+102 verbose gentlyRm don't care about contents; nuking /mnt/d/programming/ism/node_modules/.staging/leaflet-09df80e4
+103 verbose tar unpack /home/virgilxw/.npm/leaflet/1.5.1/package.tgz
+104 verbose tar unpacking to /mnt/d/programming/ism/node_modules/.staging/leaflet-09df80e4
+105 silly gentlyRm /mnt/d/programming/ism/node_modules/.staging/leaflet-09df80e4 is being purged
+106 verbose gentlyRm don't care about contents; nuking /mnt/d/programming/ism/node_modules/.staging/leaflet-09df80e4
+107 silly gunzTarPerm modes [ '777', '666' ]
+108 silly gunzTarPerm extractEntry package.json
+109 silly gunzTarPerm modified mode [ 'package.json', 436, 438 ]
+110 silly gunzTarPerm extractEntry package.json
+111 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+112 silly gunzTarPerm extractEntry .npmignore
+113 silly gunzTarPerm modified mode [ '.npmignore', 436, 438 ]
+114 silly gunzTarPerm extractEntry README.md
+115 silly gunzTarPerm modified mode [ 'README.md', 436, 438 ]
+116 silly gunzTarPerm extractEntry CHANGELOG.md
+117 silly gunzTarPerm modified mode [ 'CHANGELOG.md', 420, 438 ]
+118 silly gunzTarPerm extractEntry LICENSE
+119 silly gunzTarPerm modified mode [ 'LICENSE', 420, 438 ]
+120 silly gunzTarPerm extractEntry LICENSE
+121 silly gunzTarPerm modified mode [ 'LICENSE', 436, 438 ]
+122 silly gunzTarPerm extractEntry dist/leaflet.wms.js
+123 silly gunzTarPerm modified mode [ 'dist/leaflet.wms.js', 436, 438 ]
+124 silly gunzTarPerm extractEntry README.md
+125 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+126 silly gunzTarPerm extractEntry dist/images/layers-2x.png
+127 silly gunzTarPerm modified mode [ 'dist/images/layers-2x.png', 420, 438 ]
+128 silly gunzTarPerm extractEntry dist/images/layers.png
+129 silly gunzTarPerm modified mode [ 'dist/images/layers.png', 420, 438 ]
+130 silly gunzTarPerm extractEntry dist/images/marker-icon-2x.png
+131 silly gunzTarPerm modified mode [ 'dist/images/marker-icon-2x.png', 420, 438 ]
+132 silly gunzTarPerm extractEntry dist/images/marker-icon.png
+133 silly gunzTarPerm modified mode [ 'dist/images/marker-icon.png', 420, 438 ]
+134 silly gunzTarPerm extractEntry bower.json
+135 silly gunzTarPerm modified mode [ 'bower.json', 436, 438 ]
+136 silly gunzTarPerm extractEntry dist/images/marker-shadow.png
+137 silly gunzTarPerm modified mode [ 'dist/images/marker-shadow.png', 420, 438 ]
+138 silly gunzTarPerm extractEntry dist/leaflet-src.esm.js
+139 silly gunzTarPerm modified mode [ 'dist/leaflet-src.esm.js', 420, 438 ]
+140 silly gunzTarPerm extractEntry examples/app.js
+141 silly gunzTarPerm modified mode [ 'examples/app.js', 436, 438 ]
+142 silly gunzTarPerm extractEntry examples/index.html
+143 silly gunzTarPerm modified mode [ 'examples/index.html', 436, 438 ]
+144 silly gunzTarPerm extractEntry dist/leaflet-src.esm.js.map
+145 silly gunzTarPerm modified mode [ 'dist/leaflet-src.esm.js.map', 420, 438 ]
+146 silly gunzTarPerm extractEntry index.html
+147 silly gunzTarPerm modified mode [ 'index.html', 436, 438 ]
+148 silly gunzTarPerm extractEntry lib/leaflet.js
+149 silly gunzTarPerm modified mode [ 'lib/leaflet.js', 436, 438 ]
+150 silly gunzTarPerm extractEntry lib/require.js
+151 silly gunzTarPerm modified mode [ 'lib/require.js', 436, 438 ]
+152 silly gunzTarPerm extractEntry lib/images/layers-2x.png
+153 silly gunzTarPerm modified mode [ 'lib/images/layers-2x.png', 436, 438 ]
+154 silly gunzTarPerm extractEntry lib/images/layers.png
+155 silly gunzTarPerm modified mode [ 'lib/images/layers.png', 436, 438 ]
+156 silly gunzTarPerm extractEntry lib/images/marker-icon-2x.png
+157 silly gunzTarPerm modified mode [ 'lib/images/marker-icon-2x.png', 436, 438 ]
+158 silly gunzTarPerm extractEntry lib/images/marker-icon.png
+159 silly gunzTarPerm modified mode [ 'lib/images/marker-icon.png', 436, 438 ]
+160 silly gunzTarPerm extractEntry dist/leaflet-src.js
+161 silly gunzTarPerm modified mode [ 'dist/leaflet-src.js', 420, 438 ]
+162 silly gunzTarPerm extractEntry lib/images/marker-shadow.png
+163 silly gunzTarPerm modified mode [ 'lib/images/marker-shadow.png', 436, 438 ]
+164 silly gunzTarPerm extractEntry lib/leaflet-license.txt
+165 silly gunzTarPerm modified mode [ 'lib/leaflet-license.txt', 436, 438 ]
+166 silly gunzTarPerm extractEntry lib/leaflet.css
+167 silly gunzTarPerm modified mode [ 'lib/leaflet.css', 436, 438 ]
+168 silly gunzTarPerm extractEntry .jshintrc
+169 silly gunzTarPerm modified mode [ '.jshintrc', 436, 438 ]
+170 silly gunzTarPerm extractEntry src/leaflet.wms.js
+171 silly gunzTarPerm modified mode [ 'src/leaflet.wms.js', 436, 438 ]
+172 silly gunzTarPerm extractEntry dist/leaflet-src.js.map
+173 silly gunzTarPerm modified mode [ 'dist/leaflet-src.js.map', 420, 438 ]
+174 silly gunzTarPerm extractEntry dist/leaflet.css
+175 silly gunzTarPerm modified mode [ 'dist/leaflet.css', 420, 438 ]
+176 silly gunzTarPerm extractEntry dist/leaflet.js
+177 silly gunzTarPerm modified mode [ 'dist/leaflet.js', 420, 438 ]
+178 silly gunzTarPerm extractEntry dist/leaflet.js.map
+179 silly gunzTarPerm modified mode [ 'dist/leaflet.js.map', 420, 438 ]
+180 silly gunzTarPerm extractEntry src/control/Control.Attribution.js
+181 silly gunzTarPerm modified mode [ 'src/control/Control.Attribution.js', 420, 438 ]
+182 silly gunzTarPerm extractEntry src/control/Control.js
+183 silly gunzTarPerm modified mode [ 'src/control/Control.js', 420, 438 ]
+184 silly gunzTarPerm extractEntry src/control/Control.Layers.js
+185 silly gunzTarPerm modified mode [ 'src/control/Control.Layers.js', 420, 438 ]
+186 silly gunzTarPerm extractEntry src/control/Control.Scale.js
+187 silly gunzTarPerm modified mode [ 'src/control/Control.Scale.js', 420, 438 ]
+188 silly gunzTarPerm extractEntry src/control/Control.Zoom.js
+189 silly gunzTarPerm modified mode [ 'src/control/Control.Zoom.js', 420, 438 ]
+190 silly gunzTarPerm extractEntry src/control/index.js
+191 silly gunzTarPerm modified mode [ 'src/control/index.js', 420, 438 ]
+192 silly gunzTarPerm extractEntry src/core/Browser.js
+193 silly gunzTarPerm modified mode [ 'src/core/Browser.js', 420, 438 ]
+194 silly gunzTarPerm extractEntry src/core/Class.js
+195 silly gunzTarPerm modified mode [ 'src/core/Class.js', 420, 438 ]
+196 silly gunzTarPerm extractEntry src/core/Class.leafdoc
+197 silly gunzTarPerm modified mode [ 'src/core/Class.leafdoc', 420, 438 ]
+198 silly gunzTarPerm extractEntry src/core/Events.js
+199 silly gunzTarPerm modified mode [ 'src/core/Events.js', 420, 438 ]
+200 silly gunzTarPerm extractEntry src/core/Events.leafdoc
+201 silly gunzTarPerm modified mode [ 'src/core/Events.leafdoc', 420, 438 ]
+202 silly gunzTarPerm extractEntry src/core/Handler.js
+203 silly gunzTarPerm modified mode [ 'src/core/Handler.js', 420, 438 ]
+204 silly gunzTarPerm extractEntry src/core/index.js
+205 silly gunzTarPerm modified mode [ 'src/core/index.js', 420, 438 ]
+206 silly gunzTarPerm extractEntry src/core/Util.js
+207 silly gunzTarPerm modified mode [ 'src/core/Util.js', 420, 438 ]
+208 silly gunzTarPerm extractEntry src/dom/DomEvent.DoubleTap.js
+209 silly gunzTarPerm modified mode [ 'src/dom/DomEvent.DoubleTap.js', 420, 438 ]
+210 silly gunzTarPerm extractEntry src/dom/DomEvent.js
+211 silly gunzTarPerm modified mode [ 'src/dom/DomEvent.js', 420, 438 ]
+212 silly gunzTarPerm extractEntry src/dom/DomEvent.Pointer.js
+213 silly gunzTarPerm modified mode [ 'src/dom/DomEvent.Pointer.js', 420, 438 ]
+214 silly gunzTarPerm extractEntry src/dom/DomUtil.js
+215 silly gunzTarPerm modified mode [ 'src/dom/DomUtil.js', 420, 438 ]
+216 silly gunzTarPerm extractEntry src/dom/Draggable.js
+217 silly gunzTarPerm modified mode [ 'src/dom/Draggable.js', 420, 438 ]
+218 silly gunzTarPerm extractEntry src/dom/index.js
+219 silly gunzTarPerm modified mode [ 'src/dom/index.js', 420, 438 ]
+220 silly gunzTarPerm extractEntry src/dom/PosAnimation.js
+221 silly gunzTarPerm modified mode [ 'src/dom/PosAnimation.js', 420, 438 ]
+222 silly gunzTarPerm extractEntry src/geo/crs/CRS.Earth.js
+223 silly gunzTarPerm modified mode [ 'src/geo/crs/CRS.Earth.js', 493, 511 ]
+224 silly gunzTarPerm extractEntry src/geo/crs/CRS.EPSG3395.js
+225 silly gunzTarPerm modified mode [ 'src/geo/crs/CRS.EPSG3395.js', 420, 438 ]
+226 silly gunzTarPerm extractEntry src/geo/crs/CRS.EPSG3857.js
+227 silly gunzTarPerm modified mode [ 'src/geo/crs/CRS.EPSG3857.js', 420, 438 ]
+228 silly gunzTarPerm extractEntry src/geo/crs/CRS.EPSG4326.js
+229 silly gunzTarPerm modified mode [ 'src/geo/crs/CRS.EPSG4326.js', 420, 438 ]
+230 silly gunzTarPerm extractEntry src/geo/crs/CRS.js
+231 silly gunzTarPerm modified mode [ 'src/geo/crs/CRS.js', 420, 438 ]
+232 silly gunzTarPerm extractEntry src/geo/crs/CRS.Simple.js
+233 silly gunzTarPerm modified mode [ 'src/geo/crs/CRS.Simple.js', 420, 438 ]
+234 silly gunzTarPerm extractEntry src/geo/crs/index.js
+235 silly gunzTarPerm modified mode [ 'src/geo/crs/index.js', 420, 438 ]
+236 silly gunzTarPerm extractEntry src/geo/index.js
+237 silly gunzTarPerm modified mode [ 'src/geo/index.js', 420, 438 ]
+238 silly gunzTarPerm extractEntry src/geo/LatLng.js
+239 silly gunzTarPerm modified mode [ 'src/geo/LatLng.js', 420, 438 ]
+240 silly gunzTarPerm extractEntry src/geo/LatLngBounds.js
+241 silly gunzTarPerm modified mode [ 'src/geo/LatLngBounds.js', 420, 438 ]
+242 silly gunzTarPerm extractEntry src/geo/projection/index.js
+243 silly gunzTarPerm modified mode [ 'src/geo/projection/index.js', 420, 438 ]
+244 silly gunzTarPerm extractEntry src/geo/projection/Projection.LonLat.js
+245 silly gunzTarPerm modified mode [ 'src/geo/projection/Projection.LonLat.js', 420, 438 ]
+246 silly gunzTarPerm extractEntry src/geo/projection/Projection.Mercator.js
+247 silly gunzTarPerm modified mode [ 'src/geo/projection/Projection.Mercator.js', 420, 438 ]
+248 silly gunzTarPerm extractEntry src/geo/projection/Projection.SphericalMercator.js
+249 silly gunzTarPerm modified mode [ 'src/geo/projection/Projection.SphericalMercator.js',
+249 silly gunzTarPerm   420,
+249 silly gunzTarPerm   438 ]
+250 silly gunzTarPerm extractEntry src/geometry/Bounds.js
+251 silly gunzTarPerm modified mode [ 'src/geometry/Bounds.js', 420, 438 ]
+252 silly gunzTarPerm extractEntry src/geometry/index.js
+253 silly gunzTarPerm modified mode [ 'src/geometry/index.js', 420, 438 ]
+254 silly gunzTarPerm extractEntry src/geometry/LineUtil.js
+255 silly gunzTarPerm modified mode [ 'src/geometry/LineUtil.js', 420, 438 ]
+256 silly gunzTarPerm extractEntry src/geometry/Point.js
+257 silly gunzTarPerm modified mode [ 'src/geometry/Point.js', 420, 438 ]
+258 silly gunzTarPerm extractEntry src/geometry/PolyUtil.js
+259 silly gunzTarPerm modified mode [ 'src/geometry/PolyUtil.js', 420, 438 ]
+260 silly gentlyRm /mnt/d/programming/ism/node_modules/.staging/leaflet.wms-9fd70b55/node_modules is being purged
+261 verbose gentlyRm don't care about contents; nuking /mnt/d/programming/ism/node_modules/.staging/leaflet.wms-9fd70b55/node_modules
+262 silly gunzTarPerm extractEntry src/geometry/Transformation.js
+263 silly gunzTarPerm modified mode [ 'src/geometry/Transformation.js', 420, 438 ]
+264 silly gunzTarPerm extractEntry src/images/layers.svg
+265 silly gunzTarPerm modified mode [ 'src/images/layers.svg', 420, 438 ]
+266 silly gunzTarPerm extractEntry src/images/logo.svg
+267 silly gunzTarPerm modified mode [ 'src/images/logo.svg', 420, 438 ]
+268 silly gunzTarPerm extractEntry src/images/marker.svg
+269 silly gunzTarPerm modified mode [ 'src/images/marker.svg', 420, 438 ]
+270 silly gunzTarPerm extractEntry src/layer/DivOverlay.js
+271 silly gunzTarPerm modified mode [ 'src/layer/DivOverlay.js', 420, 438 ]
+272 silly gunzTarPerm extractEntry src/layer/FeatureGroup.js
+273 silly gunzTarPerm modified mode [ 'src/layer/FeatureGroup.js', 420, 438 ]
+274 silly gunzTarPerm extractEntry src/layer/GeoJSON.js
+275 silly gunzTarPerm modified mode [ 'src/layer/GeoJSON.js', 420, 438 ]
+276 silly gunzTarPerm extractEntry src/layer/ImageOverlay.js
+277 silly gunzTarPerm modified mode [ 'src/layer/ImageOverlay.js', 420, 438 ]
+278 silly gunzTarPerm extractEntry src/layer/index.js
+279 silly gunzTarPerm modified mode [ 'src/layer/index.js', 420, 438 ]
+280 silly gunzTarPerm extractEntry src/layer/Layer.Interactive.leafdoc
+281 silly gunzTarPerm modified mode [ 'src/layer/Layer.Interactive.leafdoc', 420, 438 ]
+282 silly gunzTarPerm extractEntry src/layer/Layer.js
+283 silly gunzTarPerm modified mode [ 'src/layer/Layer.js', 420, 438 ]
+284 silly gunzTarPerm extractEntry src/layer/LayerGroup.js
+285 silly gunzTarPerm modified mode [ 'src/layer/LayerGroup.js', 420, 438 ]
+286 silly gunzTarPerm extractEntry src/layer/marker/DivIcon.js
+287 silly gunzTarPerm modified mode [ 'src/layer/marker/DivIcon.js', 420, 438 ]
+288 silly gunzTarPerm extractEntry src/layer/marker/Icon.Default.js
+289 silly gunzTarPerm modified mode [ 'src/layer/marker/Icon.Default.js', 420, 438 ]
+290 silly gunzTarPerm extractEntry src/layer/marker/Icon.js
+291 silly gunzTarPerm modified mode [ 'src/layer/marker/Icon.js', 420, 438 ]
+292 silly gunzTarPerm extractEntry src/layer/marker/index.js
+293 silly gunzTarPerm modified mode [ 'src/layer/marker/index.js', 420, 438 ]
+294 silly gunzTarPerm extractEntry src/layer/marker/Marker.Drag.js
+295 silly gunzTarPerm modified mode [ 'src/layer/marker/Marker.Drag.js', 420, 438 ]
+296 silly gunzTarPerm extractEntry src/layer/marker/Marker.js
+297 silly gunzTarPerm modified mode [ 'src/layer/marker/Marker.js', 420, 438 ]
+298 silly gunzTarPerm extractEntry src/layer/Popup.js
+299 silly gunzTarPerm modified mode [ 'src/layer/Popup.js', 420, 438 ]
+300 silly gunzTarPerm extractEntry src/layer/SVGOverlay.js
+301 silly gunzTarPerm modified mode [ 'src/layer/SVGOverlay.js', 420, 438 ]
+302 silly gunzTarPerm extractEntry src/layer/tile/GridLayer.js
+303 silly gunzTarPerm modified mode [ 'src/layer/tile/GridLayer.js', 493, 511 ]
+304 silly gunzTarPerm extractEntry src/layer/tile/index.js
+305 silly gunzTarPerm modified mode [ 'src/layer/tile/index.js', 420, 438 ]
+306 silly gunzTarPerm extractEntry src/layer/tile/TileLayer.js
+307 silly gunzTarPerm modified mode [ 'src/layer/tile/TileLayer.js', 420, 438 ]
+308 silly gunzTarPerm extractEntry src/layer/tile/TileLayer.WMS.js
+309 silly gunzTarPerm modified mode [ 'src/layer/tile/TileLayer.WMS.js', 420, 438 ]
+310 silly gunzTarPerm extractEntry src/layer/Tooltip.js
+311 silly gunzTarPerm modified mode [ 'src/layer/Tooltip.js', 420, 438 ]
+312 silly gunzTarPerm extractEntry src/layer/vector/Canvas.js
+313 silly gunzTarPerm modified mode [ 'src/layer/vector/Canvas.js', 420, 438 ]
+314 silly gunzTarPerm extractEntry src/layer/vector/Circle.js
+315 silly gunzTarPerm modified mode [ 'src/layer/vector/Circle.js', 420, 438 ]
+316 silly gunzTarPerm extractEntry src/layer/vector/CircleMarker.js
+317 silly gunzTarPerm modified mode [ 'src/layer/vector/CircleMarker.js', 420, 438 ]
+318 silly gunzTarPerm extractEntry src/layer/vector/index.js
+319 silly gunzTarPerm modified mode [ 'src/layer/vector/index.js', 420, 438 ]
+320 silly gunzTarPerm extractEntry src/layer/vector/Path.js
+321 silly gunzTarPerm modified mode [ 'src/layer/vector/Path.js', 420, 438 ]
+322 silly gunzTarPerm extractEntry src/layer/vector/Polygon.js
+323 silly gunzTarPerm modified mode [ 'src/layer/vector/Polygon.js', 420, 438 ]
+324 silly gunzTarPerm extractEntry src/layer/vector/Polyline.js
+325 silly gunzTarPerm modified mode [ 'src/layer/vector/Polyline.js', 420, 438 ]
+326 silly gunzTarPerm extractEntry src/layer/vector/Rectangle.js
+327 silly gunzTarPerm modified mode [ 'src/layer/vector/Rectangle.js', 420, 438 ]
+328 silly gunzTarPerm extractEntry src/layer/vector/Renderer.getRenderer.js
+329 silly gunzTarPerm modified mode [ 'src/layer/vector/Renderer.getRenderer.js', 420, 438 ]
+330 silly gunzTarPerm extractEntry src/layer/vector/Renderer.js
+331 silly gunzTarPerm modified mode [ 'src/layer/vector/Renderer.js', 420, 438 ]
+332 silly gunzTarPerm extractEntry src/layer/vector/SVG.js
+333 silly gunzTarPerm modified mode [ 'src/layer/vector/SVG.js', 420, 438 ]
+334 silly gunzTarPerm extractEntry src/layer/vector/SVG.Util.js
+335 silly gunzTarPerm modified mode [ 'src/layer/vector/SVG.Util.js', 420, 438 ]
+336 silly gunzTarPerm extractEntry src/layer/vector/SVG.VML.js
+337 silly gunzTarPerm modified mode [ 'src/layer/vector/SVG.VML.js', 420, 438 ]
+338 silly gunzTarPerm extractEntry src/layer/VideoOverlay.js
+339 silly gunzTarPerm modified mode [ 'src/layer/VideoOverlay.js', 420, 438 ]
+340 silly gunzTarPerm extractEntry src/Leaflet.js
+341 silly gunzTarPerm modified mode [ 'src/Leaflet.js', 420, 438 ]
+342 silly gunzTarPerm extractEntry src/map/handler/Map.BoxZoom.js
+343 silly gunzTarPerm modified mode [ 'src/map/handler/Map.BoxZoom.js', 420, 438 ]
+344 silly gunzTarPerm extractEntry src/map/handler/Map.DoubleClickZoom.js
+345 silly gunzTarPerm modified mode [ 'src/map/handler/Map.DoubleClickZoom.js', 420, 438 ]
+346 silly gunzTarPerm extractEntry src/map/handler/Map.Drag.js
+347 silly gunzTarPerm modified mode [ 'src/map/handler/Map.Drag.js', 420, 438 ]
+348 silly gunzTarPerm extractEntry src/map/handler/Map.Keyboard.js
+349 silly gunzTarPerm modified mode [ 'src/map/handler/Map.Keyboard.js', 420, 438 ]
+350 silly gunzTarPerm extractEntry src/map/handler/Map.ScrollWheelZoom.js
+351 silly gunzTarPerm modified mode [ 'src/map/handler/Map.ScrollWheelZoom.js', 420, 438 ]
+352 silly gunzTarPerm extractEntry src/map/handler/Map.Tap.js
+353 silly gunzTarPerm modified mode [ 'src/map/handler/Map.Tap.js', 420, 438 ]
+354 silly gunzTarPerm extractEntry src/map/handler/Map.TouchZoom.js
+355 silly gunzTarPerm modified mode [ 'src/map/handler/Map.TouchZoom.js', 420, 438 ]
+356 silly gunzTarPerm extractEntry src/map/index.js
+357 silly gunzTarPerm modified mode [ 'src/map/index.js', 420, 438 ]
+358 silly gunzTarPerm extractEntry src/map/Map.js
+359 silly gunzTarPerm modified mode [ 'src/map/Map.js', 420, 438 ]
+360 silly gunzTarPerm extractEntry src/map/Map.methodOptions.leafdoc
+361 silly gunzTarPerm modified mode [ 'src/map/Map.methodOptions.leafdoc', 420, 438 ]
+362 silly gentlyRm /mnt/d/programming/ism/node_modules/.staging/leaflet-09df80e4/node_modules is being purged
+363 verbose gentlyRm don't care about contents; nuking /mnt/d/programming/ism/node_modules/.staging/leaflet-09df80e4/node_modules
+364 silly doParallel preinstall 2
+365 silly preinstall leaflet@1.5.1 /mnt/d/programming/ism/node_modules/.staging/leaflet-09df80e4
+366 info lifecycle leaflet@1.5.1~preinstall: leaflet@1.5.1
+367 silly preinstall leaflet.wms@0.2.0 /mnt/d/programming/ism/node_modules/.staging/leaflet.wms-9fd70b55
+368 info lifecycle leaflet.wms@0.2.0~preinstall: leaflet.wms@0.2.0
+369 silly lifecycle leaflet@1.5.1~preinstall: no script for preinstall, continuing
+370 silly lifecycle leaflet.wms@0.2.0~preinstall: no script for preinstall, continuing
+371 silly doReverseSerial remove 0
+372 silly doSerial move 0
+373 silly doSerial finalize 2
+374 silly finalize /mnt/d/programming/ism/node_modules/leaflet
+375 verbose unlock done using /home/virgilxw/.npm/_locks/staging-f5cce69918faf4e7.lock for /mnt/d/programming/ism/node_modules/.staging
+376 silly rollbackFailedOptional Starting
+377 silly rollbackFailedOptional Finishing
+378 silly runTopLevelLifecycles Starting
+379 silly runTopLevelLifecycles Finishing
+380 silly install printInstalled
+381 verbose stack Error: EACCES: permission denied, rename '/mnt/d/programming/ism/node_modules/leaflet' -> '/mnt/d/programming/ism/node_modules/.leaflet.DELETE'
+381 verbose stack     at moveAway (/usr/share/npm/lib/install/action/finalize.js:38:5)
+381 verbose stack     at destStatted (/usr/share/npm/lib/install/action/finalize.js:27:7)
+381 verbose stack     at FSReqWrap.oncomplete (fs.js:82:15)
+381 verbose stack
+381 verbose stack Error: EACCES: permission denied, rename '/mnt/d/programming/ism/node_modules/leaflet' -> '/mnt/d/programming/ism/node_modules/.leaflet.DELETE'
+381 verbose stack     at Error (native)
+382 verbose cwd /mnt/d/programming/ism
+383 error Linux 4.4.0-17763-Microsoft
+384 error argv "/usr/bin/nodejs" "/usr/bin/npm" "i" "leaflet"
+385 error node v4.2.6
+386 error npm  v3.5.2
+387 error path /mnt/d/programming/ism/node_modules/leaflet
+388 error code EACCES
+389 error errno -13
+390 error syscall rename
+391 error Error: EACCES: permission denied, rename '/mnt/d/programming/ism/node_modules/leaflet' -> '/mnt/d/programming/ism/node_modules/.leaflet.DELETE'
+391 error     at moveAway (/usr/share/npm/lib/install/action/finalize.js:38:5)
+391 error     at destStatted (/usr/share/npm/lib/install/action/finalize.js:27:7)
+391 error     at FSReqWrap.oncomplete (fs.js:82:15)
+391 error
+391 error Error: EACCES: permission denied, rename '/mnt/d/programming/ism/node_modules/leaflet' -> '/mnt/d/programming/ism/node_modules/.leaflet.DELETE'
+391 error     at Error (native)
+391 error  { [Error: EACCES: permission denied, rename '/mnt/d/programming/ism/node_modules/leaflet' -> '/mnt/d/programming/ism/node_modules/.leaflet.DELETE'] parent: 'ism' }
+392 error Please try running this command again as root/Administrator.
+393 verbose exit [ -13, true ]

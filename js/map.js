@@ -8,6 +8,10 @@ var layerOneMapSG_Default = L.tileLayer('https://maps-{s}.onemap.sg/v3/Default/{
 	attribution: '<img src="https://docs.onemap.sg/maps/images/oneMap64-01.png" style="height:20px;width:20px;"/> New OneMap | Map data &copy; contributors, <a href="http://SLA.gov.sg">Singapore Land Authority</a>'
 });
 
+var Layer1953Topo = L.WMS.tileLayer("https://libmaps.nus.edu.sg/gis/services/Sing_Hist_Maps/1953/MapServer/WMSServer?", {
+	"layers": "11,12,13,14,15,16,17,18,19,20,21,22"
+})
+
 // Default base Map
 map.addLayer(layerOneMapSG_Default);
 
@@ -18,7 +22,7 @@ var baseMaps = [
 		expanded: true,
 		layers: {
 			"OneMap": layerOneMapSG_Default,
-			"1953 Topological": layerTopo1953
+			"1953 Topological": Layer1953Topo
 		}
 	}];
 
