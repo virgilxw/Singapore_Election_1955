@@ -33,7 +33,7 @@ header {
 
 #resize {
 	order: 1;
-	background-color: rgba(158, 158, 158, 1);
+	background-color: rgb(149, 149, 149);
 	width: 10px;
 	display: flex;
 	align-items: center;
@@ -44,7 +44,6 @@ header {
 	height: 10px;
 }
 
-
 .stats {
 	order: 0;
 	flex: 1 0 100px;
@@ -54,6 +53,10 @@ header {
 .hidden {
 	display: none;
 	opacity: 0;
+}
+
+.rotate {
+	-webkit-transform: rotate(180deg);
 }
 
 #map {

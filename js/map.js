@@ -1,8 +1,9 @@
 // Resize aside
-var box = $("#resize").click(function(){
+var collaspeSidebar = $("#resize").click(function(){
 	$(".stats").toggleClass("hidden");
-	console.log("triggered");
+	$("#arrow").toggleClass("rotate");
 });
+
 
 
 
