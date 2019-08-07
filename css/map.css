@@ -1,3 +1,112 @@
-.leaflet-container {
-	background: rgba(0,0,0,0);
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Muli', sans-serif;
+	text-align: center;
+}
+
+h2 {
+	font-size: 1.1em;
+	font-weight: 500;
+	color: rgb(108, 117, 125);
+	font-size: 1em;
+}
+
+h3 {
+	font-size: 0.9em;
+	color: rgb(108, 117, 125);
+	font-weight: 400;
+	font-size: 0.8em;
+
+}
+
+img{
+	min-width: 25px;
+	max-width:150px;
+	height: auto;
+}
+
+#resize {
+	order: 1;
+	background-color: rgb(149, 149, 149);
+	width: 10px;
+	display: flex;
+	align-items: center;
+}
+
+#resize > img {
+	width: 10px;
+	height: 10px;
+}
+
+.aside {
+	order: 0;
+	flex: 1 0 100px;
+	display: block;
+}
+
+.hidden {
+	display: none;
+	opacity: 0;
+}
+
+.rotate {
+	-webkit-transform: rotate(180deg);
+}
+
+#map {
+	order: 1;
+	flex: 5;
+
+}
+
+.column {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+
+}
+
+.row {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+
+.aside > div {
+	margin: 7px 10px;
+
+}
+
+.centred {
+	text-align: center;
+}
+
+.small {
+	font-size: 0.8em;
+}
+
+.ex-small {
+	font-size: 0.6em
+}
+
+.centre {
+	text-align: center;
+}
+
+p {
+	margin: 5px 5px;
+}
+
+.line-divider {
+	width: 2px;
+	background-color: rgba(108, 117, 125, 0.2);
+}
+
+.viz-elected {
+	height: 150px;
+}
+.viz-office, .viz-nominated{
+	height:50px;
 }

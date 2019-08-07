@@ -1,6 +1,6 @@
 // Resize aside
 var collaspeSidebar = $("#resize").click(function(){
-	$(".stats").toggleClass("hidden");
+	$(".aside").toggleClass("hidden");
 	$("#arrow").toggleClass("rotate");
 });
 
