@@ -21,6 +21,8 @@
 
 
 	<script src="js/leaflet.ajax.js"></script>
+    
+    <script src="js/d3.js"></script>
 
 	<link href="https://fonts.googleapis.com/css?family=Farro|Muli&display=swap" rel="stylesheet">
 
@@ -63,7 +65,10 @@
 				</div>
 				<div>
 					<h2>25 Elected Seats</h2>
-					<svg class="viz-elected"></svg>
+                    <div class="row">
+                        <svg class="viz-elected-gov"></svg>
+                        <svg class="viz-elected-opp"></svg>
+                    </div>
 				</div>
 				<div>
 					<h2 class="text-muted">7 Non-Elected Seats</h2>

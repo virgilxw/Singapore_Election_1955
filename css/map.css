@@ -6,6 +6,10 @@ body {
 	text-align: center;
 }
 
+h1 {
+    margin: auto;
+}
+
 h2 {
 	font-size: 1.1em;
 	font-weight: 500;
@@ -23,7 +27,7 @@ h3 {
 
 img{
 	min-width: 25px;
-	max-width:150px;
+	max-width:100px;
 	height: auto;
 }
 
@@ -44,6 +48,7 @@ img{
 	order: 0;
 	flex: 1 0 100px;
 	display: block;
+    padding: 10px 5px;
 }
 
 .hidden {
@@ -74,11 +79,6 @@ img{
 	justify-content: space-evenly;
 }
 
-.aside > div {
-	margin: 7px 10px;
-
-}
-
 .centred {
 	text-align: center;
 }
@@ -102,10 +102,13 @@ p {
 .line-divider {
 	width: 2px;
 	background-color: rgba(108, 117, 125, 0.2);
+    z-index:100;
 }
 
-.viz-elected {
+.viz-elected-gov, .viz-elected-opp {
 	height: 150px;
+	min-width: 25px;
+    max-width: 100px;
 }
 .viz-office, .viz-nominated{
 	height:50px;
