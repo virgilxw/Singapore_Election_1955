@@ -1,9 +1,8 @@
-
 body {
 	margin: 0;
 	padding: 0;
-	font-family: 'Muli', sans-serif;
 	text-align: center;
+	font-family: 'Muli', sans-serif;
 }
 
 h1 {
@@ -11,18 +10,17 @@ h1 {
 }
 
 h2 {
-	font-size: 1.1em;
-	font-weight: 500;
 	color: rgb(108, 117, 125);
+	font-weight: 500;
+	font-size: 1.1em;
 	font-size: 1em;
 }
 
 h3 {
-	font-size: 0.9em;
 	color: rgb(108, 117, 125);
 	font-weight: 400;
+	font-size: 0.9em;
 	font-size: 0.8em;
-
 }
 
 img{
@@ -32,10 +30,11 @@ img{
 }
 
 #resize {
-	order: 1;
-	background-color: rgb(149, 149, 149);
-	width: 10px;
 	display: flex;
+	width: 10px;
+	background-color: rgb(149, 149, 149);
+
+	order: 1;
 	align-items: center;
 }
 
@@ -45,10 +44,11 @@ img{
 }
 
 .aside {
-	order: 0;
-	flex: 1 0 100px;
 	display: block;
     padding: 10px 5px;
+
+	order: 0;
+	flex: 1 0 100px;
 }
 
 .hidden {
@@ -63,19 +63,19 @@ img{
 #map {
 	order: 1;
 	flex: 5;
-
 }
 
 .column {
 	display: flex;
 	flex-direction: column;
-	align-items: stretch;
 
+	align-items: stretch;
 }
 
 .row {
 	display: flex;
 	flex-direction: row;
+
 	justify-content: space-evenly;
 }
 
@@ -100,15 +100,15 @@ p {
 }
 
 .line-divider {
+    z-index:100;
 	width: 2px;
 	background-color: rgba(108, 117, 125, 0.2);
-    z-index:100;
 }
 
 .viz-elected-gov, .viz-elected-opp {
-	height: 150px;
 	min-width: 25px;
     max-width: 100px;
+	height: 150px;
 }
 .viz-office, .viz-nominated{
 	height:50px;
