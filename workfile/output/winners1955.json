@@ -3,125 +3,175 @@
 		"candidates": "Lim Yew Hock"
 		, "party": "SLF"
 		, "vote_percentage": "0.8648"
+		, "type": "Urban"
+		, "population": "63600"
 	}
 	, "Tanjong Pagar": {
 		"candidates": "Lee Kuan Yew"
 		, "party": "PAP"
 		, "vote_percentage": "0.7833"
+		, "type": "Urban"
+		, "population": "60400"
 	}
 	, "Bukit Panjang": {
 		"candidates": "Goh Tong Liang"
 		, "party": "PP"
 		, "vote_percentage": "0.7221"
+		, "type": "Rural"
+		, "population": "35000"
 	}
 	, "Queenstown": {
 		"candidates": "Lee Choon Eng"
 		, "party": "SLF"
 		, "vote_percentage": "0.6728"
+		, "type": "Mixed"
+		, "population": "63600"
 	}
 	, "Sembawang": {
 		"candidates": "Ahmad Ibrahim"
 		, "party": "Independent"
 		, "vote_percentage": "0.6324"
+		, "type": "Rural"
+		, "population": "30700"
 	}
 	, "Ulu Bedok": {
 		"candidates": "Abdul Hamid bin Jumat"
 		, "party": "SA"
 		, "vote_percentage": "0.6104"
+		, "type": "Rural"
+		, "population": "45000"
 	}
 	, "Punggol-Tampines": {
 		"candidates": "Goh Chew Chua"
 		, "party": "PAP"
 		, "vote_percentage": "0.5538"
+		, "type": "Rural"
+		, "population": "29100"
 	}
 	, "Bukit Timah": {
 		"candidates": "Lim Ching Siong"
 		, "party": "PAP"
 		, "vote_percentage": "0.5245"
+		, "type": "Rural"
+		, "population": "39400"
 	}
 	, "Paya Lebar": {
 		"candidates": "Lim Koon Teck"
 		, "party": "PP"
 		, "vote_percentage": "0.5207"
+		, "type": "Mixed"
+		, "population": "38900"
 	}
 	, "Southern Islands": {
 		"candidates": "Mohamed Sidik bin H. A. Hamid"
 		, "party": "SA"
 		, "vote_percentage": "0.5057"
+		, "type": "Rural"
+		, "population": "11700"
 	}
 	, "Cairnhill": {
 		"candidates": "David Marshall"
 		, "party": "SLF"
 		, "vote_percentage": "0.4758"
+		, "type": "Urban"
+		, "population": "45500"
 	}
 	, "Rochore": {
 		"candidates": "Tan Theng Chiang"
 		, "party": "SLF"
 		, "vote_percentage": "0.4625"
+		, "type": "Urban"
+		, "population": "55800"
 	}
 	, "Whampoa": {
 		"candidates": "Chew Swee Kee"
 		, "party": "SLF"
 		, "vote_percentage": "0.4588"
+		, "type": "Urban"
+		, "population": "52800"
 	}
 	, "Serangoon": {
 		"candidates": "Lim Choon Mong"
 		, "party": "PP"
 		, "vote_percentage": "0.4583"
+		, "type": "Mixed"
+		, "population": "39700"
 	}
 	, "Tanglin": {
 		"candidates": "John Ede"
 		, "party": "PP"
 		, "vote_percentage": "0.4567"
+		, "type": "Mixed"
+		, "population": "41700"
 	}
 	, "Katong": {
 		"candidates": "A. J. Braga"
 		, "party": "SLF"
 		, "vote_percentage": "0.4566"
+		, "type": "Urban"
+		, "population": "62000"
 	}
 	, "Kampong Kapor": {
 		"candidates": "Seah Peng Chuan"
 		, "party": "SLF"
 		, "vote_percentage": "0.456"
+		, "type": "Urban"
+		, "population": "59100"
 	}
 	, "Pasir Panjang": {
 		"candidates": "Wong Foo Nam"
 		, "party": "SA"
 		, "vote_percentage": "0.4517"
+		, "type": "Mixed"
+		, "population": "31000"
 	}
 	, "Changi": {
 		"candidates": "C. K. Lim"
 		, "party": "DP"
 		, "vote_percentage": "0.4508"
+		, "type": "Rural"
+		, "population": "33400"
 	}
 	, "Stamford": {
 		"candidates": "J. M. Jumabhoy"
 		, "party": "SLF"
 		, "vote_percentage": "0.4308"
+		, "type": "Urban"
+		, "population": "62300"
 	}
 	, "Geylang": {
 		"candidates": "Mak Pak Shee"
 		, "party": "SLF"
 		, "vote_percentage": "0.4117"
+		, "type": "Urban"
+		, "population": "62000"
 	}
 	, "Telok Ayer": {
 		"candidates": "Jumabhoy, R."
 		, "party": "Independent"
 		, "vote_percentage": "0.399"
+		, "type": "Urban"
+		, "population": "51300"
 	}
 	, "Tiong Bahru": {
 		"candidates": "William Tan"
 		, "party": "DP"
 		, "vote_percentage": "0.386"
+		, "type": "Urban"
+		, "population": "51200"
 	}
 	, "Farrer Park": {
 		"candidates": "A. R. Lazarous"
 		, "party": "SLF"
 		, "vote_percentage": "0.3852"
+		, "type": "Urban"
+		, "population": "44000"
 	}
 	, "Seletar": {
 		"candidates": "M. P. D. Nair"
 		, "party": "Independent"
 		, "vote_percentage": "0.3183"
+		, "type": "Rural"
+		, "population": "33200"
 	}
 }
