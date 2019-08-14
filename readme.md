@@ -26,6 +26,8 @@ Hello - this webpage is part of a school project I am working on. It seeks to te
 		- [ ] Mobile functionality
 		
 - __Story__ 
+    - Primary Source Digitalisation
+        - [ ] 星洲日报, 24 Jan 1946, Statement by the Chinese Chamber of Commerce
 - [ ]
 - [ ]
 - [ ]

@@ -1,0 +1,32 @@
+# Permalinks
+permalink:           pretty
+
+# Setup
+title:               DevBlog
+tagline:             Singapore's 1955 Election
+url:
+paginate:            1
+baseurl:             ""
+
+# Assets
+#
+# We specify the directory for Jekyll so we can use @imports.
+sass:
+  sass_dir:          _sass
+  style:            :compressed
+
+# About/contact
+author:
+  name:              Reuben X. Wang
+  url:
+  email:             reubenwxw@gmail.com
+
+# Custom vars
+version:             2.0.0
+github:
+  repo:
+
+# Gems
+gems:
+  - jekyll-paginate
+  - jekyll-gist
