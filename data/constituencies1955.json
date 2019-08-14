@@ -1,1 +1,422 @@
-{"Rochore": [{"vote_percentage": "0.4625", "vote_count": 2929, "party": "SLF", "candidates": "Tan Theng Chiang"}, {"vote_percentage": "0.2995", "vote_count": 1897, "party": "DP", "candidates": "Ong Eng Lian"}, {"vote_percentage": "0.238", "vote_count": 1507, "party": "PP", "candidates": "Soh Ghee Soon"}], "Pasir Panjang": [{"vote_percentage": "0.4517", "vote_count": 3546, "party": "SA", "candidates": "Wong Foo Nam"}, {"vote_percentage": "0.3019", "vote_count": 2370, "party": "PP", "candidates": "K. M. S. Hamid"}, {"vote_percentage": "0.1663", "vote_count": 1306, "party": "SLF", "candidates": "P. V. Krishnan"}, {"vote_percentage": "0.0801", "vote_count": 629, "party": "DP", "candidates": "Leong Foon Chew"}], "Katong": [{"vote_percentage": "0.4566", "vote_count": 4680, "party": "SLF", "candidates": "A. J. Braga"}, {"vote_percentage": "0.2893", "vote_count": 2965, "party": "PP", "candidates": "John Laycock"}, {"vote_percentage": "0.2541", "vote_count": 2605, "party": "DP", "candidates": "Chan Wah Chip"}], "Stamford": [{"vote_percentage": "0.4308", "vote_count": 2691, "party": "SLF", "candidates": "J. M. Jumabhoy"}, {"vote_percentage": "0.2051", "vote_count": 1281, "party": "Independent", "candidates": "Simon"}, {"vote_percentage": "0.1846", "vote_count": 1153, "party": "PP", "candidates": "Nazir Mallal"}, {"vote_percentage": "0.1795", "vote_count": 1121, "party": "DP", "candidates": "Ng Sen Choy"}], "Paya Lebar": [{"vote_percentage": "0.5207", "vote_count": 3330, "party": "PP", "candidates": "Lim Koon Teck"}, {"vote_percentage": "0.4793", "vote_count": 3065, "party": "DP", "candidates": "Tan Eng Joo"}], "Southern Islands": [{"vote_percentage": "0.5057", "vote_count": 1233, "party": "SA", "candidates": "Mohamed Sidik bin H. A. Hamid"}, {"vote_percentage": "0.4943", "vote_count": 1205, "party": "PP", "candidates": "Kulasingha, H. J. C."}], "Sembawang": [{"vote_percentage": "0.6324", "vote_count": 4281, "party": "Independent", "candidates": "Ahmad Ibrahim"}, {"vote_percentage": "0.3676", "vote_count": 2488, "party": "PP", "candidates": "Lee Kim Kee"}], "Cairnhill": [{"vote_percentage": "0.4758", "vote_count": 3305, "party": "SLF", "candidates": "David Marshall"}, {"vote_percentage": "0.3642", "vote_count": 2530, "party": "PP", "candidates": "C. C. Tan"}, {"vote_percentage": "0.16", "vote_count": 1111, "party": "DP", "candidates": "Tan Khiang Khoo"}], "Havelock": [{"vote_percentage": "0.8648", "vote_count": 5744, "party": "SLF", "candidates": "Lim Yew Hock"}, {"vote_percentage": "0.079", "vote_count": 525, "party": "Independent", "candidates": "C. S. Soh"}, {"vote_percentage": "0.0562", "vote_count": 373, "party": "PP", "candidates": "Chua Bock Kwee"}], "Tanjong Pagar": [{"vote_percentage": "0.7833", "vote_count": 6029, "party": "PAP", "candidates": "Lee Kuan Yew"}, {"vote_percentage": "0.118", "vote_count": 908, "party": "PP", "candidates": "Lim Seck Tiong"}, {"vote_percentage": "0.0987", "vote_count": 760, "party": "DP", "candidates": "Lam Thian"}], "Punggol-Tampines": [{"vote_percentage": "0.5538", "vote_count": 2127, "party": "PAP", "candidates": "Goh Chew Chua"}, {"vote_percentage": "0.239", "vote_count": 918, "party": "DP", "candidates": "Anthony Goh"}, {"vote_percentage": "0.2072", "vote_count": 796, "party": "PP", "candidates": "H. A. De Silva"}], "Tanglin": [{"vote_percentage": "0.4567", "vote_count": 3214, "party": "PP", "candidates": "John Ede"}, {"vote_percentage": "0.3554", "vote_count": 2501, "party": "DP", "candidates": "Lim Yong Bock"}, {"vote_percentage": "0.1879", "vote_count": 1322, "party": "SLF", "candidates": "Lim Seow Chuan"}], "Queenstown": [{"vote_percentage": "0.6728", "vote_count": 2792, "party": "SLF", "candidates": "Lee Choon Eng"}, {"vote_percentage": "0.1773", "vote_count": 736, "party": "DP", "candidates": "Murray Brash"}, {"vote_percentage": "0.1499", "vote_count": 622, "party": "PP", "candidates": "Elizabeth Choy"}], "Telok Ayer": [{"vote_percentage": "0.399", "vote_count": 1945, "party": "Independent", "candidates": "Jumabhoy, R."}, {"vote_percentage": "0.303", "vote_count": 1477, "party": "DP", "candidates": "Sng Siak Hwee"}, {"vote_percentage": "0.298", "vote_count": 1453, "party": "SLF", "candidates": "Tan Ewe Chee"}], "Geylang": [{"vote_percentage": "0.4117", "vote_count": 2756, "party": "SLF", "candidates": "Mak Pak Shee"}, {"vote_percentage": "0.2071", "vote_count": 1386, "party": "Independent", "candidates": "Goh Hood Kiat"}, {"vote_percentage": "0.198", "vote_count": 1325, "party": "LP", "candidates": "Lee Yong Min"}, {"vote_percentage": "0.1832", "vote_count": 1226, "party": "DP", "candidates": "Lam Joon Chong"}], "Ulu Bedok": [{"vote_percentage": "0.6104", "vote_count": 5721, "party": "SA", "candidates": "Abdul Hamid bin Jumat"}, {"vote_percentage": "0.32", "vote_count": 2999, "party": "DP", "candidates": "Toh Seng Sit"}, {"vote_percentage": "0.0696", "vote_count": 652, "party": "PP", "candidates": "A. Hamid Rahmat"}], "Seletar": [{"vote_percentage": "0.3183", "vote_count": 1771, "party": "Independent", "candidates": "M. P. D. Nair"}, {"vote_percentage": "0.2933", "vote_count": 1632, "party": "Independent", "candidates": "Lek Poh Song"}, {"vote_percentage": "0.225", "vote_count": 1252, "party": "DP", "candidates": "Tan Leong Teck"}, {"vote_percentage": "0.1634", "vote_count": 909, "party": "SLF", "candidates": "P. G. Khew"}], "Bukit Timah": [{"vote_percentage": "0.5245", "vote_count": 3259, "party": "PAP", "candidates": "Lim Ching Siong"}, {"vote_percentage": "0.2105", "vote_count": 1308, "party": "DP", "candidates": "Tan Wah Meng"}, {"vote_percentage": "0.1488", "vote_count": 924, "party": "SLF", "candidates": "A. N. Mitra"}, {"vote_percentage": "0.1162", "vote_count": 722, "party": "PP", "candidates": "S. F. Ho"}], "Serangoon": [{"vote_percentage": "0.4583", "vote_count": 2172, "party": "PP", "candidates": "Lim Choon Mong"}, {"vote_percentage": "0.298", "vote_count": 1412, "party": "DP", "candidates": "Lim Chye Seng"}, {"vote_percentage": "0.2437", "vote_count": 1155, "party": "SA", "candidates": "Lim Siew Ek"}], "Tiong Bahru": [{"vote_percentage": "0.386", "vote_count": 2264, "party": "DP", "candidates": "William Tan"}, {"vote_percentage": "0.358", "vote_count": 2100, "party": "PP", "candidates": "Foo Few Ting"}, {"vote_percentage": "0.256", "vote_count": 1502, "party": "SA", "candidates": "Teo Seng Bee"}], "Farrer Park": [{"vote_percentage": "0.3852", "vote_count": 2585, "party": "SLF", "candidates": "A. R. Lazarous"}, {"vote_percentage": "0.3307", "vote_count": 2219, "party": "PAP", "candidates": "Devan Nair"}, {"vote_percentage": "0.2659", "vote_count": 1784, "party": "PP", "candidates": "Eric S. B. Wee"}, {"vote_percentage": "0.0127", "vote_count": 85, "party": "Independent", "candidates": "C. T. B. Unnithan"}, {"vote_percentage": "0.0055", "vote_count": 37, "party": "Independent", "candidates": "Chua Kim Watt"}], "Bukit Panjang": [{"vote_percentage": "0.7221", "vote_count": 3097, "party": "PP", "candidates": "Goh Tong Liang"}, {"vote_percentage": "0.2779", "vote_count": 1192, "party": "SLF", "candidates": "Lim Wee Toh"}], "Changi": [{"vote_percentage": "0.4508", "vote_count": 2624, "party": "DP", "candidates": "C. K. Lim"}, {"vote_percentage": "0.2919", "vote_count": 1699, "party": "PP", "candidates": "S. G. Mohamed Ghows"}, {"vote_percentage": "0.2573", "vote_count": 1498, "party": "SLF", "candidates": "Wong Sau Sheung"}], "Whampoa": [{"vote_percentage": "0.4588", "vote_count": 2961, "party": "SLF", "candidates": "Chew Swee Kee"}, {"vote_percentage": "0.3975", "vote_count": 2565, "party": "PP", "candidates": "Thio Chan Bee"}, {"vote_percentage": "0.1437", "vote_count": 927, "party": "DP", "candidates": "Lee Kok Liang"}], "Kampong Kapor": [{"vote_percentage": "0.456", "vote_count": 3253, "party": "SLF", "candidates": "Seah Peng Chuan"}, {"vote_percentage": "0.3021", "vote_count": 2155, "party": "Independent", "candidates": "Dasaratha Raj"}, {"vote_percentage": "0.1798", "vote_count": 1283, "party": "DP", "candidates": "Wong Shian Yein"}, {"vote_percentage": "0.0621", "vote_count": 443, "party": "PP", "candidates": "Lim Kian Lee"}]}
+{
+    "Rochore": [{
+        "vote_percentage": "0.4625"
+        , "vote_count": 2929
+        , "party": "SLF"
+        , "candidates": "Tan Theng Chiang"
+    }, {
+        "vote_percentage": "0.2995"
+        , "vote_count": 1897
+        , "party": "DP"
+        , "candidates": "Ong Eng Lian"
+    }, {
+        "vote_percentage": "0.238"
+        , "vote_count": 1507
+        , "party": "PP"
+        , "candidates": "Soh Ghee Soon"
+    }]
+    , "Pasir Panjang": [{
+        "vote_percentage": "0.4517"
+        , "vote_count": 3546
+        , "party": "SA"
+        , "candidates": "Wong Foo Nam"
+    }, {
+        "vote_percentage": "0.3019"
+        , "vote_count": 2370
+        , "party": "PP"
+        , "candidates": "K. M. S. Hamid"
+    }, {
+        "vote_percentage": "0.1663"
+        , "vote_count": 1306
+        , "party": "SLF"
+        , "candidates": "P. V. Krishnan"
+    }, {
+        "vote_percentage": "0.0801"
+        , "vote_count": 629
+        , "party": "DP"
+        , "candidates": "Leong Foon Chew"
+    }]
+    , "Katong": [{
+        "vote_percentage": "0.4566"
+        , "vote_count": 4680
+        , "party": "SLF"
+        , "candidates": "A. J. Braga"
+    }, {
+        "vote_percentage": "0.2893"
+        , "vote_count": 2965
+        , "party": "PP"
+        , "candidates": "John Laycock"
+    }, {
+        "vote_percentage": "0.2541"
+        , "vote_count": 2605
+        , "party": "DP"
+        , "candidates": "Chan Wah Chip"
+    }]
+    , "Stamford": [{
+        "vote_percentage": "0.4308"
+        , "vote_count": 2691
+        , "party": "SLF"
+        , "candidates": "J. M. Jumabhoy"
+    }, {
+        "vote_percentage": "0.2051"
+        , "vote_count": 1281
+        , "party": "Independent"
+        , "candidates": "Simon"
+    }, {
+        "vote_percentage": "0.1846"
+        , "vote_count": 1153
+        , "party": "PP"
+        , "candidates": "Nazir Mallal"
+    }, {
+        "vote_percentage": "0.1795"
+        , "vote_count": 1121
+        , "party": "DP"
+        , "candidates": "Ng Sen Choy"
+    }]
+    , "Paya Lebar": [{
+        "vote_percentage": "0.5207"
+        , "vote_count": 3330
+        , "party": "PP"
+        , "candidates": "Lim Koon Teck"
+    }, {
+        "vote_percentage": "0.4793"
+        , "vote_count": 3065
+        , "party": "DP"
+        , "candidates": "Tan Eng Joo"
+    }]
+    , "Southern Islands": [{
+        "vote_percentage": "0.5057"
+        , "vote_count": 1233
+        , "party": "SA"
+        , "candidates": "Mohamed Sidik bin H. A. Hamid"
+    }, {
+        "vote_percentage": "0.4943"
+        , "vote_count": 1205
+        , "party": "PP"
+        , "candidates": "Kulasingha, H. J. C."
+    }]
+    , "Sembawang": [{
+        "vote_percentage": "0.6324"
+        , "vote_count": 4281
+        , "party": "Independent"
+        , "candidates": "Ahmad Ibrahim"
+    }, {
+        "vote_percentage": "0.3676"
+        , "vote_count": 2488
+        , "party": "PP"
+        , "candidates": "Lee Kim Kee"
+    }]
+    , "Cairnhill": [{
+        "vote_percentage": "0.4758"
+        , "vote_count": 3305
+        , "party": "SLF"
+        , "candidates": "David Marshall"
+    }, {
+        "vote_percentage": "0.3642"
+        , "vote_count": 2530
+        , "party": "PP"
+        , "candidates": "C. C. Tan"
+    }, {
+        "vote_percentage": "0.16"
+        , "vote_count": 1111
+        , "party": "DP"
+        , "candidates": "Tan Khiang Khoo"
+    }]
+    , "Havelock": [{
+        "vote_percentage": "0.8648"
+        , "vote_count": 5744
+        , "party": "SLF"
+        , "candidates": "Lim Yew Hock"
+    }, {
+        "vote_percentage": "0.079"
+        , "vote_count": 525
+        , "party": "Independent"
+        , "candidates": "C. S. Soh"
+    }, {
+        "vote_percentage": "0.0562"
+        , "vote_count": 373
+        , "party": "PP"
+        , "candidates": "Chua Bock Kwee"
+    }]
+    , "Tanjong Pagar": [{
+        "vote_percentage": "0.7833"
+        , "vote_count": 6029
+        , "party": "PAP"
+        , "candidates": "Lee Kuan Yew"
+    }, {
+        "vote_percentage": "0.118"
+        , "vote_count": 908
+        , "party": "PP"
+        , "candidates": "Lim Seck Tiong"
+    }, {
+        "vote_percentage": "0.0987"
+        , "vote_count": 760
+        , "party": "DP"
+        , "candidates": "Lam Thian"
+    }]
+    , "Punggol-Tampines": [{
+        "vote_percentage": "0.5538"
+        , "vote_count": 2127
+        , "party": "PAP"
+        , "candidates": "Goh Chew Chua"
+    }, {
+        "vote_percentage": "0.239"
+        , "vote_count": 918
+        , "party": "DP"
+        , "candidates": "Anthony Goh"
+    }, {
+        "vote_percentage": "0.2072"
+        , "vote_count": 796
+        , "party": "PP"
+        , "candidates": "H. A. De Silva"
+    }]
+    , "Tanglin": [{
+        "vote_percentage": "0.4567"
+        , "vote_count": 3214
+        , "party": "PP"
+        , "candidates": "John Ede"
+    }, {
+        "vote_percentage": "0.3554"
+        , "vote_count": 2501
+        , "party": "DP"
+        , "candidates": "Lim Yong Bock"
+    }, {
+        "vote_percentage": "0.1879"
+        , "vote_count": 1322
+        , "party": "SLF"
+        , "candidates": "Lim Seow Chuan"
+    }]
+    , "Queenstown": [{
+        "vote_percentage": "0.6728"
+        , "vote_count": 2792
+        , "party": "SLF"
+        , "candidates": "Lee Choon Eng"
+    }, {
+        "vote_percentage": "0.1773"
+        , "vote_count": 736
+        , "party": "DP"
+        , "candidates": "Murray Brash"
+    }, {
+        "vote_percentage": "0.1499"
+        , "vote_count": 622
+        , "party": "PP"
+        , "candidates": "Elizabeth Choy"
+    }]
+    , "Telok Ayer": [{
+        "vote_percentage": "0.399"
+        , "vote_count": 1945
+        , "party": "Independent"
+        , "candidates": "Jumabhoy, R."
+    }, {
+        "vote_percentage": "0.303"
+        , "vote_count": 1477
+        , "party": "DP"
+        , "candidates": "Sng Siak Hwee"
+    }, {
+        "vote_percentage": "0.298"
+        , "vote_count": 1453
+        , "party": "SLF"
+        , "candidates": "Tan Ewe Chee"
+    }]
+    , "Geylang": [{
+        "vote_percentage": "0.4117"
+        , "vote_count": 2756
+        , "party": "SLF"
+        , "candidates": "Mak Pak Shee"
+    }, {
+        "vote_percentage": "0.2071"
+        , "vote_count": 1386
+        , "party": "Independent"
+        , "candidates": "Goh Hood Kiat"
+    }, {
+        "vote_percentage": "0.198"
+        , "vote_count": 1325
+        , "party": "LP"
+        , "candidates": "Lee Yong Min"
+    }, {
+        "vote_percentage": "0.1832"
+        , "vote_count": 1226
+        , "party": "DP"
+        , "candidates": "Lam Joon Chong"
+    }]
+    , "Ulu Bedok": [{
+        "vote_percentage": "0.6104"
+        , "vote_count": 5721
+        , "party": "SA"
+        , "candidates": "Abdul Hamid bin Jumat"
+    }, {
+        "vote_percentage": "0.32"
+        , "vote_count": 2999
+        , "party": "DP"
+        , "candidates": "Toh Seng Sit"
+    }, {
+        "vote_percentage": "0.0696"
+        , "vote_count": 652
+        , "party": "PP"
+        , "candidates": "A. Hamid Rahmat"
+    }]
+    , "Seletar": [{
+        "vote_percentage": "0.3183"
+        , "vote_count": 1771
+        , "party": "Independent"
+        , "candidates": "M. P. D. Nair"
+    }, {
+        "vote_percentage": "0.2933"
+        , "vote_count": 1632
+        , "party": "Independent"
+        , "candidates": "Lek Poh Song"
+    }, {
+        "vote_percentage": "0.225"
+        , "vote_count": 1252
+        , "party": "DP"
+        , "candidates": "Tan Leong Teck"
+    }, {
+        "vote_percentage": "0.1634"
+        , "vote_count": 909
+        , "party": "SLF"
+        , "candidates": "P. G. Khew"
+    }]
+    , "Bukit Timah": [{
+        "vote_percentage": "0.5245"
+        , "vote_count": 3259
+        , "party": "PAP"
+        , "candidates": "Lim Ching Siong"
+    }, {
+        "vote_percentage": "0.2105"
+        , "vote_count": 1308
+        , "party": "DP"
+        , "candidates": "Tan Wah Meng"
+    }, {
+        "vote_percentage": "0.1488"
+        , "vote_count": 924
+        , "party": "SLF"
+        , "candidates": "A. N. Mitra"
+    }, {
+        "vote_percentage": "0.1162"
+        , "vote_count": 722
+        , "party": "PP"
+        , "candidates": "S. F. Ho"
+    }]
+    , "Serangoon": [{
+        "vote_percentage": "0.4583"
+        , "vote_count": 2172
+        , "party": "PP"
+        , "candidates": "Lim Choon Mong"
+    }, {
+        "vote_percentage": "0.298"
+        , "vote_count": 1412
+        , "party": "DP"
+        , "candidates": "Lim Chye Seng"
+    }, {
+        "vote_percentage": "0.2437"
+        , "vote_count": 1155
+        , "party": "SA"
+        , "candidates": "Lim Siew Ek"
+    }]
+    , "Tiong Bahru": [{
+        "vote_percentage": "0.386"
+        , "vote_count": 2264
+        , "party": "DP"
+        , "candidates": "William Tan"
+    }, {
+        "vote_percentage": "0.358"
+        , "vote_count": 2100
+        , "party": "PP"
+        , "candidates": "Foo Few Ting"
+    }, {
+        "vote_percentage": "0.256"
+        , "vote_count": 1502
+        , "party": "SA"
+        , "candidates": "Teo Seng Bee"
+    }]
+    , "Farrer Park": [{
+        "vote_percentage": "0.3852"
+        , "vote_count": 2585
+        , "party": "SLF"
+        , "candidates": "A. R. Lazarous"
+    }, {
+        "vote_percentage": "0.3307"
+        , "vote_count": 2219
+        , "party": "PAP"
+        , "candidates": "Devan Nair"
+    }, {
+        "vote_percentage": "0.2659"
+        , "vote_count": 1784
+        , "party": "PP"
+        , "candidates": "Eric S. B. Wee"
+    }, {
+        "vote_percentage": "0.0127"
+        , "vote_count": 85
+        , "party": "Independent"
+        , "candidates": "C. T. B. Unnithan"
+    }, {
+        "vote_percentage": "0.0055"
+        , "vote_count": 37
+        , "party": "Independent"
+        , "candidates": "Chua Kim Watt"
+    }]
+    , "Bukit Panjang": [{
+        "vote_percentage": "0.7221"
+        , "vote_count": 3097
+        , "party": "PP"
+        , "candidates": "Goh Tong Liang"
+    }, {
+        "vote_percentage": "0.2779"
+        , "vote_count": 1192
+        , "party": "SLF"
+        , "candidates": "Lim Wee Toh"
+    }]
+    , "Changi": [{
+        "vote_percentage": "0.4508"
+        , "vote_count": 2624
+        , "party": "DP"
+        , "candidates": "C. K. Lim"
+    }, {
+        "vote_percentage": "0.2919"
+        , "vote_count": 1699
+        , "party": "PP"
+        , "candidates": "S. G. Mohamed Ghows"
+    }, {
+        "vote_percentage": "0.2573"
+        , "vote_count": 1498
+        , "party": "SLF"
+        , "candidates": "Wong Sau Sheung"
+    }]
+    , "Whampoa": [{
+        "vote_percentage": "0.4588"
+        , "vote_count": 2961
+        , "party": "SLF"
+        , "candidates": "Chew Swee Kee"
+    }, {
+        "vote_percentage": "0.3975"
+        , "vote_count": 2565
+        , "party": "PP"
+        , "candidates": "Thio Chan Bee"
+    }, {
+        "vote_percentage": "0.1437"
+        , "vote_count": 927
+        , "party": "DP"
+        , "candidates": "Lee Kok Liang"
+    }]
+    , "Kampong Kapor": [{
+        "vote_percentage": "0.456"
+        , "vote_count": 3253
+        , "party": "SLF"
+        , "candidates": "Seah Peng Chuan"
+    }, {
+        "vote_percentage": "0.3021"
+        , "vote_count": 2155
+        , "party": "Independent"
+        , "candidates": "Dasaratha Raj"
+    }, {
+        "vote_percentage": "0.1798"
+        , "vote_count": 1283
+        , "party": "DP"
+        , "candidates": "Wong Shian Yein"
+    }, {
+        "vote_percentage": "0.0621"
+        , "vote_count": 443
+        , "party": "PP"
+        , "candidates": "Lim Kian Lee"
+    }]
+}
