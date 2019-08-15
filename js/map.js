@@ -9,12 +9,23 @@ function dataVizNominated(year) {
     // TODO: implement year function
 }
 
-function resultsPopup(e) {
-    data = jQuery.getJSON("data/constituencies1955.json", function (d) {
+function resultsPopup(element) {
+    data = jQuery.getJSON("data/constituencies1955.json", function (data) {
         var popup = L.popup();
-        var wardName = e.target.feature.properties.name;
-        console.log(d[wardName]);
-        popup.setLatLng(e.target.getBounds().getCenter()).setContent(wardName).openOn(map);
+        var wardName = element.target.feature.properties.name;
+        var htmlString = ("<h1>").concat(wardName, "</h1><table class='result-table'><tr><th>party</th><th>candidate</th><th colspan='2'>votes</th></tr>");
+        for (i = 0; i < data[wardName].length; i++) {
+            htmlString = htmlString.concat("<tr>");
+            htmlString = htmlString.concat("<td>", data[wardName][i]['party'], "</td>");
+            htmlString = htmlString.concat("<td>", data[wardName][i]['candidates'], "</td>");
+            htmlString = htmlString.concat("<td>", data[wardName][i]['vote_count'], "</td>");
+            htmlString = htmlString.concat("<td class='result-percent'>", data[wardName][i]['vote_percentage'], "%</td>");
+            htmlString = htmlString.concat("</tr>");
+            console.log(data[wardName][i]);
+            console.log(htmlString);
+        }
+        htmlString = htmlString.concat("</table>");
+        popup.setLatLng(element.target.getBounds().getCenter()).setContent(htmlString).openOn(map);
     })
 }
 
