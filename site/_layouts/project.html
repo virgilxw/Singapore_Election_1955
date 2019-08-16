@@ -1,12 +1,8 @@
 <!doctype html>
 <html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <title>{{ site.title }}</title>
-    <meta name="description" content="{{ site.description }}">
-    <meta name="author" content="{{ site.author}}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> {% include links.html %} </head>
+{% include head.html %}
+
 
 <body>
     <div class="wrapper"> {% include header.html %} {{ content }}</div>

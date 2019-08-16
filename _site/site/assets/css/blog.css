@@ -1,0 +1,39 @@
+article {
+    max-width: 630px;
+    font-family: 'Muli', sans-serif;
+}
+
+.wrapper {
+    flex-direction: column;
+    align-items: center;
+}
+
+body > h1 {
+    font-size: 1.4em;
+    font-family: 'Lexend Deca', sans-serif;
+    text-decoration: underline;
+}
+span {
+    display: block;
+    text-align:center;
+}
+
+.post-title {
+    margin: 15px 0 0 0;
+    font-family: 'Farro', sans-serif;
+    font-size: 1.5em;
+}
+
+h1 {
+    font-size: 1.4em;
+}
+
+h2 {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.dt-published {
+    font-size: 0.7em;
+    font-family: 'Farro', sans-serif;
+}
