@@ -1,0 +1,73 @@
+[["Tanjong Pagar", {
+    "party": "PAP"
+    , "office": "Leader of the Opposition"
+    , "vote_count": "6029"
+    , "vote_percentage": 78.33
+    , "candidates": "Lee Kuan Yew"
+}], ["Punggol-Tampines", {
+    "party": "PAP"
+    , "office": ""
+    , "vote_count": "2127"
+    , "vote_percentage": 55.38
+    , "candidates": "Goh Chew Chua"
+}], ["Bukit Timah", {
+    "party": "PAP"
+    , "office": ""
+    , "vote_count": "3259"
+    , "vote_percentage": 52.45
+    , "candidates": "Lim Ching Siong"
+}], ["Bukit Panjang", {
+    "party": "PP"
+    , "office": ""
+    , "vote_count": "3097"
+    , "vote_percentage": 72.21
+    , "candidates": "Goh Tong Liang"
+}], ["Paya Lebar", {
+    "party": "PP"
+    , "office": ""
+    , "vote_count": "3330"
+    , "vote_percentage": 52.07
+    , "candidates": "Lim Koon Teck"
+}], ["Tanglin", {
+    "party": "PP"
+    , "office": ""
+    , "vote_count": "3214"
+    , "vote_percentage": 45.67
+    , "candidates": "John Ede"
+}], ["Serangoon", {
+    "party": "PP"
+    , "office": ""
+    , "vote_count": "2172"
+    , "vote_percentage": 45.83
+    , "candidates": "Lim Choon Mong"
+}], ["Changi", {
+    "party": "DP"
+    , "office": ""
+    , "vote_count": "2624"
+    , "vote_percentage": 45.08
+    , "candidates": "C. K. Lim"
+}], ["Tiong Bahru", {
+    "party": "DP"
+    , "office": ""
+    , "vote_count": "2264"
+    , "vote_percentage": 38.6
+    , "candidates": "William Tan"
+}], ["Sembawang", {
+    "party": "Ind."
+    , "office": ""
+    , "vote_count": "4281"
+    , "vote_percentage": 63.24
+    , "candidates": "Ahmad Ibrahim"
+}], ["Telok Ayer", {
+    "party": "Ind."
+    , "office": ""
+    , "vote_count": "1945"
+    , "vote_percentage": 39.9
+    , "candidates": "Jumabhoy, R."
+}], ["Seletar", {
+    "party": "Ind."
+    , "office": ""
+    , "vote_count": "1771"
+    , "vote_percentage": 31.83
+    , "candidates": "M. P. D. Nair"
+}]]

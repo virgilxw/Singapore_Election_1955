@@ -1,0 +1,145 @@
+body {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: 'Muli', sans-serif;
+}
+
+h1 {
+    margin: auto;
+}
+
+h2 {
+    color: rgb(108, 117, 125);
+    font-weight: 500;
+    font-size: 1.1em;
+    font-size: 0.71em;
+}
+
+h3 {
+    color: rgb(108, 117, 125);
+    font-weight: 400;
+    font-size: 0.9em;
+    font-size: 0.8em;
+}
+
+img {
+    min-width: 25px;
+    max-width: 100px;
+    height: auto;
+}
+
+#resize {
+    display: flex;
+    width: 10px;
+    background-color: rgb(149, 149, 149);
+    order: 1;
+    align-items: center;
+}
+
+#resize > img {
+    width: 10px;
+    height: 10px;
+}
+
+.aside {
+    display: block;
+    padding: 10px 5px;
+    order: 0;
+    flex: 1 0 100px;
+}
+
+.hidden {
+    display: none;
+    opacity: 0;
+}
+
+.rotate {
+    -webkit-transform: rotate(180deg);
+}
+
+#map {
+    order: 1;
+    flex: 5;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.centred {
+    text-align: center;
+}
+
+.small {
+    font-size: 0.8em;
+}
+
+.ex-small {
+    font-size: 0.6em
+}
+
+.centre {
+    text-align: center;
+}
+
+p {
+    margin: 5px 5px;
+}
+
+.line-divider {
+    z-index: 100;
+    width: 2px;
+    background-color: rgba(108, 117, 125, 0.2);
+}
+
+.viz-elected-gov,
+.viz-elected-opp {
+    min-width: 25px;
+    max-width: 100px;
+    height: 150px;
+}
+
+.viz-office,
+.viz-nominated {
+    height: 50px;
+}
+
+.result-table {
+    font-family: 'Muli', sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.result-table td,
+.result-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.result-table tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+.result-table th {
+  padding: 10px 5px;
+  text-align: center;
+  background-color: #4CAF50;
+  color: white;
+    font-weight: 600;
+}
+
+.result-table .count {
+    font-size: 0.8em;
+    bottom:0;
+    padding: 0 2px 0 2px; !important
+}
+
