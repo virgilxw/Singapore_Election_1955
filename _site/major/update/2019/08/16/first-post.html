@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en"> <head>
+    <meta charset="utf-8">
+    <title>Self-Determination: Singapore's 1955 Election</title>
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
+    <meta name="author" content="Reuben X. Wang">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="/assets/js/jquery.js"></script>
+    <link rel="stylesheet" href="/assets/css/leaflet.css" />
+    <script type="text/javascript" src="/assets/js/leaflet.js"></script>
+    <script type="text/javascript" src="/assets/js/styledLayerControl.js"></script>
+    <link rel="stylesheet" href="/assets/css/styledLayerControl.css">
+    <script type="text/javascript" src="/assets/js/leaflet.wms.js"></script>
+    <script type="text/javascript" src="/assets/js/leaflet.ajax.js"></script>
+    <script type="text/javascript" src="/assets/js/d3.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Farro|Lexend+Deca|Muli&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/common.css"> </head>
+
+<body>
+    <div class="wrapper"> <header>
+    <div> 
+        <a href="/index.html" class="branding nav_links">Self Determination: Singapore's 1955 Elections</a> 
+    </div>
+    <nav>
+        <ul class="nav_links">
+            <li><a class="nav_links" href="/index.html">Story</a></li>
+            <li><a class="nav_links" href="/map.html">Map</a></li>
+            <li><a class="nav_links" href="#">About</a></li>
+        </ul>
+    </nav>
+    <ul class="nav_links">
+        <li> <a class="contact nav_links" href="/blog.html">Dev Blog</a></li>
+    </ul>
+</header>
+ <h1> The Dev Blog</h1>
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+    <section class="meta-header">
+        <h2 class="post-title p-name" itemprop="name headline">
+            First Post
+        </h2>
+         2019-08-16 02:43:42 +0800
+        <span>---</span>
+    </section>
+    <section class="content"> <p>I have spent the last couple of days working on two things:</p>
+
+<ol>
+  <li>The table displaying the results of each constituency</li>
+  <li>This blog</li>
+</ol>
+
+<h1 id="result-tables">Result tables</h1>
+<p><img src="/assets/blog_assets/2019-8-16-results.PNG" alt="What was implemented" /></p>
+
+<p>This is a core function of the website that needed to be implemented early on in the development process.</p>
+
+<p>I considered two ways to show the results of specific divisions to the user. The first and more straightforward way was to create a sidebar or container which displayed the results of a chosen division. The second, which was the one I went with, was to use Leaflet’s popup function to generate a popup directly over the centroid of the selected division.</p>
+
+<p>(n.b. the use of “division” may be considered synonymous with “constituency” or “ward”. There was a compelling reason to use this precise word to describe the geographical area a member of the legislative assembly represents, but I’ll leave this discussion for another blog post.)</p>
+
+<h2 id="design">Design</h2>
+<p>I chose the popup as a matter of design; I did not want the users’ eyeballs to have to jump all over the screen. This option changes the map to fit the viewing needs of the user.</p>
+
+<p>It’s also more dynamic and intuitive for a set of results to be displayed directly over a geographical map of the division. Three things happen when a user clicks on the polygon of a division.</p>
+
+<p>At any rate, this decision was made when I started using the aside (sidebar) of the website to display a data visualisation of the overall results of the election. I’ll talk more about that when I finish that.</p>
+
+<h2 id="implementation">Implementation</h2>
+<p>Having to jump between python and Javascript for parsing the raw CSV data from data.gov.sg into JSON and turning that JSON into an HTML table was mildly annoying. But it just took more time than it should have taken. Only in debugging, though, did I realised it was much easier to use one language for all the mathematical operations. I had to sort candidates by descending vote count and converting vote_percentage to a two decimal place string.</p>
+
+<p>That problem seems like a pretty straightforward, right? But I spent an embarrassing amount of time 1) first using the vote_percentage as my sorting key, 2) trying to print vote_percentage as a two decimal string only to realise converting the float into a string caused the sorting mentioned in part 1) to fail. I know how to solve it now, but it’s still bugged. But it’s a relatively minor bug, so I’ll get back to it when I get the time.</p>
+
+<p>Also: I tried to get all fancy and learn how to use R and Pandas to parse the data. In the end, I just resorted to vanilla Python; the data set was small, and I really cannot afford the extra time needed to either re-learn R or learn Pandas. So lesson learnt there: use only the tools you need.</p>
+
+<h2 id="todo">Todo</h2>
+<ul>
+  <li>Fix the two decimal place problem of vote_percentage</li>
+  <li>Add in number of electors, type of constituency (Rural/ Urban/ Mixed), turnout</li>
+  <li>Find pictures of all the candidates to put alongside the result</li>
+  <li>The css styling of the popup can be improved.</li>
+</ul>
+
+<h1 id="this-blog">This blog</h1>
+<p>I did spend about two days learning the basics of Jekyll, though. But I thought Jekyll would be a better way to manage all the different elements of this site - while integrating a native blog that interoperates with the rest of the website. It’s working now; the map is implemented in Jekyll. This blog is quite ugly, but that’s fine for now. It’s not important to the front-facing website, and it is only really used for grading purposes. So presumably it shouldn’t matter if the blog looks like it is the homepage of a computer science professor instead of being made on Squarespace.</p>
+ </section>
+</article>
+<link rel="stylesheet" href="/assets/css/blog.css"> </div>
+</body>
+
+</html>
