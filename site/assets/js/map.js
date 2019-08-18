@@ -141,12 +141,11 @@ function generateGraphs() {
 	var width = divWidth - margin.right - margin.left;
 	var height = divWidth - margin.top - margin.bottom;
 	var svg = d3.select(".viz-elected").append("svg").attr("class", "chart").attr("width", divWidth).attr("height", divHeight).append("g").attr("transform", "translate(0" + margin.left + "," + margin.top + ")");
-	var ElectedGovJSON = jQuery.getJSON("data/electedMembers1955.json", function (data) {
-		var benches = d3.nest()
-    .key(function(d){ return d.bench })
-    .entries(data)
-		
-		console.log(data)
+	d3.json("data/electedMembers1955.json").then(function (data) {
+		var NestedData = d3.nest().key(function (d) {
+			return d.bench
+		}).entries(data.wards)
+		console.log(NestedData)
 	});
 }
 //Invalidate size
