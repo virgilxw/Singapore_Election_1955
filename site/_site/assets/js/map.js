@@ -1,4 +1,5 @@
 // TODO: DataVizElected
+// TODO: DataVizElected
 function dataVizElected(year) {
 	// A helper function to generate the dataviz for elected candidates. Takes a variable, the year
 	// TODO: implement year function
@@ -51,7 +52,7 @@ var Layer1953Aerial = L.WMS.tileLayer("https://libmaps.nus.edu.sg/gis/services/S
 	, attribution: '<a href="https://libmaps.nus.edu.sg/">National University of Singapore<a>'
 });
 // Default base Map
-map.addLayer(LayerOSM);
+map.addLayer(LayerOneMapSG_Default);
 // Add geojson
 function polyStyle(feature) {
 	return {
@@ -63,7 +64,7 @@ function polyStyle(feature) {
 		, fillOpacity: 0.7
 	};
 }
-var Layer1955Wards = new L.GeoJSON.AJAX("data/wards1955.geojson", {
+var Layer1955Wards = new L.GeoJSON.AJAX("assets/geojson/wards1955.geojson", {
 	attribution: 'Data.gov.sg'
 	, style: polyStyle
 	, onEachFeature: function (feature, layer) {
@@ -126,6 +127,11 @@ var styledLayerControlOptions = {
 };
 var styledLayerControl = L.Control.styledLayerControl(baseMaps, overlays, styledLayerControlOptions);
 map.addControl(styledLayerControl, overlays);
+// data_viz
+var ElectedGovJSON = jQuery.getJSON("data/electedGovMembers1955.json", function (data) {
+	console.log(data)
+});
+//Invalidate size
 $(document).ready(function () {
 	setTimeout(function () {
 		map.invalidateSize()
