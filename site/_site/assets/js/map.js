@@ -128,11 +128,30 @@ var styledLayerControlOptions = {
 var styledLayerControl = L.Control.styledLayerControl(baseMaps, overlays, styledLayerControlOptions);
 map.addControl(styledLayerControl, overlays);
 // data_viz
-var ElectedGovJSON = jQuery.getJSON("data/electedGovMembers1955.json", function (data) {
-	console.log(data)
-});
+function generateGraphs() {
+	var divWidth = $(".viz-elected").width()
+	var divHeight = $(".viz-elected").height()
+	var numCols = 3;
+	var margin = {
+		right: 10
+		, left: 10
+		, top: 10
+		, botom: 10
+	}
+	var width = divWidth - margin.right - margin.left;
+	var height = divWidth - margin.top - margin.bottom;
+	var svg = d3.select(".viz-elected").append("svg").attr("class", "chart").attr("width", divWidth).attr("height", divHeight).append("g").attr("transform", "translate(0" + margin.left + "," + margin.top + ")");
+	var ElectedGovJSON = jQuery.getJSON("data/electedMembers1955.json", function (data) {
+		var benches = d3.nest()
+    .key(function(d){ return d.bench })
+    .entries(data)
+		
+		console.log(data)
+	});
+}
 //Invalidate size
 $(document).ready(function () {
+	generateGraphs()
 	setTimeout(function () {
 		map.invalidateSize()
 	}, 100);

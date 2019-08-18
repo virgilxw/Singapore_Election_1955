@@ -101,11 +101,14 @@ p {
     background-color: rgba(108, 117, 125, 0.2);
 }
 
-.viz-elected-gov,
-.viz-elected-opp {
-    min-width: 25px;
-    max-width: 100px;
+.viz-elected {
+    width: 100%;
     height: 150px;
+}
+
+.chart {
+	position: relative;
+	background-color: red;
 }
 
 .viz-office,
@@ -134,7 +137,7 @@ p {
   text-align: center;
   background-color: #4CAF50;
   color: white;
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .result-table .count {
@@ -142,4 +145,3 @@ p {
     bottom:0;
     padding: 0 2px 0 2px; !important
 }
-
