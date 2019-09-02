@@ -13,8 +13,10 @@ function dataVizNominated(year) {
 function resultsPopup(element) {
     data = jQuery.getJSON("data/constituencies1955.json", function (data) {
         var popup = L.popup();
-        var wardName = element.target.feature.properties.name;
+        var wardName = element.target.feature.properties.wardName;
+        
         var htmlString = ("<h1>").concat(wardName, "</h1><table class='result-table'><tr><th>Party</th><th>Candidate</th><th colspan='2'>Votes</th></tr>");
+        
         for (i = 0; i < data[wardName].length; i++) {
             htmlString = htmlString.concat("<tr>");
             htmlString = htmlString.concat("<td>", data[wardName][i]['party'], "</td>");
@@ -29,10 +31,10 @@ function resultsPopup(element) {
 }
 
 function getColor(i) {
-    return i == "PP" ? "#DA70D6" : i == "DP" ? "#AFEEEE" : i == "SLF" ? "#8B4513" : i == "Ind." ? "#708090" : i == "SA" ? "#191970" : i == "PAP" ? "#F5F5F5" : i == "LP" ? "#8B0000" : i == "British Appointee" ? "#00000" : "#00FF00"
+    return i == "PP" ? "#DA70D6" : i == "DP" ? "#AFEEEE" : i == "SLF" ? "#8B4513" : i == "Independent" ? "#708090" : i == "SA" ? "#191970" : i == "PAP" ? "#F5F5F5" : i == "LP" ? "#8B0000" : i == "British Appointee" ? "#00000" : "#00FF00"
 }
 function getFullPartyName(i) {
-    return i == "PP" ? "Progressive Party" : i == "DP" ? "Democratic Party" : i == "SLF" ? "Labour Front" : i == "Ind." ? "Independent" : i == "SA" ? "Singapore Alliance" : i == "PAP" ? "People's Action Party" : i == "LP" ? "Labour Party" : i;
+    return i == "PP" ? "Progressive Party" : i == "DP" ? "Democratic Party" : i == "SLF" ? "Labour Front" : i == "Independent" ? "Independent" : i == "SA" ? "Singapore Alliance" : i == "PAP" ? "People's Action Party" : i == "LP" ? "Labour Party" : i;
 }
 // Initiates Map
 var map = L.map('map').setView([1.35, 103.82], 12);
@@ -59,7 +61,7 @@ map.addLayer(LayerOneMapSG_Default);
 // Add geojson
 function polyStyle(feature) {
     return {
-        fillColor: getColor(feature.properties.winner),
+        fillColor: getColor(feature.properties.Winner),
         weight: 2,
         opacity: 0.7,
         color: 'black',

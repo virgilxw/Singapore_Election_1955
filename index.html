@@ -16,10 +16,16 @@
     <link rel="stylesheet" href="./site/assets/css/reset.css">
     <link rel="stylesheet" href="./site/assets/css/common.css">
     <link rel="stylesheet" href="./site/assets/css/boundaries.css">
+    <link rel="stylesheet" href="./site/assets/css/loading.css">
 
 </head>
 
 <body>
+
+    <!--CSS Spinner Loading-->
+    <div class="spinner-wrapper">
+        <div class="spinner"></div>
+    </div>
 
     <header>
         <div>
@@ -53,11 +59,11 @@
                 <p> The Boundaries Committee needed to be transparent, impartial, and non-discriminatory. Voters needed to see the Committee as trustworthy and representative of their interest. The Committee also needed to be accountable to the British colonial government that still held political power in Singapore. Thus, the very composition of the Committee was important. </p>
                 <p> After various consultations, Governor John Nicoll decided on this composition:</p>
                 <ul>
-                <li id="listOfficial">A chairman who is an official from the colonial government</li>
-                <li id="listLegCo">Two members of the Legislative Council who are not British civil servants, as chosen from members of the Legislative Councils who were not civil servants.</li>
-                <li id="listCitCo">Two members of the City Council to be selected from among themselves </li>
-                <li id="listRurBo">One member of the Rural Board to be nominated by the Rural Board.</li>
-                    </ul>
+                    <li id="listOfficial">A chairman who is an official from the colonial government</li>
+                    <li id="listLegCo">Two members of the Legislative Council who are not British civil servants, as chosen from members of the Legislative Councils who were not civil servants.</li>
+                    <li id="listCitCo">Two members of the City Council to be selected from among themselves </li>
+                    <li id="listRurBo">One member of the Rural Board to be nominated by the Rural Board.</li>
+                </ul>
                 <div class="flex-row">
                     <div class="profile Official" id="GGThomson">
                         <img class="potrait" src="img/G_G_Thomson.PNG">
@@ -70,20 +76,6 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="profile RurBo" id="HJCKulasingha">
-                        <img class="potrait" src="img/H_J_C_Kulasingha.PNG">
-                        <div class="flex-column profile-text">
-                            <h4>H. J. C. Kulashingha</h4>
-                            <ul>
-                                <li class="small bold">Nominee of the Rural Board</li>
-                                <li class="small">Member for Bukit Timah in the Legislative Assembly</li>
-                                <li class="small">Member of the Progressive Party</li>
-                                <li class="small">A prominent member of the Singhalese community</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex-row">
                     <div class="profile LegCo" id="jlaycock">
                         <img class="potrait" src="img/J_Laycock.jpg">
                         <div class="flex-column profile-text">
@@ -96,6 +88,8 @@
                             </ul>
                         </div>
                     </div>
+                </div>
+                <div class="flex-row">
                     <div class="profile LegCo" id="CRDasartha">
                         <img class="potrait" src="img/C_R_Dasaratha_Raj.PNG">
                         <div class="flex-column profile-text">
@@ -107,8 +101,6 @@
                             </ul>
                         </div>
                     </div>
-                </div>
-                <div class="flex-row">
                     <div class="profile CitCo" id="APRajah">
                         <img class="potrait" src="img/A_P_Rajah.jpg">
                         <div class="flex-column profile-text">
@@ -123,6 +115,8 @@
                         </div>
 
                     </div>
+                </div>
+                <div class="flex-row">
                     <div class="profile CitCo" id="SJaganathan">
                         <img class="potrait" src="img/S_Jaganathan.png">
                         <div class="flex-column profile-text">
@@ -132,6 +126,19 @@
                                 <li class="small">Member for South Ward in the City Council</li>
                                 <li class="small">Member of the Labour Party</li>
                                 <li class="small">General-Secretary of the Singapore Trades Union Congress and later a founding member of the Labour Front</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="profile RurBo" id="HJCKulasingha">
+                        <img class="potrait" src="img/H_J_C_Kulasingha.PNG">
+                        <div class="flex-column profile-text">
+                            <h4>H. J. C. Kulashingha</h4>
+                            <ul>
+                                <li class="small bold">Nominee of the Rural Board</li>
+                                <li class="small">Member for Bukit Timah in the Legislative Assembly</li>
+                                <li class="small">Member of the Progressive Party</li>
+                                <li class="small">A prominent member of the Singhalese community</li>
                             </ul>
                         </div>
                     </div>
