@@ -34,7 +34,7 @@ p {
 li {
     list-style-position: inside;
     font-family: 'Muli', sans-serif;
-
+	transition: background-color 1s;
 }
 
 section:not(#banner) {
@@ -54,10 +54,14 @@ section:not(#banner) {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    background-image: url(./images/headerMap.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    /*background-image: url(./images/headerMap.png); */
+}
+
+#bgVideo {
+    position: absolute;
+    top: 280;
+    width: 100%;
+    z-index:-10;
 }
 
 .flex-row {
