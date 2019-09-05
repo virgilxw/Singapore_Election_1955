@@ -34,11 +34,7 @@ p {
 li {
     list-style-position: inside;
     font-family: 'Muli', sans-serif;
-	transition: background-color 1s;
-}
-
-section:not(#banner) {
-    margin-top: 400px;
+    transition: background-color 1s;
 }
 
 .bold {
@@ -61,7 +57,7 @@ section:not(#banner) {
     position: absolute;
     top: 280;
     width: 100%;
-    z-index:-10;
+    z-index: -10;
 }
 
 .flex-row {
@@ -132,7 +128,7 @@ section:not(#banner) {
     background-color: #2A3038;
     color: #acacac;
     line-height: 1.5;
-    margin-top: 400px;
+    margin-top: 50vw;
 }
 
 #one::before {
@@ -154,8 +150,12 @@ section:not(#banner) {
     width: 100%;
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    transform: scale(-1, -1) translate(0, -50px);
+    transform: scale(1, -1) translate(0, -50px);
     box-shadow: 1
+}
+
+#two {
+    margin: 140 5;
 }
 
 .profile-text {
@@ -175,4 +175,21 @@ section:not(#banner) {
 .profile-text h4 {
     margin: 0 0 15px 0;
     padding: 0;
+}
+
+#map {
+    position: absolute;
+    top: 2300;
+    height: 1080;
+    width:100%;
+    z-index: -1;
+}
+
+@media screen and (max-height: 900px) {
+    #banner {
+        padding-top: 0px;
+    }
+    #bgVideo {
+        top: 210;
+    }
 }

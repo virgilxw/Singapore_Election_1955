@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="./site/assets/css/boundaries.css">
     <link rel="stylesheet" href="./site/assets/css/loading.css">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous" />
 </head>
 
 <body>
@@ -43,7 +45,7 @@
         </ul>
     </header>
 
-    <video id="bgVideo" autoplay loop poster="./img/thumbnail_pathe.PNG">
+    <video id="bgVideo" autoplay loop poster="./img/thumbnail_pathe.PNG" muted>
         <!-- Video is embedded in the WEBM format -->
         <source src="./site/assets/pathe.webm" type="video/webm">
     </video>
@@ -150,6 +152,10 @@
                 </div>
             </div>
         </section>
+        
+        <div id="map">
+            
+        </div>
         <section id="two">
             <div class="inner">
                 <h2>Community-building Through Election Mapping</h2>
@@ -160,6 +166,8 @@
                 <blockquote> “We tried to look at our proposed divisions through the eyes of the elector and the candidate. The elector should see clearly why he is in one division rather than in another; lines of demarcation, therefore, must be easy to follow. The area should not be bigger than the elector would travel normally and with ease. He must see that he has a common interest with his fellow electors. From the point of view of the candidate, the division must not be too large in number or diverse in interest for him to canvass his electors, or care for his constituents, once elected. He is concerned with the roads and with centres where he can hold meetings.” </blockquote>
             </div>
         </section>
+        
+        <!--
         <section id="three">
             <p> Figures 3 & 4 are major thoroughfares in the Singapore street network, on an Island-wide and city-centre scale respectively. </p>
             <div class="inner">
@@ -190,5 +198,6 @@
                 </ul>
             </div>
         </section>
+        -->
     </div>
 </body>
