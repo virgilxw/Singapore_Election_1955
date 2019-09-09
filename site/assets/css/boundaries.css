@@ -17,7 +17,7 @@ h1 {
 }
 
 h2 {
-    font-size: 2em;
+    font-size: 20px;
 
 }
 
@@ -28,20 +28,36 @@ ul {
 
 p {
     font-family: 'Muli', sans-serif;
-    margin: 2em 0;
+    padding: 20px 10px;
+    line-height: 2;
+}
+
+blockquote {
+    font-family: 'Libre Baskerville', serif;
+    padding: 20px;
+    background-color: rgba(161, 106, 66, 0.6);
+    text-align: justify;
+    border-radius: 10px;
+    margin: 32px 0;
+    line-height: 2;
+    font-size: 0.8em;
 }
 
 li {
     list-style-position: inside;
     font-family: 'Muli', sans-serif;
-    transition: background-color 1s;
+    transition: background-color 0.7s;
 }
 
 img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    max-width: 80%
+    width: 80%
+}
+
+section {
+    width: 100%;
 }
 
 .bold {
@@ -73,7 +89,7 @@ img {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    flex-wrap: nowrap;
+    align-items: center;
 }
 
 .flex-column {
@@ -138,8 +154,8 @@ img {
 }
 
 #one {
-    background-color: #2A3038;
-    color: #acacac;
+    background-color: RGB(65, 69, 80);
+    color: rgb(197, 189, 153);
     line-height: 1.5;
     margin-top: 50vw;
 }
@@ -147,7 +163,7 @@ img {
 #one::before {
     content: "";
     display: block;
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%232A3038%3B' /%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%23414550%3B' /%3E%3C/svg%3E");
     height: 90px;
     width: 100%;
     background-size: 100% 100%;
@@ -158,7 +174,7 @@ img {
 #one::after {
     content: "";
     display: block;
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%232A3038%3B' /%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%23414550%3B' /%3E%3C/svg%3E");
     height: 50px;
     width: 100%;
     background-size: 100% 100%;
@@ -186,9 +202,67 @@ img {
     padding: 0;
 }
 
+.bubble {
+    width: 100%;
+    position: relative;
+    display: inline-block;
+    /* Make the width of box same as image */
+    top: 300px;
+}
+
+.bubble .inner {
+    margin: 25px auto;
+    left: 0;
+    right: 0;
+    top: 50px;
+    /* Adjust this value to move the positioned div up and down */
+    width: 65%;
+    /* Set the width of the positioned div */
+    background-color: rgb(224, 221, 204);
+    opacity: 1;
+    border-radius: 15px;
+    padding: 10px;
+    z-index: 1000;
+}
+
+.bubble .inner p {}
+
 #two {
-    margin: -20vw 10vw;
-    top: -50;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
+    position: relative;
+    top: 20px;
+}
+
+#two img {
+    top: 0%;
+    left: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+#two h2 {
+    margin: 0 15;
+}
+
+.hidden {
+    opacity: 0 !important;
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -o-transform: scale(0.9);
+    transform: scale(0.9);
+    -webkit-transition: all 0.7s ease-in-out;
+    -moz-transition: all 0.7s ease-in-out;
+    -ms-transition: all 0.7s ease-in-out;
+    -o-transition: all 0.7s ease-in-out;
+    transition: all 0.7s ease-in-out;
+}
+
+.visible {
+    opacity: 1 !important;
+    -webkit-transition: all 0.7s ease-in-out;
+    -moz-transition: all 0.7s ease-in-out;
+    -ms-transition: all 0.7s ease-in-out;
+    -o-transition: all 0.7s ease-in-out;
+    transition: all 0.7s ease-in-out;
 }

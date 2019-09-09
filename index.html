@@ -12,7 +12,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.js" integrity="sha256-31FC/OT6XpfjAhj9FuXjw5/wPXXawCAjJQ29E23/XPk=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js"></script>
     <script src="./site/assets/js/leaflet.wms.js"></script>
-
     <script src="boundaries.js"></script>
 
 
@@ -20,8 +19,10 @@
     <link rel="stylesheet" href="./site/assets/css/common.css">
     <link rel="stylesheet" href="./site/assets/css/boundaries.css">
     <link rel="stylesheet" href="./site/assets/css/loading.css">
+    <link href="https://fonts.googleapis.com/css?family=Farro|Libre+Baskerville|Muli&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous" />
+
 </head>
 
 <body>
@@ -155,30 +156,27 @@
             </div>
         </section>
 
-        <div id="map">
-
-        </div>
-        <section id="two">
-            <div class="inner">
+        <div id="map"></div>
+        <section class="bubble" id="two">
+            <div class="inner hidden" id="sectionTwo">
                 <h2>Community-building Through Election Mapping</h2>
-                <p>How does a person interact with their community? In a densely populated city, what does it mean to be a member of a constituency if had to cross into another constituency every day to work? Historically, these important questions of boundary drawing were determined by the organic evolution of geography and electoral institutions over hundreds of years. Singapore, however, do not have a long history of democracy. Neither do we enjoy a deep culture of democratic interaction.</p>
-                <p> The Boundaries Committee were even unable to get accurate figures of where each voter lived; they admitted that much of their predicted electorate sizes were nothing more than educated guesses.</p>
-                <p> The Boundaries Committee needed to draw boundaries in a way which is conducive to the development of political communities where people discussed and debated issues of collective importance. Certain places, by their location, are conducive to becoming community centres. Yet, merely by drawing lines on a map, people are forced to go to different places to carry out their political needs, be it attending rallies or just raising issues to their elected Member of Legislative Assembly. People experience politics differently, with different representatives, candidates. Representatives will champion different issues depending on who is – and who is not – in their constituency.</p>
-                <p> The Boundaries Commission wanted to preserve the natural centres of communities to the best of their ability. So, they took a rather novel approach: </p>
-
-                <img src="img/CommissionSnippet.jpg">
-                <blockquote> “We tried to look at our proposed divisions through the eyes of the elector and the candidate. The elector should see clearly why he is in one division rather than in another; lines of demarcation, therefore, must be easy to follow. The area should not be bigger than the elector would travel normally and with ease. He must see that he has a common interest with his fellow electors. From the point of view of the candidate, the division must not be too large in number or diverse in interest for him to canvass his electors, or care for his constituents, once elected. He is concerned with the roads and with centres where he can hold meetings.” </blockquote>
+                <p class="sectionTwoText hidden">How does a person interact with their community? In a densely populated city, what does it mean to be a member of a constituency if had to cross into another constituency every day to work? Historically, these important questions of boundary drawing were determined by the organic evolution of geography and electoral institutions over hundreds of years. Singapore, however, do not have a long history of democracy. Neither do we enjoy a deep culture of democratic interaction.</p>
+                <p class="sectionTwoText hidden"> The Boundaries Committee were even unable to get accurate figures of where each voter lived; they admitted that much of their predicted electorate sizes were nothing more than educated guesses.</p>
+                <p class="sectionTwoText hidden"> The Boundaries Committee needed to draw boundaries in a way which is conducive to the development of political communities where people discussed and debated issues of collective importance. Certain places, by their location, are conducive to becoming community centres. Yet, merely by drawing lines on a map, people are forced to go to different places to carry out their political needs, be it attending rallies or just raising issues to their elected Member of Legislative Assembly. People experience politics differently, with different representatives, candidates. Representatives will champion different issues depending on who is – and who is not – in their constituency.</p>
+                <p class="sectionTwoText hidden"> The Boundaries Commission wanted to preserve the natural centres of communities to the best of their ability. So, they took a rather novel approach: </p>
+                <blockquote id="twoBlockquote"> “We tried to look at our proposed divisions through the eyes of the elector and the candidate. The elector should see clearly why he is in one division rather than in another; lines of demarcation, therefore, must be easy to follow. The area should not be bigger than the elector would travel normally and with ease. He must see that he has a common interest with his fellow electors. From the point of view of the candidate, the division must not be too large in number or diverse in interest for him to canvass his electors, or care for his constituents, once elected. He is concerned with the roads and with centres where he can hold meetings.” </blockquote>
             </div>
+            <img id="TwoImg" src="./img/CommissionCover.png">
         </section>
-
-        <!--
-        <section id="three">
-            <p> Figures 3 & 4 are major thoroughfares in the Singapore street network, on an Island-wide and city-centre scale respectively. </p>
+        <section class="bubble" id="three">
             <div class="inner">
                 <h2>Rural Boundaries: Axes of Transport</h2>
+                <p> Figures 3 &amp; 4 are major thoroughfares in the Singapore street network, on an Island-wide and city-centre scale respectively. </p>
                 <p>Drawing line along lines of communication and transport was easier done in rural areas, where settlements are generally linearly distributed along major arterial roads. Take the example of the Bukit Timah and Bukit Panjang constituencies. The boundary dividing the two electoral division nicely divides the space between the two main transportation axes – Jurong Road for Bukit Timah and Choa Chu Kang Road for Bukit Panjang.</p>
             </div>
         </section>
+        
+        <!--
         <section id="four">
             <div class="inner">
                 <h2>Rural Boundaries: Nucleated Electoral Divisions and Geographical Features</h2>
