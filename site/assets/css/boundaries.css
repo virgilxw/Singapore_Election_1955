@@ -266,3 +266,9 @@ section {
     -o-transition: all 0.7s ease-in-out;
     transition: all 0.7s ease-in-out;
 }
+
+#three {
+    position: relative;
+    width: 50%;
+    margin: auto 0 auto auto;
+}

@@ -144,6 +144,47 @@ $(document).ready(function () {
         }) // add indicators (requires plugin)
         .addTo(controller);
 
+    // Add 1975 map
+    var Layer1975Topo = L.tileLayer('https://libmaps.nus.edu.sg/gis/rest/services/Sing_Hist_Maps/1975/MapServer/tile/{z}/{y}/{x}', {
+        attribution: 'National University of Singapore'
+    });
+
+    var FadeIn1975 = new ScrollMagic.Scene({
+            triggerElement: "#map",
+            triggerHook: 0.5, // Set position of trigger at 85% down the viewport
+            reverse: true,
+            offset: 200,
+        duration: 1000
+        }).on("start", function () {
+            Layer1975Topo.addTo(map);
+        }).on("leave", function () {
+            map.removeLayer(Layer1975Topo);
+        }).addIndicators({
+            name: "Add 1975 map layer"
+        }) // add indicators (requires plugin)
+        .addTo(controller);
+
+    // Add 1953 map
+    var Layer1953Topo = L.tileLayer('https://libmaps.nus.edu.sg/gis/rest/services/Sing_Hist_Maps/1953/MapServer/tile/{z}/{y}/{x}', {
+        attribution: 'National University of Singapore'
+    });
+
+    var FadeIn1953 = new ScrollMagic.Scene({
+            triggerElement: "#map",
+            triggerHook: 0.5, // Set position of trigger at 85% down the viewport
+            reverse: true,
+            offset: 400
+        }).on("start", function () {
+            Layer1953Topo.addTo(map);
+        }).on("leave", function () {
+            map.removeLayer(Layer1953Topo);
+        }).addIndicators({
+            name: "Add 1953 map layer"
+        }) // add indicators (requires plugin)
+        .addTo(controller);
+
+
+
     var FadeInTwoBG = new ScrollMagic.Scene({
             triggerElement: "#sectionTwo",
             triggerHook: 0.5
@@ -172,15 +213,4 @@ $(document).ready(function () {
             name: "Fade out bgimage"
         }) // add indicators (requires plugin)
         .addTo(controller)
-
-    // Add 1953 map
-    var Layer1975Topo = L.tileLayer('https://libmaps.nus.edu.sg/gis/rest/services/Sing_Hist_Maps/1975/MapServer/tile/{z}/{y}/{x}', {
-        attribution: 'National University of Singapore'
-    }).addTo(map);
-    
-    // Add 1953 map
-    var Layer1953Topo = L.tileLayer('https://libmaps.nus.edu.sg/gis/rest/services/Sing_Hist_Maps/1953/MapServer/tile/{z}/{y}/{x}', {
-        attribution: 'National University of Singapore'
-    }).addTo(map);
-
 })
