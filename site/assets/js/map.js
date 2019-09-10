@@ -48,11 +48,11 @@ var LayerOneMapSG_Default = L.tileLayer('https://maps-{s}.onemap.sg/v3/Default/{
 var LayerOSM = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
 })
-var Layer1953Topo = L.WMS.tileLayer("https://libmaps.nus.edu.sg/gis/services/Sing_Hist_Maps/1953/MapServer/WMSServer?", {
+var Layer1953Topo = L.tileLayer('https://libmaps.nus.edu.sg/gis/rest/services/Sing_Hist_Maps/1953/MapServer/tile/{z}/{y}/{x}', {
     "layers": "11,12,13,14,15,16,17,18,19,20,21,22",
     attribution: '<a href="https://libmaps.nus.edu.sg/">National University of Singapore<a>'
 })
-var Layer1953Aerial = L.WMS.tileLayer("https://libmaps.nus.edu.sg/gis/services/Sing_Hist_Maps/1950/MapServer/WMSServer?", {
+var Layer1953Aerial = L.tileLayer("https://libmaps.nus.edu.sg/gis/rest/services/Sing_Hist_Maps/1953/MapServer/tile/{z}/{y}/{x}", {
     "layers": "11,12,13,14,15,16,17,18,19,20,21,22",
     attribution: '<a href="https://libmaps.nus.edu.sg/">National University of Singapore<a>'
 });
