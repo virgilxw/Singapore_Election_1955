@@ -1,5 +1,8 @@
 .site-container {
     display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    height: 100vh;
 }
 
 a {
@@ -8,7 +11,7 @@ a {
 }
 
 a:hover {
-    text-decoration: underline; 
+    text-decoration: underline;
 }
 
 h1,
@@ -24,7 +27,7 @@ h6 {
 h1 {
     font-size: 2.5em;
     text-transform: uppercase;
-    
+
     max-width: 1000px;
     width: 80%;
     border-bottom: 2px solid rgba(103, 103, 103, 0.6);
@@ -37,7 +40,11 @@ h2 {
 
 #banner {
     background-color: rgba(152, 35, 35, 1);
-    width: 100%;    
+    width: 100%;
+}
+
+#banner .inner {
+   padding: 20px 0 40px 0;
 }
 
 #banner p {

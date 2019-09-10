@@ -1,5 +1,4 @@
 #one {
-    margin-top: 50vw;
 }
 
 #one .inner {
@@ -7,10 +6,8 @@
 }
 
 #bgVideo {
-    position: absolute;
-    top: 350px;
     width: 100%;
-    z-index: -11;
+    z-index: -1;
 }
 
 #one::before {
@@ -28,4 +25,9 @@
     height: 200px;
     width: 200px;
     border-radius:200px;
+}
+
+.buffer {
+    flex: none;
+    width: 100vw;
 }

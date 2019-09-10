@@ -33,6 +33,7 @@
 
 <!--Custom CSS-->
 <link rel="stylesheet" href="/assets/css/header.css">
+<link rel="stylesheet" href="/assets/css/common.css">
 
 <!--Google Fonts-->
 <link href="https://fonts.googleapis.com/css?family=Farro|Libre+Baskerville|Muli&display=swap" rel="stylesheet">
@@ -51,12 +52,224 @@
         </ul>
     </nav>
 </header>
- <h1> The Dev Blog</h1>
-<h2>Latest Posts</h2>
-<ul>  </ul>
-<link rel="stylesheet" href="/assets/css/blog.css">
+<header class="header">
+  <div class="container">
     
-    <link rel="stylesheet" href="/assets/css/common.css">
+
+    
+  <nav class="nav">
+  <ul class="list list--nav">
+    
+      
+    
+      
+        <li class="item  item--nav">
+
+          
+
+          
+            <a href="/about/">About</a>
+          
+        </li>
+      
+    
+      
+        <li class="item  item--nav  item--current">
+
+          
+
+          
+            <a href="/blog.html"></a>
+          
+        </li>
+      
+    
+      
+        <li class="item  item--nav">
+
+          
+
+          
+            <a href="/boundaries.html"></a>
+          
+        </li>
+      
+    
+      
+        <li class="item  item--nav">
+
+          
+
+          
+            <a href="/"></a>
+          
+        </li>
+      
+    
+      
+        <li class="item  item--nav">
+
+          
+
+          
+            <a href="/map.html"></a>
+          
+        </li>
+      
+    
+  </ul>
+</nav>
+
+
+
+<script type="text/javascript">
+  // Get list and button
+  const navList = document.querySelector('.header .list--nav')
+  const button  = document.querySelector('.header .button--nav')
+
+  // Hide nav and apply toggle
+  const collapseNav = () => {
+    if (document.body.clientWidth < 640) {
+      navList.style.setProperty('--listHeight', `-${navList.offsetHeight}px`)
+    } else {
+      navList.removeAttribute('style')
+    }
+
+    button.onclick = () => {
+      navList.style.setProperty('transition', `margin .1s`)
+      if (navList.style.getPropertyValue('--listHeight')) {
+        navList.style.removeProperty('--listHeight')
+      } else {
+        navList.style.setProperty('--listHeight', `-${navList.offsetHeight}px`)
+      }
+    }
+  }
+
+  collapseNav()
+
+  // Check on resize if to collapse nav
+  window.addEventListener('resize', () => {
+    collapseNav()
+  })
+</script>
+
+  </div>
+
+  
+
+
+
+
+
+
+</header>
+
+
+<main class="main  container">
+
+  <div class="content">
+
+    <article class="article  article--page  typeset">
+
+      
+        <h1></h1>
+        
+        
+      
+
+    </article>
+
+    
+  <section class="section  typeset">
+    <ul class="list  list--posts">
+      
+    </ul>
+  </section>
+
+
+
+  </div>
+
+  
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="copyright  typeset">
+      <small class="small">&copy; Self-Determination: Singapore's 1955 Election 2019</small>
+    </div>
+
+    
+  <nav class="nav">
+  <ul class="list list--nav">
+    
+      
+    
+      
+        <li class="item  item--nav">
+
+          
+
+          
+            <a href="/about/">About</a>
+          
+        </li>
+      
+    
+      
+        <li class="item  item--nav  item--current">
+
+          
+
+          
+            <a href="/blog.html"></a>
+          
+        </li>
+      
+    
+      
+        <li class="item  item--nav">
+
+          
+
+          
+            <a href="/boundaries.html"></a>
+          
+        </li>
+      
+    
+      
+        <li class="item  item--nav">
+
+          
+
+          
+            <a href="/"></a>
+          
+        </li>
+      
+    
+      
+        <li class="item  item--nav">
+
+          
+
+          
+            <a href="/map.html"></a>
+          
+        </li>
+      
+    
+  </ul>
+</nav>
+
+
+
+  </div>
+</footer>
+
+
 </body>
 
 </html>
