@@ -2,162 +2,54 @@
 layout: default
 ---
 
-<head>
-    <meta charset="utf-8">
-    <title>{{ site.title }}</title>
-    <meta name="description" content="{{ site.description }}">
-    <meta name="author" content="{{ site.author}}">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<video id="bgVideo" autoplay loop poster="/assets/img/thumbnail_pathe.png" muted>
+    <!-- Video is embedded in the WEBM format -->
+    <source src="/assets/vid/pathe.webm" type="video/webm">
+</video>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js" integrity="sha256-lPE3wjN2a7ABWHbGz7+MKBJaykyzqCbU96BJWjio86U=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.js" integrity="sha256-ZTEnMVwBY082yM/d9tFkglZux9pVgwfOAg6HD4reObU=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js" integrity="sha256-+9YNuItWuR4sbqeaNiJOxG0BvptYz4fbUXbIZoH5Jwo=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.js" integrity="sha256-31FC/OT6XpfjAhj9FuXjw5/wPXXawCAjJQ29E23/XPk=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js"></script>
-    <script src="./site/assets/js/leaflet.wms.js"></script>
-    <script src="boundaries.js"></script>
-
-
-    <link rel="stylesheet" href="./site/assets/css/reset.css">
-    <link rel="stylesheet" href="./site/assets/css/common.css">
-    <link rel="stylesheet" href="./site/assets/css/boundaries.css">
-    <link rel="stylesheet" href="./site/assets/css/loading.css">
-    <link href="https://fonts.googleapis.com/css?family=Farro|Libre+Baskerville|Muli&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous" />
-
-</head>
-
-<body>
-
-    <!--CSS Spinner Loading-->
-    <div class="spinner-wrapper">
-        <div class="spinner"></div>
-    </div>
-
-    <header>
-        <div>
-            <a href="/index.html" class="branding nav_links">Self Determination: Singapore's 1955 Elections</a>
+<div class="site-container">
+    <section id="banner">
+        <div class="inner">
+            <h1>Who shall decide Singapore's future?</h1>
+            <p> In 1955, Singaporeans went to the polls to elect their first democratically select government. eThere is no telling what will happen. </p>
         </div>
-        <nav>
-            <ul class="nav_links">
-                <li><a class="nav_links" href="/index.html">Story</a></li>
-                <li><a class="nav_links" href="/map.html">Map</a></li>
-                <li><a class="nav_links" href="#">About</a></li>
-            </ul>
-        </nav>
-        <ul class="nav_links">
-            <li> <a class="contact nav_links" href="/blog.html">Dev Blog</a></li>
-        </ul>
-    </header>
+    </section>
+</div>
 
-    <video id="bgVideo" autoplay loop poster="./img/thumbnail_pathe.PNG" muted>
-        <!-- Video is embedded in the WEBM format -->
-        <source src="./site/assets/pathe.webm" type="video/webm">
-    </video>
+<section id="one">
+    <div class="inner">
+        <h2>Welcome to the Singapore of 1955</h2>
+        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sed interdum erat. Mauris sollicitudin lorem eu risus tincidunt pulvinar. Sed aliquam feugiat nunc quis commodo. Integer sollicitudin ligula hendrerit velit pellentesque suscipit. Aliquam erat volutpat. Sed posuere aliquam scelerisque. In gravida convallis enim, id sodales purus volutpat eu. Etiam sed rhoncus lorem, at elementum sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id facilisis dui. Maecenas diam risus, suscipit eget sapien quis, dignissim blandit lacus. In pellentesque maximus congue. Mauris posuere orci vitae turpis dignissim, id condimentum ex ornare. Nullam cursus facilisis tempor. Duis sollicitudin nulla non ante feugiat egestas. Quisque accumsan arcu quis ipsum aliquam, a cursus eros porttitor.
+        </p>
+        <p>
 
-    <div class="site-container">
-        <section id="banner">
-            <div class="inner">
-                <h1>Drawing Boundaries</h1>
-                <p> A case study in election design </p>
-            </div>
-        </section>
-        <section id="one">
-
-            <div class="inner">
-                <h2>Introducing the Boundaries Committee</h2>
-                <p> By making voter registration automatic, the Rendel Constitution radically increased the numbers of registered voters, necessitating a redrawing of Singapore's electoral divisions.</p>
-                <p> Now that the Rendel Constitution is ratified, the Planning for Singapore’s first real election begun. An Electoral Boundaries Delimitation Committee was established to carry this task out. Previous Legislative Assembly elections experienced abysmal turnouts. People saw Legislators and the electoral process as corrupt. There were allegations, amongst other things, of vote-buying and bribery. </p>
-                <p> The Boundaries Committee needed to be transparent, impartial, and non-discriminatory. Voters needed to see the Committee as trustworthy and representative of their interest. The Committee also needed to be accountable to the British colonial government that still held political power in Singapore. Thus, the very composition of the Committee was important. </p>
-                <p> After various consultations, Governor John Nicoll decided on this composition:</p>
-                <ul>
-                    <li id="listOfficial">A chairman who is an official from the colonial government</li>
-                    <li id="listLegCo">Two members of the Legislative Council who are not British civil servants, as chosen from members of the Legislative Councils who were not civil servants.</li>
-                    <li id="listCitCo">Two members of the City Council to be selected from among themselves </li>
-                    <li id="listRurBo">One member of the Rural Board to be nominated by the Rural Board.</li>
-                </ul>
-                <div class="flex-row">
-                    <div class="profile Official" id="GGThomson">
-                        <img class="potrait" src="img/G_G_Thomson.PNG">
-                        <div class="flex-column profile-text">
-                            <h4>G. G. Thomson</h4>
-                            <ul>
-                                <li class="small bold">Official from the Colonial Government</li>
-                                <li class="small">Public Relation officer of Singapore (1946-1954)</li>
-                                <li class="small">He went on to become an academic at the University of Singapore where he helped to train Singapore’s diplomats</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="profile LegCo" id="jlaycock">
-                        <img class="potrait" src="img/J_Laycock.jpg">
-                        <div class="flex-column profile-text">
-                            <h4>John Laycock</h4>
-                            <ul>
-                                <li class="small bold">Nominee of the Legislative Council</li>
-                                <li class="small">Member for Katong in the Legislative Assembly</li>
-                                <li class="small">Member of the Progressive Party</li>
-                                <li class="small">Lawyer</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex-row">
-                    <div class="profile LegCo" id="CRDasartha">
-                        <img class="potrait" src="img/C_R_Dasaratha_Raj.PNG">
-                        <div class="flex-column profile-text">
-                            <h4>C. R. Dasaratha Raj</h4>
-                            <ul>
-                                <li class="small bold">Nominee of the Legislative Council</li>
-                                <li class="small">Member for Rochore in the Legislative Assembly</li>
-                                <li class="small">Member of the Labour Party</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="profile CitCo" id="APRajah">
-                        <img class="potrait" src="img/A_P_Rajah.jpg">
-                        <div class="flex-column profile-text">
-                            <h4>A. P. Rajah</h4>
-                            <ul>
-                                <li class="small bold">Nominee of the City Council</li>
-                                <li class="small">Member for South Ward in the City Council</li>
-                                <li class="small">Member of the Progressive Party</li>
-                                <li class="small">Lawyer</li>
-                                <li class="small">He went on to become independent Singapore’s first Speaker of Parliament, Singapore’s first High Commissioner to Britain, and a member of the Supreme Court</li>
-                            </ul>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="flex-row">
-                    <div class="profile CitCo" id="SJaganathan">
-                        <img class="potrait" src="img/S_Jaganathan.png">
-                        <div class="flex-column profile-text">
-                            <h4>S. Jaganathan</h4>
-                            <ul>
-                                <li class="small bold">Nominee of the City Council</li>
-                                <li class="small">Member for South Ward in the City Council</li>
-                                <li class="small">Member of the Labour Party</li>
-                                <li class="small">General-Secretary of the Singapore Trades Union Congress and later a founding member of the Labour Front</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="profile RurBo" id="HJCKulasingha">
-                        <img class="potrait" src="img/H_J_C_Kulasingha.PNG">
-                        <div class="flex-column profile-text">
-                            <h4>H. J. C. Kulashingha</h4>
-                            <ul>
-                                <li class="small bold">Nominee of the Rural Board</li>
-                                <li class="small">Member for Bukit Timah in the Legislative Assembly</li>
-                                <li class="small">Member of the Progressive Party</li>
-                                <li class="small">A prominent member of the Singhalese community</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+            Morbi malesuada purus at velit aliquam, sed placerat ipsum elementum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce id nibh velit. Cras ac eleifend est. Aliquam sollicitudin at nulla quis congue. In vel blandit dui. Proin nec turpis faucibus, eleifend urna at, pretium turpis. In vehicula sollicitudin dui, sit amet viverra augue faucibus condimentum. Nulla sollicitudin orci in lobortis fermentum. Pellentesque luctus enim eu dolor volutpat sollicitudin. Mauris ipsum orci, dignissim vel sapien eu, aliquam ultricies mauris. Integer iaculis feugiat urna. Nunc at orci viverra, pulvinar massa at, congue diam. Maecenas interdum blandit egestas.
+        </p>
     </div>
-</body>
+</section>
+
+<section class="two alt">
+    <div class="inner row">
+        <img class="thumbnail" src="/assets/img/thumbnail_cover.jpg">
+        <div>
+            <a href="/boundaries.html">
+                <h2>Drawing Boundaries</h2>
+            </a>
+            <h3>A study in election design</h3>
+        </div>
+        <div>
+            <p>
+                Lorem ipsum dolor sit amet, etiam lorem adipiscing elit. Cras turpis ante, nullam sit amet turpis non, sollicitudin posuere urna. Mauris id tellus arcu. Nunc vehicula id nulla dignissim dapibus. Nullam ultrices, neque et faucibus viverra, ex nulla cursus.</p>
+        </div>
+    </div>
+</section>
+<section class="three">
+    <div class="inner row">
+        <h2>test</h2>
+        <div>
+            <p>Lorem ipsum dolor sit amet, etiam lorem adipiscing elit. Cras turpis ante, nullam sit amet turpis non, sollicitudin posuere urna. Mauris id tellus arcu. Nunc vehicula id nulla dignissim dapibus. Nullam ultrices, neque et faucibus viverra, ex nulla cursus.</p>
+        </div>
+    </div>
+</section>
+
+<link rel="stylesheet" href="/assets/css/index.css">
