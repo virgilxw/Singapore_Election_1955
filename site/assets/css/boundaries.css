@@ -1,0 +1,67 @@
+.parallax {
+    z-index: -10;
+}
+
+.one-container :nth-child(1) {
+    flex: 3;
+}
+
+.one-container :nth-child(2) {
+    flex: 2;
+}
+
+.inner {
+    padding-top: 0;
+}
+
+.profile-text > ul {
+    padding-left: 40px;
+    list-style-type: square;
+    text-align: left;
+    margin: 10px 5px;
+    padding-left: 30px;
+    font-size: 0.8em
+}
+
+li {
+    line-height: 1.5;
+    padding: 5px 0;
+}
+
+.profile-text.flex-row :nth-child(1) {
+    flex: 1
+}
+
+.profile-text.flex-row :nth-child(2) {
+    flex: 2
+}
+
+h4 {
+    border-bottom: 2px solid rgba(103, 103, 103, 0.6);
+    margin: 10px 15px;  
+    
+}
+
+#one .blockquote {
+    line-height: 1.5;
+    font-size: 0.8em;
+}
+
+.profile-text {
+    padding-bottom: 20px;
+}
+
+.profile {
+    width: 100%;
+}
+
+.bbox {
+    max-width: 100px;
+    width: 10%;
+}
+
+img {
+    position:relative;
+    width:100%;
+    height:100%;
+}
