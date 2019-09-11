@@ -43,37 +43,9 @@ h3 {
     border-bottom: 2px solid rgba(103, 103, 103, 0.6);
 }
 
-#banner {
-    background-color: rgba(152, 35, 35, 1);
-    width: 100%;
-}
-
-#banner .inner {
-   padding: 20px 0 40px 0;
-}
-
-#banner p {
-    font-size: 1em;
-    font-weight: 200;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    line-height: 1.5;
-    margin: 5px 20px;
-}
-
-#banner::after {
-    content: "";
-    display: block;
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%23982323%3B' /%3E%3C/svg%3E");
-    height: 50px;
-    width: 100%;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    transform: scale(-1, -1) translate(0, -50px);
-    box-shadow: 1
-}
-
-p, ul, ol {
+p,
+ul,
+ol {
     font-family: 'Muli', sans-serif;
     margin: 10px 20px;
     line-height: 2;
@@ -82,7 +54,7 @@ p, ul, ol {
     text-align: justify;
 }
 
-section {
+.solid {
     background-color: #347EBF;
     line-height: 1.5;
     width: 100%;
@@ -92,11 +64,11 @@ section {
     color: #E2D8B2;
 }
 
-section.alt {
+.solid.alt {
     background-color: #F29E38;
 }
 
-section::after {
+.solid::after {
     content: "";
     display: block;
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%23347EBF%3B' /%3E%3C/svg%3E");
@@ -108,7 +80,7 @@ section::after {
     z-index: 1;
 }
 
-section.alt::after {
+.solid.alt::after {
     content: "";
     display: block;
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%23F29E38%3B' /%3E%3C/svg%3E");
@@ -144,10 +116,6 @@ section.alt::after {
     width: 100%;
 }
 
-.buffer > * {
-    width: 100%;
-}
-
 #one::before {
     content: "";
     display: block;
@@ -159,7 +127,7 @@ section.alt::after {
     transform: translate(0, -90px);
 }
 
-img {
+.image {
     border-style: solid;
     border-width: 3px;
     border-color: white;
@@ -167,9 +135,14 @@ img {
 }
 
 .flex-row {
-    display:flex;
+    display: flex;
     flex-direction: row;
     width: 100%;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
 }
 
 .blockquote {
@@ -184,4 +157,38 @@ img {
 
 .profile {
     align-items: flex-start;
+}
+
+.bubble {
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.banner {
+    background-color: rgba(152, 35, 35, 1);
+    width: 100%;
+}
+
+.banner .inner {
+    padding: 20px 0 40px 0;
+}
+
+.banner p {
+    font-size: 1em;
+    font-weight: 200;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    line-height: 1.5;
+    margin: 5px 20px;
+}
+
+.banner::after {
+    content: "";
+    display: block;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%23982323%3B' /%3E%3C/svg%3E");
+    height: 50px;
+    width: 100%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    transform: scale(-1, -1) translate(0, -50px);
+    box-shadow: 1
 }
