@@ -20,17 +20,19 @@ layout: default
             <h3>Members</h3>
             <p class="blockquote"> Following the cosnideration of [a preliminary report] by the Governor in Council, it was decided to appoint a Boundaries Committee to make definite reccomendations in the light of proposals contained in the Report. The membership of this Committee was to be as follows: - </p>
             <p class="blockquote"> • A British Colonial Officer as Chairman; </p>
-            <div class="GGThomson profile Offi hidden">
-                <h4>G. G. Thomson</h4>
-                <div class="profile-text flex-row">
-                    <div class="bbox">
-                        <img class="image" class="potrait" src="assets/img/G_G_Thomson.PNG">
+            <div class="flex-row">
+                <div class="GGThomson profile Offi">
+                    <h4>G. G. Thomson</h4>
+                    <div class="profile-text flex-row">
+                        <div class="bbox_profile">
+                            <img class="image" class="potrait" src="assets/img/G_G_Thomson.PNG">
+                        </div>
+                        <ul>
+                            <li class="bold">Official from the Colonial Government</li>
+                            <li>Public Relation officer of Singapore (1946-1954)</li>
+                            <li>He went on to become an academic at the University of Singapore where he helped to train Singapore’s diplomats</li>
+                        </ul>
                     </div>
-                    <ul>
-                        <li class="bold">Official from the Colonial Government</li>
-                        <li>Public Relation officer of Singapore (1946-1954)</li>
-                        <li>He went on to become an academic at the University of Singapore where he helped to train Singapore’s diplomats</li>
-                    </ul>
                 </div>
             </div>
             <p class="blockquote"> • Two Members of the Legislative Council who are not British Colonial Officers, as selected by eligible members of the Legislative Council;</p>
@@ -38,7 +40,7 @@ layout: default
                 <div class="JLaycock profile LegCo">
                     <h4>John Laycock</h4>
                     <div class="profile-text flex-row">
-                        <div class="bbox">
+                        <div class="bbox_profile">
                             <img class="image" class="potrait" src="assets/img/J_Laycock.jpg">
                         </div>
                         <ul>
@@ -52,7 +54,7 @@ layout: default
                 <div class="CRDasartha profile LegCo">
                     <h4>C. R. Dasaratha Raj</h4>
                     <div class="profile-text flex-row">
-                        <div class="bbox">
+                        <div class="bbox_profile">
                             <img class="image" class="potrait" src="assets/img/C_R_Dasaratha_Raj.PNG">
                         </div>
                         <ul>
@@ -69,7 +71,7 @@ layout: default
                 <div class="APRajah profile CitCo">
                     <h4>A. P. Rajah</h4>
                     <div class="profile-text flex-row">
-                        <div class="bbox">
+                        <div class="bbox_profile">
                             <img class="image" class="potrait" src="assets/img/A_P_Rajah.jpg">
                         </div>
                         <ul>
@@ -84,7 +86,7 @@ layout: default
                 <div class="SJaganathan profile CitCo">
                     <h4>S. Jaganathan</h4>
                     <div class="profile-text flex-row">
-                        <div class="bbox">
+                        <div class="bbox_profile">
                             <img class="image" class="potrait" src="assets/img/S_Jaganathan.png">
                         </div>
                         <ul>
@@ -99,7 +101,7 @@ layout: default
             <div class="SJaganathan profile RurBo">
                 <h4>H. J. C. Kulasingha</h4>
                 <div class="profile-text flex-row">
-                    <div class="bbox">
+                    <div class="bbox_profile">
                         <img class="image" class="potrait" src="assets/img/H_J_C_Kulasingha.PNG">
                     </div>
                     <ul>
@@ -115,28 +117,34 @@ layout: default
     <div id="map"></div>
 
     <section class="bubble flex-row" id="two">
-        <div class="bbox"><img src="/assets/img/report_cover.jpg"></div>
-
-        <div class="inner hidden">
-            <h2>Community-building Through Election Mapping</h2>
-            <p class="sectionTwoText hidden">How does a person interact with their community? In a densely populated city, what does it mean to be a member of a constituency if had to cross into another constituency every day to work? Historically, these important questions of boundary drawing were determined by the organic evolution of geography and electoral institutions over hundreds of years. Singapore, however, do not have a long history of democracy. Neither do we enjoy a deep culture of democratic interaction.</p>
-            <p class="sectionTwoText hidden"> The Boundaries Committee were even unable to get accurate figures of where each voter lived; they admitted that much of their predicted electorate sizes were nothing more than educated guesses.</p>
-            <p class="sectionTwoText hidden"> The Boundaries Committee needed to draw boundaries in a way which is conducive to the development of political communities where people discussed and debated issues of collective importance. Certain places, by their location, are conducive to becoming community centres. Yet, merely by drawing lines on a map, people are forced to go to different places to carry out their political needs, be it attending rallies or just raising issues to their elected Member of Legislative Assembly. People experience politics differently, with different representatives, candidates. Representatives will champion different issues depending on who is – and who is not – in their constituency.</p>
-            <p class="sectionTwoText hidden"> The Boundaries Commission wanted to preserve the natural centres of communities to the best of their ability. So, they took a rather novel approach: </p>
-            <blockquote id="twoBlockquote"> “We tried to look at our proposed divisions through the eyes of the elector and the candidate. The elector should see clearly why he is in one division rather than in another; lines of demarcation, therefore, must be easy to follow. The area should not be bigger than the elector would travel normally and with ease. He must see that he has a common interest with his fellow electors. From the point of view of the candidate, the division must not be too large in number or diverse in interest for him to canvass his electors, or care for his constituents, once elected. He is concerned with the roads and with centres where he can hold meetings.” </blockquote>
+        <div class="inner row">
+            <div class="bbox_two"><img class="image" src="/assets/img/report_cover.jpg"></div>
+            <div class="sectionTwoText">
+                <h2>Community-building Through Election Mapping</h2>
+                <p class="hidden">How does a person interact with their community? In a densely populated city, what does it mean to be a member of a constituency if had to cross into another constituency every day to work? Historically, these important questions of boundary drawing were determined by the organic evolution of geography and electoral institutions over hundreds of years. Singapore, however, do not have a long history of democracy. Neither do we enjoy a deep culture of democratic interaction.</p>
+                <p class="hidden"> The Boundaries Committee were even unable to get accurate figures of where each voter lived; they admitted that much of their predicted electorate sizes were nothing more than educated guesses.</p>
+                <p class="hidden"> The Boundaries Committee needed to draw boundaries in a way which is conducive to the development of political communities where people discussed and debated issues of collective importance. Certain places, by their location, are conducive to becoming community centres. Yet, merely by drawing lines on a map, people are forced to go to different places to carry out their political needs, be it attending rallies or just raising issues to their elected Member of Legislative Assembly. People experience politics differently, with different representatives, candidates. Representatives will champion different issues depending on who is – and who is not – in their constituency.</p>
+                <p class="hidden"> The Boundaries Commission wanted to preserve the natural centres of communities to the best of their ability. So, they took a rather novel approach: </p>
+                <blockquote class="blockquote"> “We tried to look at our proposed divisions through the eyes of the elector and the candidate. The elector should see clearly why he is in one division rather than in another; lines of demarcation, therefore, must be easy to follow. The area should not be bigger than the elector would travel normally and with ease. He must see that he has a common interest with his fellow electors. From the point of view of the candidate, the division must not be too large in number or diverse in interest for him to canvass his electors, or care for his constituents, once elected. He is concerned with the roads and with centres where he can hold meetings.” </blockquote>
+            </div>
         </div>
     </section>
-    <section class="bubble" id="three">
+    <section class="bubble flex-row" id="three">
         <div class="inner row">
-            <div class="bbox"><img src="/assets/img/report_cover.jpg"></div>
             <div class="flex-col">
                 <h2>Rural Boundaries: Axes of Transport</h2>
                 <p> Figures 3 &amp; 4 are major thoroughfares in the Singapore street network, on an Island-wide and city-centre scale respectively.</p>
-                <p>Drawing line along lines of communication and transport was easier done in rural areas, where settlements are generally linearly distributed along major arterial roads. Take the example of the Bukit Timah and Bukit Panjang constituencies. The boundary dividing the two electoral division nicely divides the space between the two main transportation axes – Jurong Road for Bukit Timah and Choa Chu Kang Road for Bukit Panjang.</p>
+                <p>Drawing line along lines of communication and transport was easier done in rural areas, where settlements are generally linearly distributed along major arterial roads.
+                </p>
             </div>
         </div>
     </section>
 
+    <section>
+        <div class="inner">
+            <p>Take the example of the Bukit Timah and Bukit Panjang constituencies. The boundary dividing the two electoral division nicely divides the space between the two main transportation axes – Jurong Road for Bukit Timah and Choa Chu Kang Road for Bukit Panjang.</p>
+        </div>
+    </section>
     <link rel="stylesheet" href="/assets/css/boundaries.css">
     <script src="/assets/js/boundaries.js"></script>
 </div>

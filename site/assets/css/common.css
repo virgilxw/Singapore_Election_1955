@@ -22,6 +22,7 @@ h5,
 h6 {
     font-family: 'Farro', sans-serif;
     margin: 25px 30px;
+    color: #E2D8B2;
 }
 
 h1 {
@@ -45,13 +46,15 @@ h3 {
 
 p,
 ul,
-ol {
+ol,
+blockquote {
     font-family: 'Muli', sans-serif;
-    margin: 10px 20px;
+    padding: 10px 20px;
     line-height: 2;
     max-width: 800px;
     width: 80%;
     text-align: justify;
+    color: #E2D8B2;
 }
 
 .solid {
@@ -61,11 +64,10 @@ ol {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: #E2D8B2;
 }
 
 .solid.alt {
-    background-color: #F29E38;
+    background-color: #D44C46;
 }
 
 .solid::after {
@@ -83,7 +85,7 @@ ol {
 .solid.alt::after {
     content: "";
     display: block;
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%23F29E38%3B' /%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%23D44C46%3B' /%3E%3C/svg%3E");
     height: 90px;
     width: 100%;
     background-size: 100% 100%;
@@ -103,12 +105,14 @@ ol {
 }
 
 .inner.row {
-    padding: 150px 0 60px 0;
+    max-width: 100%;
+    padding: 150px 20px 60px 0;
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
+    margin: 0 auto;
 }
 
 .buffer {
@@ -148,7 +152,7 @@ ol {
 .blockquote {
     font-family: "Libre Baskerville", serif;
     font-style: italic;
-    padding: 5px 0;
+    width: 60%;
 }
 
 .bold {

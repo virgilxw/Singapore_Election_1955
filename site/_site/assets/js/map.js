@@ -59,7 +59,7 @@ function polyStyle(feature) {
         fillOpacity: 0.7
     };
 }
-var Layer1955Wards = new L.GeoJSON.AJAX("assets/geojson/wards1955.geojson", {
+var Layer1955Wards = new L.GeoJSON.AJAX("assets/maplayers/wards1955.geojson", {
     attribution: 'Data.gov.sg',
     style: polyStyle,
     onEachFeature: function (feature, layer) {
