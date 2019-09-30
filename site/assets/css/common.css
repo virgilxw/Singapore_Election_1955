@@ -46,8 +46,7 @@ h3 {
 
 p,
 ul,
-ol,
-blockquote {
+ol {
     font-family: 'Muli', sans-serif;
     padding: 10px 20px;
     line-height: 2;
@@ -61,9 +60,6 @@ blockquote {
     background-color: #347EBF;
     line-height: 1.5;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .solid.alt {
@@ -97,11 +93,10 @@ blockquote {
 .inner {
     max-width: 800px;
     padding: 150px 0 60px 0;
-    width: 100%;
+    margin: auto;
     display: flex;
-    align-items: center;
+    align-items: stretch;
     flex-direction: column;
-    justify-content: stretch;
 }
 
 .inner.row {
@@ -153,6 +148,9 @@ blockquote {
     font-family: "Libre Baskerville", serif;
     font-style: italic;
     width: 60%;
+    margin: auto;
+    line-height: 2;
+    font-size: 0.8em;
 }
 
 .bold {
@@ -164,7 +162,12 @@ blockquote {
 }
 
 .bubble {
+    margin: 30px 0;
+}
+
+.bubble .inner {
     background-color: rgba(255, 255, 255, 0);
+    padding: 15px 50px;   
 }
 
 .banner {
@@ -174,15 +177,17 @@ blockquote {
 
 .banner .inner {
     padding: 20px 0 40px 0;
+    margin: auto;
 }
 
-.banner p {
+.banner .title {
     font-size: 1em;
     font-weight: 200;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     line-height: 1.5;
-    margin: 5px 20px;
+    margin: auto;
+    
 }
 
 .banner::after {
@@ -195,4 +200,16 @@ blockquote {
     background-repeat: no-repeat;
     transform: scale(-1, -1) translate(0, -50px);
     box-shadow: 1
+}
+
+.header {
+    margin: auto;
+    min-width: 750px;
+}
+
+.header h1 {
+    margin-bottom: 0;
+}
+.header p {
+    margin: 0 20px;
 }

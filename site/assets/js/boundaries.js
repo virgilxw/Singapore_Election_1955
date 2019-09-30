@@ -2,7 +2,6 @@ $(document).ready(function () {
     // Scrollmagic Controller
     var controller = new ScrollMagic.Controller()
 
-
     // Parralax effect for all pinned elements
     var pinned = $(".pinned")
 
@@ -29,7 +28,7 @@ $(document).ready(function () {
         new ScrollMagic.Scene({
                 triggerElement: profiles[i], // y value not modified, so we can use element as trigger as well
                 offset: 50, // start a little later
-                triggerHook: 0.8,
+                triggerHook: 0.5
             })
             .setClassToggle(profiles[i], "visible") // add class toggle
             .addIndicators({
@@ -73,37 +72,28 @@ $(document).ready(function () {
         })
         .addTo(controller);
 
-    // Scene to pin map
-    var panMap = new ScrollMagic.Scene({
-        triggerElement: "#three",
-        triggerHook: 0.8
-    }).on('enter', function () {
-        map.panInsideBounds([[1.100, 103.185], [1.580, 103.900]], {
-            animate: true,
-            duration: 2,
-            easeLinearity: 0.1
-        })
-
-        L.imageOverlay("/assets/maplayers/Traffic_small.png", [[1.1307, 103.5810], [1.519, 104.1338]])
-    }).on('leave', function () {
-        map.panTo([1.35, 103.82], 11, {
-            animate: true,
-            duration: 2,
-            easeLinearity: 0.1
-        })
-    }).addIndicators({
-        name: "pan map"
-    }).addTo(controller);
-
+    // Add traffic layer
     var trafficLayer = L.imageOverlay("/assets/maplayers/Traffic_small.png", [[1.1307, 103.5810], [1.519, 104.1338]]);
 
-    var panMap = new ScrollMagic.Scene({
+    var traffic = new ScrollMagic.Scene({
         triggerElement: "#three",
-        triggerHook: 0.8,
-        offset: 100
+        triggerHook: 0.5
     }).on('enter', function () {
-        trafficLayer.addTo(map);
+        map.addLayer(trafficLayer).flyToBounds([[1.478, 104.096], [1.162, 103.145]])
+    }).on('leave', function () {
+        map.removeLayer(trafficLayer).panTo([1.35, 103.82], 11)
     }).addIndicators({
         name: "load traffic layer"
+    }).addTo(controller);
+
+    var roads = new ScrollMagic.Scene({
+        triggerElement: ".roads",
+        triggerHook: 0.5
+    }).on('enter', function () {
+        map.flyToBounds([[1.412, 103.795], [1.266, 103.510]])
+    }).on('leave', function () {
+        map.flyToBounds([[1.478, 104.096], [1.162, 103.145]])
+    }).addIndicators({
+        name: "load roads slide"
     }).addTo(controller);
 });

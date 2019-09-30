@@ -40,12 +40,6 @@ h4 {
     border-bottom: 2px solid rgba(103, 103, 103, 0.6);
     margin: 10px 15px;
 }
-
-#one .blockquote {
-    line-height: 1.5;
-    font-size: 0.8em;
-}
-
 .profile-text {
     padding-bottom: 20px;
 }
@@ -59,6 +53,10 @@ img {
 
 #banner .inner {
     margin: 0;
+}
+
+#abstract {
+    margin: 50px 25px 0 25px;
 }
 
 .profile {
@@ -119,6 +117,5 @@ img {
 
 #three {
     width: 40vw;
-    background-color: rgba(212, 76, 70, 0.9);
-    
+    background-color: rgba(212, 76, 70, 0.9);   
 }
