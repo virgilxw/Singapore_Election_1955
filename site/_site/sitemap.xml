@@ -18,4 +18,7 @@
 <url>
 <loc>http://localhost:4000/map.html</loc>
 </url>
+<url>
+<loc>http://localhost:4000/results.html</loc>
+</url>
 </urlset>

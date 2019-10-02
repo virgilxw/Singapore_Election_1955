@@ -49,9 +49,8 @@ ul,
 ol {
     font-family: 'Muli', sans-serif;
     padding: 10px 20px;
-    line-height: 2;
+    line-height: 1.5;
     max-width: 800px;
-    width: 80%;
     text-align: justify;
     color: #E2D8B2;
 }
@@ -95,8 +94,9 @@ ol {
     padding: 150px 0 60px 0;
     margin: auto;
     display: flex;
-    align-items: stretch;
     flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
 }
 
 .inner.row {
@@ -175,11 +175,6 @@ ol {
     width: 100%;
 }
 
-.banner .inner {
-    padding: 20px 0 40px 0;
-    margin: auto;
-}
-
 .banner .title {
     font-size: 1em;
     font-weight: 200;
@@ -208,8 +203,20 @@ ol {
 }
 
 .header h1 {
-    margin-bottom: 0;
+    margin: 0;
+    width: 100%;
 }
 .header p {
     margin: 0 20px;
+}
+
+#metadata {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 0.7em;
+}
+
+#abstract {
+    margin: 50px 50px 0 50px;
 }

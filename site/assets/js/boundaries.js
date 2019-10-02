@@ -76,24 +76,83 @@ $(document).ready(function () {
     var trafficLayer = L.imageOverlay("/assets/maplayers/Traffic_small.png", [[1.1307, 103.5810], [1.519, 104.1338]]);
 
     var traffic = new ScrollMagic.Scene({
-        triggerElement: "#three",
-        triggerHook: 0.5
+        triggerElement: "#threealpha",
+        triggerHook: 0.5,
+        offset: -50
     }).on('enter', function () {
         map.addLayer(trafficLayer).flyToBounds([[1.478, 104.096], [1.162, 103.145]])
     }).on('leave', function () {
-        map.removeLayer(trafficLayer).panTo([1.35, 103.82], 11)
+        map.removeLayer(trafficLayer).flyTo([1.35, 103.82], 11)
     }).addIndicators({
         name: "load traffic layer"
     }).addTo(controller);
 
-    var roads = new ScrollMagic.Scene({
-        triggerElement: ".roads",
-        triggerHook: 0.5
+    var zoomToRoads = new ScrollMagic.Scene({
+        triggerElement: "#threealpha",
+        triggerHook: 0.5,
+        offset: 100
     }).on('enter', function () {
         map.flyToBounds([[1.412, 103.795], [1.266, 103.510]])
     }).on('leave', function () {
         map.flyToBounds([[1.478, 104.096], [1.162, 103.145]])
     }).addIndicators({
-        name: "load roads slide"
+        name: "fly to East Singapore"
+    }).addTo(controller);
+
+    var layerRoadsTrunk = new L.GeoJSON.AJAX("assets/maplayers/roads-trunk.geojson", {
+        style: {
+            weight: 15,
+            color: "#ffffff"
+        }
+    })
+    var layerRoadsNorth = new L.GeoJSON.AJAX("assets/maplayers/roads-north.geojson", {
+        style: {
+            weight: 15,
+            color: "#d44c46"
+        }
+    })
+
+    var layerRoadsSouth = new L.GeoJSON.AJAX("assets/maplayers/roads-south.geojson", {
+        style: {
+            weight: 15,
+            color: "#347ebf"
+        }
+    })
+
+    var addRoadsLayersTrunk = new ScrollMagic.Scene({
+        triggerElement: "#threebravo",
+        triggerHook: 0.5,
+        offset: 0
+    }).on('enter', function () {
+        map.addLayer(layerRoadsTrunk);
+    }).on('leave', function () {
+        map.removeLayer(layerRoadsTrunk);
+    }).addIndicators({
+        name: "add roadsTrunk"
+    }).addTo(controller);
+
+    var addRoadsLayersBranch = new ScrollMagic.Scene({
+        triggerElement: "#threebravo",
+        triggerHook: 0.5,
+        offset: 100
+    }).on('enter', function () {
+        map.addLayer(layerRoadsNorth).addLayer(layerRoadsSouth);
+    }).on('leave', function () {
+        map.removeLayer(layerRoadsNorth).removeLayer(layerRoadsSouth)
+    }).addIndicators({
+        name: "add roadsBranch"
+    }).addTo(controller);
+
+    var layerRoadsWards = new L.GeoJSON.AJAX("assets/maplayers/roadWards.geojson")
+
+    var addRoadsLayers = new ScrollMagic.Scene({
+        triggerElement: "#threecharlie",
+        triggerHook: 0.5
+    }).on('enter', function () {
+        map.addLayer(layerRoadsWards);
+    }).on('leave', function () {
+        map.removeLayer(layerRoadsWards)
+    }).addIndicators({
+        name: "add wards"
     }).addTo(controller);
 });

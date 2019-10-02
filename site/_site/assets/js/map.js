@@ -68,10 +68,8 @@ var Layer1955Wards = new L.GeoJSON.AJAX("assets/maplayers/wards1955.geojson", {
             mouseover: function (e) {
                     var layer = e.target;
                     layer.setStyle({
-                        weight: 5,
-                        color: '#ccff00',
-                        dashArray: '',
-                        fillOpacity: 0.4
+                        stroke: '#347ebf',
+                        fillOpacity: 1
                     });
                     if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
                         layer.bringToFront();
