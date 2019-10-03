@@ -1,9 +1,11 @@
 .resultsViz {
     height: 100vh;
+    width: 100vw;
     position: absolute;
 }
 
-.solid {
+section {
+    position: relative;
 }
 
 .content p {
@@ -26,5 +28,4 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    
 }
