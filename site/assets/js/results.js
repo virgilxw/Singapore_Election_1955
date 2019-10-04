@@ -28,8 +28,8 @@ function chart(data) {
         .attr("transform", `translate(${margin.left},${margin.top})`);
 
     var x = d3.scaleBand()
-        .range([margin.left, width - margin.right])
-        .padding(0.2)
+        .rangeRound([margin.left, width - margin.right])
+        .padding(0.5)
 
     var y = d3.scaleLinear()
         .rangeRound([height - margin.bottom, margin.top])
@@ -45,16 +45,19 @@ function chart(data) {
     var z = d3.scaleOrdinal(d3.schemeCategory10)
 
     svg.selectAll(".y-axis").transition().duration(speed)
-        .call(d3.axisLeft(y).ticks(null, "s"))
+        .call(d3.axisLeft(y))
 
     data.forEach(function (d) {
         d.total = d3.sum(parties, k => +d[k])
     })
 
     y.domain([0, d3.max(data, d => d.total)]).nice();
-
+    
     x.domain(data.map(d => d.alignment));
 
+    svg.selectAll(".y-axis").transition().duration(speed)
+			.call(d3.axisLeft(y).ticks(null, "s"))
+    
     svg.selectAll(".x-axis").transition().duration(speed)
         .call(d3.axisBottom(x).tickSizeOuter(0))
 
