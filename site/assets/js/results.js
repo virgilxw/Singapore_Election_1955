@@ -29,7 +29,7 @@ function chart(data) {
 
     var x = d3.scaleBand()
         .range([margin.left, width - margin.right])
-        .padding(0.1)
+        .padding(0.2)
 
     var y = d3.scaleLinear()
         .rangeRound([height - margin.bottom, margin.top])
@@ -42,7 +42,7 @@ function chart(data) {
         .attr("transform", `translate(${margin.left},0)`)
         .attr("class", "y-axis")
 
-    var z = d3.scaleOrdinal(d3.schemeCategory10).domain(parties)
+    var z = d3.scaleOrdinal(d3.schemeCategory10)
 
     svg.selectAll(".y-axis").transition().duration(speed)
         .call(d3.axisLeft(y).ticks(null, "s"))
@@ -51,12 +51,33 @@ function chart(data) {
         d.total = d3.sum(parties, k => +d[k])
     })
 
-    y.domain([0, d3.max(data, d => d.total)])
+    y.domain([0, d3.max(data, d => d.total)]).nice();
 
-    x.domain(align);
+    x.domain(data.map(d => d.alignment));
 
     svg.selectAll(".x-axis").transition().duration(speed)
         .call(d3.axisBottom(x).tickSizeOuter(0))
+
+    var group = svg.selectAll("g.layer").data(d3.stack().keys(parties)(data))
+
+    //Remove empty elements
+    group.exit().remove()
+
+    group.enter().append("g").classed("layer", true)
+        .attr("fill", d => z(d.key))
+
+    var bars = svg.selectAll("g.layer").selectAll("rect")
+        .data(d => d, e => e.data.align);
+
+    bars.exit().remove()
+
+    bars.enter().append("rect")
+        .attr("width", x.bandwidth())
+        .merge(bars)
+        .transition().duration(speed)
+        .attr("x", d => x(d.data.alignment))
+        .attr("y", d => y(d[1]))
+        .attr("height", d => y(d[0]) - y(d[1]))
 }
 
 $(document).ready(function () {

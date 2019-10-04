@@ -1,0 +1,51 @@
+﻿[
+    {
+        "Party": "SLF",
+        "Vote_Count": 42300,
+        "Vote_Share": "21.52%",
+        "Seats_Won": 10,
+        "In_Government": true
+	},
+    {
+        "Party": "PAP",
+        "Vote_Count": 13634,
+        "Vote_Share": "5.06%",
+        "Seats_Won": 3,
+        "In_Government": false
+	},
+    {
+        "Party": "PP",
+        "Vote_Count": 38695,
+        "Vote_Share": "27.85%",
+        "Seats_Won": 4,
+        "In_Government": false
+	},
+    {
+        "Party": "DP",
+        "Vote_Count": 32115,
+        "Vote_Share": "25.32%",
+        "Seats_Won": 2,
+        "In_Government": false
+	},
+    {
+        "Party": "Independent",
+        "Vote_Count": 15098,
+        "Vote_Share": "12.66%",
+        "Seats_Won": 3,
+        "In_Government": false
+	},
+    {
+        "Party": "SA",
+        "Vote_Count": 13157,
+        "Vote_Share": "6.33%",
+        "Seats_Won": 3,
+        "In_Government": true
+	},
+    {
+        "Party": "LP",
+        "Vote_Count": 1325,
+        "Vote_Share": "1.27%",
+        "Seats_Won": 0,
+        "In_Government": false
+	}
+]
