@@ -4,9 +4,7 @@
     max-width: 1000px;
     position: absolute;
     left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, 0)
-
+    transform: translate(-50%, 0);
 }
 
 section {
@@ -16,7 +14,7 @@ section {
 .content p {
     width: 70%;
     margin-top: 250px;
-    background-color: rgba(255,255,255,0.6);
+    background-color: rgba(255, 255, 255, 0.6);
     color: rgb(41, 41, 41);
     border-radius: 10px;
 }
@@ -27,6 +25,7 @@ section {
 
 #one {
     height: 500vh;
+    background-color: #E2D8B2
 }
 
 .inner {
@@ -37,4 +36,20 @@ section {
 
 p {
     z-index: 10;
+    color: black;
+    margin: 0;
+    padding: 0;
+}
+
+.x-axis text {
+    font: 18px 'Muli', sans-serif;
+    ;
+    margin-top: 25px;
+    color: black;
+}
+
+.chartTitle {
+    text-align: center;
+    margin: 0 auto;
+    top:50px;
 }

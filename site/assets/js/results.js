@@ -12,7 +12,7 @@ function chart(data) {
 
     //Generate graph
     var margin = ({
-            top: 50,
+            top: 25,
             right: 50,
             bottom: 50,
             left: 50
@@ -52,12 +52,12 @@ function chart(data) {
     })
 
     y.domain([0, d3.max(data, d => d.total)]).nice();
-    
+
     x.domain(data.map(d => d.alignment));
 
     svg.selectAll(".y-axis").transition().duration(speed)
-			.call(d3.axisLeft(y).ticks(null, "s"))
-    
+        .call(d3.axisLeft(y).ticks(null, "s"))
+
     svg.selectAll(".x-axis").transition().duration(speed)
         .call(d3.axisBottom(x).tickSizeOuter(0))
 
@@ -81,6 +81,11 @@ function chart(data) {
         .attr("x", d => x(d.data.alignment))
         .attr("y", d => y(d[1]))
         .attr("height", d => y(d[0]) - y(d[1]))
+
+    var text = svg.selectAll(".text")
+        .data(data, d => d.parties);
+
+    text.exit().remove()
 }
 
 $(document).ready(function () {

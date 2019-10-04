@@ -1,5 +1,5 @@
 [{
-        "alignment": "Left-wing Parties",
+        "alignment": "Left-of-Center Parties",
         "SLF": 42300,
         "PAP": 13634,
         "LP": 1325,
@@ -18,7 +18,7 @@
         "DP": 0,
         "SA": 0
 	}, {
-        "alignment": "Right-wing Parties",
+        "alignment": "Right-of-Center Parties",
         "SLF": 0,
         "PAP": 0,
         "LP": 0,
