@@ -8,7 +8,7 @@ function chart(data) {
         align.push(d.alignment)
     })
 
-    var parties = Object.keys(data[0]).slice(1, -1)
+    var parties = Object.keys(data[0]).slice(1, )
 
     //Generate graph
     var margin = ({
@@ -66,11 +66,31 @@ function chart(data) {
 
     group.enter().append("g").classed("layer", true)
         .attr("fill", d => getColor(d.key))
+        .attr("party", d => d.key)
+        .text("test")
+
+
+    var party_label = svg.selectAll("g.layer").selectAll(".text")
+        .data(d => d, e => e.data.align);
+
+    party_label.exit().remove();
+
+    party_label.enter()
+        .append("text")
+        .text(function (d) {
+            return $(this).parent().attr("party")
+        return "tet"
+        })
+        .classed("party_name", true)
+        .transition().duration(speed)
+        .attr("x", d => x(d.data.alignment) - 40)
+        .attr("y", d => y(d[1]) + 20)
+        .attr("height", d => y(d[0]) - y(d[1]))
 
     var bars = svg.selectAll("g.layer").selectAll("rect")
         .data(d => d, e => e.data.align);
 
-    bars.exit().remove()
+    bars.exit().remove();
 
     bars.enter().append("rect")
         .attr("width", x.bandwidth())
@@ -80,10 +100,13 @@ function chart(data) {
         .attr("y", d => y(d[1]))
         .attr("height", d => y(d[0]) - y(d[1]))
 
-    var text = svg.selectAll(".text")
-        .data(data, d => d.parties);
-
-    text.exit().remove()
+    // Remove empty rects
+    $(document).ready(function () {
+        $("[height=0]").remove()
+        $("text").filter(function () {
+            return $(this).attr("height") < 25
+        }).remove()
+    })
 }
 
 $(document).ready(function () {
