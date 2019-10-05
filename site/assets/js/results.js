@@ -42,8 +42,6 @@ function chart(data) {
         .attr("transform", `translate(${margin.left},0)`)
         .attr("class", "y-axis")
 
-    var z = d3.scaleOrdinal(d3.schemeCategory10)
-
     svg.selectAll(".y-axis").transition().duration(speed)
         .call(d3.axisLeft(y))
 
@@ -67,7 +65,7 @@ function chart(data) {
     group.exit().remove()
 
     group.enter().append("g").classed("layer", true)
-        .attr("fill", d => z(d.key))
+        .attr("fill", d => getColor(d.key))
 
     var bars = svg.selectAll("g.layer").selectAll("rect")
         .data(d => d, e => e.data.align);
@@ -90,4 +88,18 @@ function chart(data) {
 
 $(document).ready(function () {
     d3.json("assets/data/resultsPopVote.json").then(d => chart(d));
+
+    // Scrollmagic
+    var controller = new ScrollMagic.Controller();
+
+    var pinChart = new ScrollMagic.Scene({
+            triggerElement: ".resultsViz",
+            duration: 500,
+            triggerHook: 0
+        })
+        .setPin(".resultsViz")
+        .addIndicators({
+            name: "Pin Chart"
+        }) // add indicators (requires plugin)
+        .addTo(controller);
 });
