@@ -53,3 +53,8 @@ p {
     margin: 0 auto;
     top:50px;
 }
+
+.tick line {
+    "stroke-opacity": 0.5,
+    
+}

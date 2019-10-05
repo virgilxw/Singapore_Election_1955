@@ -1,4 +1,5 @@
 [{
+        "chart": "pop_vote",
         "alignment": "Left-of-Center Parties",
         "SLF": 42300,
         "PAP": 13634,
@@ -9,6 +10,7 @@
         "SA": 0
 	},
     {
+        "chart": "pop_vote",
         "alignment": "Independents",
         "SLF": 0,
         "PAP": 0,
@@ -18,6 +20,7 @@
         "DP": 0,
         "SA": 0
 	}, {
+        "chart": "pop_vote",
         "alignment": "Right-of-Center Parties",
         "SLF": 0,
         "PAP": 0,

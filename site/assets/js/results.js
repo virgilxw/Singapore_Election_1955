@@ -8,7 +8,7 @@ function chart(data) {
         align.push(d.alignment)
     })
 
-    var parties = Object.keys(data[0]).slice(1, )
+    var parties = Object.keys(data[0]).slice(2, )
 
     //Generate graph
     var margin = ({
@@ -39,25 +39,22 @@ function chart(data) {
         .attr("class", "x-axis")
 
     var yAxis = svg.append("g")
-        .attr("transform", `translate(${margin.left},0)`)
+        .attr("transform", `translate(${width-margin.right},0)`)
         .attr("class", "y-axis")
-
-    svg.selectAll(".y-axis").transition().duration(speed)
-        .call(d3.axisLeft(y))
 
     data.forEach(function (d) {
         d.total = d3.sum(parties, k => +d[k])
     })
 
     y.domain([0, d3.max(data, d => d.total)]).nice();
-
+    
     x.domain(data.map(d => d.alignment));
 
     svg.selectAll(".y-axis").transition().duration(speed)
-        .call(d3.axisLeft(y).ticks(null, "s"))
+        .call(d3.axisLeft(y).ticks(10).tickSize(width - margin.left - margin.right))
 
     svg.selectAll(".x-axis").transition().duration(speed)
-        .call(d3.axisBottom(x).tickSizeOuter(0))
+        .call(d3.axisBottom(x))
 
     var group = svg.selectAll("g.layer").data(d3.stack().keys(parties)(data))
 
@@ -106,6 +103,8 @@ function chart(data) {
         $("text").filter(function () {
             return $(this).attr("height") < 25
         }).remove()
+        
+        $(".y-axis .domain").remove()
     })
 }
 
