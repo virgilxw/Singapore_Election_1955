@@ -79,7 +79,7 @@ function chart(data) {
         .append("text")
         .text(function (d) {
             return $(this).parent().attr("party")
-        return "tet"
+            return "tet"
         })
         .classed("party_name", true)
         .transition().duration(speed)
