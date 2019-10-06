@@ -1,12 +1,15 @@
-function generateTooltips(rect) {
-    var party = $(rect).parent().attr("party");
-    var partyData = d.filter(function (f, i) {
+function generateTooltips(data, rect, div) {
+    var party = rect.parent().attr("party");
+    var partyData = data.filter(function (f, i) {
         return f.party == party
     })[0];
 
-    var tooltip_content = `<p class="bold">` + partyData.full_name + `</p><p>Nominated ` + partyData.num_cand + ` candidates</p><p>Won ` + partyData.seats_won + ` seats</p><p>Won ` + formatNumber(partyData.pop_vote) + `votes</p><p>` + partyData.vote_share + ` vote share</p>`
+    var tooltip_content = `<p class="bold">` + partyData.full_name + `</p><p>Nominated ` + partyData.num_cand + ` candidates</p><p>Won ` + partyData.seats_won + ` seats</p><p>Won ` + formatNumber(partyData.pop_vote) + ` votes</p><p>` + partyData.vote_share + ` vote share</p>`
+
+    console.log(tooltip_content)
     
     $(this).addClass("hover")
+    div.html(tooltip_content);
 
     div.transition()
         .duration(500)
@@ -17,9 +20,8 @@ function generateTooltips(rect) {
 
 }
 
-function translateTooltips(x, y) {
-    div.html(tooltip_content)
-        .style("left", (x) + "px")
+function translateTooltips(x, y, div) {
+    div.style("left", (x) + "px")
         .style("top", (y - 28) + "px")
 }
 
@@ -136,29 +138,11 @@ function chart(data) {
             .style("opacity", 0);
         d3.json("assets/data/tooltipDetails.json").then(function (d) {
             $(".layer rect").on("mouseover", function (e) {
-
-                    var party = $(this).parent().attr("party")
-                    var partyData = d.filter(function (f, i) {
-                        return f.party == party
-                    })[0]
-
-
-
-                    var tooltip_content = `<p class="bold">` + partyData.full_name + `</p><p>Nominated ` + partyData.num_cand + ` candidates</p><p>Won ` + partyData.seats_won + ` seats</p><p>Won ` + formatNumber(partyData.pop_vote) + ` votes</p><p>` + partyData.vote_share + ` vote share</p>`
-
-                    div.transition()
-                        .duration(500)
-                        .style("opacity", 0);
-                    div.transition()
-                        .duration(200)
-                        .style("opacity", .9);
-                    div.html(tooltip_content)
-                        .style("left", (e.pageX) + "px")
-                        .style("top", (e.pageY - 28) + "px")
+                    generateTooltips(d, $(this), div);
+                    translateTooltips(e.pageX, e.pageY, div)
                 })
                 .on("mousemove", function (e) {
-                    div.style("left", (e.pageX) + "px")
-                        .style("top", (e.pageY - 28) + "px")
+                    translateTooltips(e.pageX, e.pageY, div)
                 })
                 .on("mouseout", function (e) {
                     div.transition()
