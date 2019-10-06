@@ -11,7 +11,7 @@ section {
 .content p {
     width: 70%;
     margin-top: 250px;
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.8);
     color: rgb(41, 41, 41);
     border-radius: 10px;
 }
@@ -41,8 +41,8 @@ section {
 p {
     z-index: 10;
     color: black;
+    padding: 10px;
     margin: 0;
-    padding: 0;
 }
 
 .x-axis text {
@@ -76,6 +76,12 @@ div.tooltip {
 
 div.tooltip::first-child {
     font-weight: bold;
+    font-size: 1em;
+}
+
+div.tooltip p {
+    padding: 0;
+    font-size: 0.9em;
 }
 
 .hover {
@@ -113,4 +119,22 @@ div.tooltip::first-child {
     max-width: 1000px;
     position: absolute;
     overflow: hidden;
+}
+
+.reveal1 {
+    opacity: 0;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+}
+
+.reveal1.visible {
+    opacity: 1;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
 }

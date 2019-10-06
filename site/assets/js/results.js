@@ -4,8 +4,7 @@ function generateTooltips(rect) {
         return f.party == party
     })[0];
 
-    var tooltip_content = `<div class="tooltip"><p class="bold">` + partyData.full_name + `</p><p>Nominated ` + partyData.num_cand + ` candidates</p><p>Won ` + partyData.seats_won + ` seats</p><p>Won ` + formatNumber(partyData.pop_vote) + `
- votes</p><p>` + partyData.vote_share + ` vote share</p></div> d.close`
+    var tooltip_content = `<p class="bold">` + partyData.full_name + `</p><p>Nominated ` + partyData.num_cand + ` candidates</p><p>Won ` + partyData.seats_won + ` seats</p><p>Won ` + formatNumber(partyData.pop_vote) + `votes</p><p>` + partyData.vote_share + ` vote share</p>`
     
     $(this).addClass("hover")
 
@@ -18,10 +17,10 @@ function generateTooltips(rect) {
 
 }
 
-function translateTooltips(x,y) {
-div.html(tooltip_content)
-    .style("left", (x) + "px")
-    .style("top", (y - 28) + "px")
+function translateTooltips(x, y) {
+    div.html(tooltip_content)
+        .style("left", (x) + "px")
+        .style("top", (y - 28) + "px")
 }
 
 function chart(data) {
@@ -143,8 +142,9 @@ function chart(data) {
                         return f.party == party
                     })[0]
 
-                    var tooltip_content = `<div class="tooltip"><p class="bold">` + partyData.full_name + `</p><p>Nominated ` + partyData.num_cand + ` candidates</p><p>Won ` + partyData.seats_won + ` seats</p><p>Won ` + formatNumber(partyData.pop_vote) + ` Votes</p><p>` + partyData.vote_share + ` vote share</p></div> d.close`
-                    $(this).addClass("hover")
+
+
+                    var tooltip_content = `<p class="bold">` + partyData.full_name + `</p><p>Nominated ` + partyData.num_cand + ` candidates</p><p>Won ` + partyData.seats_won + ` seats</p><p>Won ` + formatNumber(partyData.pop_vote) + ` votes</p><p>` + partyData.vote_share + ` vote share</p>`
 
                     div.transition()
                         .duration(500)
@@ -175,6 +175,17 @@ $(document).ready(function () {
 
     // Scrollmagic
     var controller = new ScrollMagic.Controller();
+
+    var revealP = new ScrollMagic.Scene({
+            triggerElement: ".reveal1",
+            triggerHook: 0.5, // show, when scrolled 10% into view
+            offset: 250
+        })
+        .setClassToggle(".reveal1", "visible") // add class to reveal
+        .addIndicators({
+            name: "reveal text"
+        }) // add indicators (requires plugin)
+        .addTo(controller);
 
     var pinChart = new ScrollMagic.Scene({
             triggerElement: ".resultsViz",
