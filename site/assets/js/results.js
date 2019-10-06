@@ -143,8 +143,7 @@ function chart(data) {
                         return f.party == party
                     })[0]
 
-                    var tooltip_content = `<div class="tooltip"><p class="bold">` + partyData.full_name + `</p><p>Nominated ` + partyData.num_cand + ` candidates</p><p>Won ` + partyData.seats_won + ` seats</p><p>Won ` + formatNumber(partyData.pop_vote) + `
- Votes</p><p>` + partyData.vote_share + ` vote share</p></div> d.close`
+                    var tooltip_content = `<div class="tooltip"><p class="bold">` + partyData.full_name + `</p><p>Nominated ` + partyData.num_cand + ` candidates</p><p>Won ` + partyData.seats_won + ` seats</p><p>Won ` + formatNumber(partyData.pop_vote) + ` Votes</p><p>` + partyData.vote_share + ` vote share</p></div> d.close`
                     $(this).addClass("hover")
 
                     div.transition()

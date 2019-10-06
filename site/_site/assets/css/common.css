@@ -59,6 +59,7 @@ ol {
     background-color: #347EBF;
     line-height: 1.5;
     width: 100%;
+    z-index: -1;
 }
 
 .solid.alt {
@@ -113,18 +114,9 @@ ol {
 .buffer {
     flex: none;
     width: 100%;
+    z-index: -100;
 }
 
-#banner::after {
-    content: "";
-    display: block;
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%23982323%3B' /%3E%3C/svg%3E");
-    height: 90px;
-    width: 100%;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    transform: scale(-1, -1) translate(0, -90px);
-}
 .image {
     border-style: solid;
     border-color: white;
@@ -180,9 +172,7 @@ ol {
     text-transform: uppercase;
     line-height: 1.5;
     margin: auto;
-    
 }
-
 
 .header {
     margin: auto;
@@ -211,3 +201,14 @@ ol {
 text {
     font-family: 'Farro', sans-serif;
 }
+
+#banner::after {
+    content: "";
+    display: block;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%23982323%3B' /%3E%3C/svg%3E");
+    height: 90px;
+    width: 100%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    transform: scale(1, -1) translate(0, -90px);
+    z-index: 100;

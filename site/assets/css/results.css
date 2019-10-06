@@ -1,11 +1,7 @@
 .resultsViz {
     height: 100vh;
-    width: 100%;
     max-width: 1000px;
-    position: absolute;
-    overflow: hidden;
-    right: 50%;
-    transform: translate(50%, 0);
+    margin: 0 10%;
 }
 
 section {
@@ -21,7 +17,14 @@ section {
 }
 
 #one::before {
-    background-image: none;
+    content: "";
+    display: block;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%23E2D8B2%3B' /%3E%3C/svg%3E");
+    height: 90px;
+    width: 100%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    transform: scale(-1, 1) translate(0, -90px);
 }
 
 #one {
@@ -55,20 +58,20 @@ p {
 }
 
 .tick line {
-    z-index: -1;   
+    z-index: -1;
 }
 
-div.tooltip {	
-    position: absolute;			
-    text-align: center;			
-    width: 170px;					
-    height: 100px;					
-    padding: 2px;				
-    font-size: 0.9em;	
-    background: lightsteelblue;	
-    border: 0px;		
-    border-radius: 8px;			
-    pointer-events: none;			
+div.tooltip {
+    position: absolute;
+    text-align: center;
+    width: 170px;
+    height: 100px;
+    padding: 2px;
+    font-size: 0.9em;
+    background: lightsteelblue;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
 }
 
 div.tooltip::first-child {
@@ -82,4 +85,32 @@ div.tooltip::first-child {
     stroke-width: 5px;
     stroke: #e9ff3d;
     z-index: 10;
+}
+
+#headerImage img {
+    width: 100%
+}
+
+#headerImage::after {
+    height: 0;
+}
+
+#headerImage {
+    height: 65vw;
+}
+
+#headerImage p {
+    margin-top: 0;
+}
+
+#headerImage div {
+    position: absolute;
+    top: 0;
+}
+
+.graphContainer {
+    width: 100%;
+    max-width: 1000px;
+    position: absolute;
+    overflow: hidden;
 }
