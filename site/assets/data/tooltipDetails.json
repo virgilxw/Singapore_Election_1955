@@ -1,0 +1,58 @@
+[
+  {
+    "party": "PP",
+    "full_name": "Progressive Party",
+    "pop_vote": 38695,
+    "vote_share": "27.85%",
+    "seats_won": 4,
+    "num_cand": 22
+  },
+  {
+    "party": "DP",
+    "full_name": "Democratic Party",
+    "pop_vote": 32115,
+    "vote_share": "25.32%",
+    "seats_won": 2,
+    "num_cand": 20
+  },
+  {
+    "party": "SLF",
+    "full_name": "Labour Front",
+    "pop_vote": 42300,
+    "vote_share": "21.52%",
+    "seats_won": 10,
+    "num_cand": 17
+  },
+  {
+    "party": "Ind.",
+    "full_name": "Independents",
+    "pop_vote": 15098,
+    "vote_share": "12.66%",
+    "seats_won": 3,
+    "num_cand": 10
+  },
+  {
+    "party": "SA",
+    "full_name": "Singapore Alliance",
+    "pop_vote": 13157,
+    "vote_share": "6.33%",
+    "seats_won": 3,
+    "num_cand": 5
+  },
+  {
+    "party": "PAP",
+    "full_name": "People's Action Party",
+    "pop_vote": 13634,
+    "vote_share": "5.06%",
+    "seats_won": 3,
+    "num_cand": 4
+  },
+  {
+    "party": "LP",
+    "full_name": "Labour Party",
+    "pop_vote": 1325,
+    "vote_share": "1.27%",
+    "seats_won": 0,
+    "num_cand": 1
+  }
+]

@@ -43,7 +43,6 @@ p {
 
 .x-axis text {
     font: 18px 'Muli', sans-serif;
-    ;
     margin-top: 25px;
     color: black;
 }
@@ -51,7 +50,7 @@ p {
 .chartTitle {
     text-align: center;
     margin: 0 auto;
-    top:50px;
+    top: 50px;
 }
 
 .tick line {
@@ -61,12 +60,25 @@ p {
 div.tooltip {	
     position: absolute;			
     text-align: center;			
-    width: 60px;					
-    height: 28px;					
+    width: 170px;					
+    height: 100px;					
     padding: 2px;				
-    font: 12px sans-serif;		
+    font-size: 0.9em;	
     background: lightsteelblue;	
     border: 0px;		
     border-radius: 8px;			
     pointer-events: none;			
+}
+
+div.tooltip::first-child {
+    font-weight: bold;
+}
+
+.hover {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    stroke-width: 5px;
+    stroke: #e9ff3d;
+    z-index: 10;
 }

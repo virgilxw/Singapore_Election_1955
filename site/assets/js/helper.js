@@ -5,3 +5,7 @@ function getColor(i) {
 function getFullPartyName(i) {
     return i == "PP" ? "Progressive Party" : i == "DP" ? "Democratic Party" : i == "SLF" ? "Labour Front" : i == "SA" ? "Singapore Alliance" : i == "PAP" ? "People's Action Party" : i == "LP" ? "Labour Party" : i == "Ind." ? "Independent" : i;
 }
+
+function formatNumber(num) {
+  return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+}

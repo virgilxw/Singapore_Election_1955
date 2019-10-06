@@ -1,3 +1,29 @@
+function generateTooltips(rect) {
+    var party = $(rect).parent().attr("party");
+    var partyData = d.filter(function (f, i) {
+        return f.party == party
+    })[0];
+
+    var tooltip_content = `<div class="tooltip"><p class="bold">` + partyData.full_name + `</p><p>Nominated ` + partyData.num_cand + ` candidates</p><p>Won ` + partyData.seats_won + ` seats</p><p>Won ` + formatNumber(partyData.pop_vote) + `
+ votes</p><p>` + partyData.vote_share + ` vote share</p></div> d.close`
+    
+    $(this).addClass("hover")
+
+    div.transition()
+        .duration(500)
+        .style("opacity", 0);
+    div.transition()
+        .duration(200)
+        .style("opacity", .9);
+
+}
+
+function translateTooltips(x,y) {
+div.html(tooltip_content)
+    .style("left", (x) + "px")
+    .style("top", (y - 28) + "px")
+}
+
 function chart(data) {
 
 
@@ -105,41 +131,44 @@ function chart(data) {
             return $(this).attr("height") < 25
         }).remove()
 
-
         // Define the div for the tooltip
         var div = d3.select("body").append("div")
             .attr("class", "tooltip")
             .style("opacity", 0);
+        d3.json("assets/data/tooltipDetails.json").then(function (d) {
+            $(".layer rect").on("mouseover", function (e) {
 
+                    var party = $(this).parent().attr("party")
+                    var partyData = d.filter(function (f, i) {
+                        return f.party == party
+                    })[0]
 
-        $(".layer rect").on("mouseover", function (d, i) {
-            div.transition()
-                .duration(500)
-                .style("opacity", 0);
-            div.transition()
-                .duration(200)
-                .style("opacity", .9);
+                    var tooltip_content = `<div class="tooltip"><p class="bold">` + partyData.full_name + `</p><p>Nominated ` + partyData.num_cand + ` candidates</p><p>Won ` + partyData.seats_won + ` seats</p><p>Won ` + formatNumber(partyData.pop_vote) + `
+ Votes</p><p>` + partyData.vote_share + ` vote share</p></div> d.close`
+                    $(this).addClass("hover")
 
-            div.html(
-                '<div class="tooltip"><p>test</p></div> d.close')
-            .style("left", (d.pageX)+ "px")
-            .style("top", (d.pageY - 28)+ "px")
+                    div.transition()
+                        .duration(500)
+                        .style("opacity", 0);
+                    div.transition()
+                        .duration(200)
+                        .style("opacity", .9);
+                    div.html(tooltip_content)
+                        .style("left", (e.pageX) + "px")
+                        .style("top", (e.pageY - 28) + "px")
+                })
+                .on("mousemove", function (e) {
+                    div.style("left", (e.pageX) + "px")
+                        .style("top", (e.pageY - 28) + "px")
+                })
+                .on("mouseout", function (e) {
+                    div.transition()
+                        .duration(500)
+                        .style("opacity", 0);
+                    $(this).removeClass("hover")
+                });
         })
-        .on("mouseout", function(d) {		
-            div.transition()		
-                .duration(500)		
-                .style("opacity", 0);	
-        });
     })
-}
-
-
-// Create Event Handlers for mouse
-function handleMouseOver(d, i) { // Add interactivity
-
-
-    console.log(d)
-    console.log(i)
 }
 
 $(document).ready(function () {
