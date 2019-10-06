@@ -47,7 +47,7 @@ function chart(data) {
     })
 
     y.domain([0, d3.max(data, d => d.total)]).nice();
-    
+
     x.domain(data.map(d => d.alignment));
 
     svg.selectAll(".y-axis").transition().duration(speed)
@@ -64,7 +64,7 @@ function chart(data) {
     group.enter().append("g").classed("layer", true)
         .attr("fill", d => getColor(d.key))
         .attr("party", d => d.key)
-        .text("test")
+        .text("Something went wrong")
 
 
     var party_label = svg.selectAll("g.layer").selectAll(".text")
@@ -76,7 +76,6 @@ function chart(data) {
         .append("text")
         .text(function (d) {
             return $(this).parent().attr("party")
-            return "tet"
         })
         .classed("party_name", true)
         .transition().duration(speed)
@@ -96,6 +95,8 @@ function chart(data) {
         .attr("x", d => x(d.data.alignment))
         .attr("y", d => y(d[1]))
         .attr("height", d => y(d[0]) - y(d[1]))
+        .attr("stroke-width", "1")
+        .attr("stroke", "black")
 
     // Remove empty rects
     $(document).ready(function () {
@@ -103,9 +104,42 @@ function chart(data) {
         $("text").filter(function () {
             return $(this).attr("height") < 25
         }).remove()
-        
-        $(".y-axis .domain").remove()
+
+
+        // Define the div for the tooltip
+        var div = d3.select("body").append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0);
+
+
+        $(".layer rect").on("mouseover", function (d, i) {
+            div.transition()
+                .duration(500)
+                .style("opacity", 0);
+            div.transition()
+                .duration(200)
+                .style("opacity", .9);
+
+            div.html(
+                '<div class="tooltip"><p>test</p></div> d.close')
+            .style("left", (d.pageX)+ "px")
+            .style("top", (d.pageY - 28)+ "px")
+        })
+        .on("mouseout", function(d) {		
+            div.transition()		
+                .duration(500)		
+                .style("opacity", 0);	
+        });
     })
+}
+
+
+// Create Event Handlers for mouse
+function handleMouseOver(d, i) { // Add interactivity
+
+
+    console.log(d)
+    console.log(i)
 }
 
 $(document).ready(function () {
