@@ -1,33 +1,38 @@
-function generateTooltips(data, rect, div) {
-    var party = rect.parent().attr("party");
-    var partyData = data.filter(function (f, i) {
-        return f.party == party
-    })[0];
-
-    var tooltip_content = `<p class="bold">` + partyData.full_name + `</p><p>Nominated ` + partyData.num_cand + ` candidates</p><p>Won ` + partyData.seats_won + ` seats</p><p>Won ` + formatNumber(partyData.pop_vote) + ` votes</p><p>` + partyData.vote_share + ` vote share</p>`
-
-    console.log(tooltip_content)
-    
-    $(this).addClass("hover")
-    div.html(tooltip_content);
-
-    div.transition()
-        .duration(500)
-        .style("opacity", 0);
-    div.transition()
-        .duration(200)
-        .style("opacity", .9);
-
+function getRect(partyName) {
+    return $(".layer[party='" + partyName + "'] rect")
 }
 
-function translateTooltips(x, y, div) {
-    div.style("left", (x) + "px")
+function generateTooltips(partyRect, detailDiv) {
+    // partyRect accepts $(".layer[party='PAP'] rect")
+    // position takes two values: mousePos or rectMid
+
+    d3.json("assets/data/tooltipDetails.json").then(function (data) {
+
+        var party = partyRect.parent().attr("party");
+        var partyData = data.filter(function (f, i) {
+            return f.party == party
+        })[0];
+
+        var tooltip_content = `<p class="bold">` + partyData.full_name + `</p><p>Nominated ` + partyData.num_cand + ` candidates</p><p>Won ` + partyData.seats_won + ` seats</p><p>Won ` + formatNumber(partyData.pop_vote) + ` votes</p><p>` + partyData.vote_share + ` vote share</p>`
+
+        $(this).addClass("hover")
+        detailDiv.html(tooltip_content);
+
+        detailDiv.transition()
+            .duration(500)
+            .style("opacity", 0);
+        detailDiv.transition()
+            .duration(200)
+            .style("opacity", .9);
+    });
+}
+
+function translateTooltips(x, y) {
+    d3.select("div#hoverTooltip").style("left", (x) + "px")
         .style("top", (y - 28) + "px")
 }
 
 function chart(data) {
-
-
     var speed = 1;
     // Generate align
     var align = []
@@ -134,23 +139,59 @@ function chart(data) {
         // Define the div for the tooltip
         var div = d3.select("body").append("div")
             .attr("class", "tooltip")
+            .attr("id", "hoverTooltip")
             .style("opacity", 0);
-        d3.json("assets/data/tooltipDetails.json").then(function (d) {
-            $(".layer rect").on("mouseover", function (e) {
-                    generateTooltips(d, $(this), div);
-                    translateTooltips(e.pageX, e.pageY, div)
-                })
-                .on("mousemove", function (e) {
-                    translateTooltips(e.pageX, e.pageY, div)
-                })
-                .on("mouseout", function (e) {
-                    div.transition()
-                        .duration(500)
-                        .style("opacity", 0);
-                    $(this).removeClass("hover")
-                });
-        })
+
+        $(".layer rect").on("mouseover", function (e) {
+                generateTooltips($(this), div);
+                translateTooltips(e.pageX, e.pageY)
+            })
+            .on("mousemove", function (e) {
+                translateTooltips(e.pageX, e.pageY)
+            })
+            .on("mouseout", function (e) {
+                div.transition()
+                    .duration(500)
+                    .style("opacity", 0);
+                $(this).removeClass("hover")
+            });
     })
+}
+
+function rightWingPartyDetails() {
+    var PPdiv = d3.select(".resultsViz").append("div")
+        .classed("tooltip", true)
+        .classed("PPtooltip", true)
+        .style("opacity", 1);
+
+    var PPrect = $(".layer[party='PP'] rect")
+
+    generateTooltips(PPrect, PPdiv)
+
+    var xPos = +PPrect.attr("x");
+    var yPos = +PPrect.attr("y") + 100;
+
+    PPdiv.style("top", yPos + "px")
+        .style("left", xPos + "px")
+
+    console.log(PPrect.attr("y"))
+
+    var DPdiv = d3.select(".resultsViz").append("div")
+        .classed("tooltip", true)
+        .classed("DPtooltip", true)
+        .style("opacity", 1);
+
+    var DPrect = $(".layer[party='DP'] rect")
+
+    generateTooltips(DPrect, DPdiv)
+
+    console.log(DPrect)
+
+    var xPos = +DPrect.attr("x");
+    var yPos = +DPrect.attr("y") + 100;
+
+    DPdiv.style("top", yPos + "px")
+        .style("left", xPos + "px")
 }
 
 $(document).ready(function () {
@@ -183,14 +224,15 @@ $(document).ready(function () {
 
     var rightTooltips = new ScrollMagic.Scene({
             triggerElement: ".rightTooltips",
-            duration: 500,
-            triggerHook: 0
+            triggerHook: 0.5
         })
-        .on("enter", function(e) {
-            console.log("log");
+        .on("enter", rightWingPartyDetails)
+        .on("leave", function () {
+            $(".PPtooltip").remove();
+            $(".DPtooltip").remove();
         })
         .addIndicators({
-            name: "Pin Chart"
+            name: "rightTooltips"
         })
         .addTo(controller);
 });
