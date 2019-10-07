@@ -52,7 +52,6 @@ function chart(data) {
         .append("svg")
         .attr("height", height)
         .attr("width", width)
-        .attr("transform", `translate(${margin.left},${margin.top})`);
 
     var x = d3.scaleBand()
         .rangeRound([margin.left, width - margin.right])
@@ -162,23 +161,36 @@ $(document).ready(function () {
 
     var revealP = new ScrollMagic.Scene({
             triggerElement: ".reveal1",
-            triggerHook: 0.5, // show, when scrolled 10% into view
+            triggerHook: 0.5,
             offset: 250
         })
-        .setClassToggle(".reveal1", "visible") // add class to reveal
+        .setClassToggle(".reveal1", "visible")
         .addIndicators({
             name: "reveal text"
-        }) // add indicators (requires plugin)
+        })
         .addTo(controller);
 
     var pinChart = new ScrollMagic.Scene({
-            triggerElement: ".resultsViz",
+            triggerElement: ".graphContainer",
             duration: 500,
             triggerHook: 0
         })
-        .setPin(".resultsViz")
+        .setPin(".graphContainer")
         .addIndicators({
             name: "Pin Chart"
-        }) // add indicators (requires plugin)
+        })
+        .addTo(controller);
+
+    var rightTooltips = new ScrollMagic.Scene({
+            triggerElement: ".rightTooltips",
+            duration: 500,
+            triggerHook: 0
+        })
+        .on("enter", function(e) {
+            console.log("log");
+        })
+        .addIndicators({
+            name: "Pin Chart"
+        })
         .addTo(controller);
 });
