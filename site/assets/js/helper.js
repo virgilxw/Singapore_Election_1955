@@ -1,5 +1,5 @@
 function getColor(i) {
-    return i == "PP" ? "#DA70D6" : i == "DP" ? "#AFEEEE" : i == "SLF" ? "#8B4513" : i == "Ind." ? "#708090" : i == "SA" ? "#191970" : i == "PAP" ? "#F5F5F5" : i == "LP" ? "#8B0000" : i == "British Appointee" ? "#00000" : "#00FF00"
+    return i == "PP" ? "#DA70D6" : i == "DP" ? "#5F9EA0" : i == "SLF" ? "#8B4513" : i == "Ind." ? "#2F4F4F" : i == "SA" ? "#191970" : i == "PAP" ? "#FFFAFA" : i == "LP" ? "#DC143C" : i == "British Appointee" ? "#00000" : "#00FF00"
 }
 
 function getFullPartyName(i) {
@@ -7,5 +7,5 @@ function getFullPartyName(i) {
 }
 
 function formatNumber(num) {
-  return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 }

@@ -55,29 +55,6 @@ p {
     z-index: -1;
 }
 
-div.tooltip {
-    position: absolute;
-    text-align: center;
-    width: 170px;
-    height: 100px;
-    padding: 2px;
-    font-size: 0.9em;
-    background: lightsteelblue;
-    border: 0px;
-    border-radius: 8px;
-    pointer-events: none;
-}
-
-div.tooltip::first-child {
-    font-weight: bold;
-    font-size: 1em;
-}
-
-div.tooltip p {
-    padding: 0;
-    font-size: 0.9em;
-}
-
 .hover {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -114,7 +91,7 @@ div.tooltip p {
     width: 100%;
     position: absolute;
     overflow: hidden;
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
@@ -124,7 +101,7 @@ div.tooltip p {
     max-width: 1000px;
     width: 100%;
     margin: 0 10%;
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
@@ -145,4 +122,37 @@ div.tooltip p {
     -ms-transform: none;
     -o-transform: none;
     transform: none;
+}
+
+div.tooltip {
+    position: absolute;
+    text-align: center;
+    width: 170px;
+    height: 100px;
+    padding: 2px;
+    font-size: 0.9em;
+    background-color: lightsteelblue;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+div.tooltip p {
+    padding: 0;
+    font-size: 0.9em;
+}
+
+div.rightDetail {
+    border-style: solid;
+    border-width: 3px;
+    border-color: black;
+    width: 180px;
+    height: 140px;
+    font-size: 1em;
+}
+
+div.rightDetail .bold {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 10px;
 }

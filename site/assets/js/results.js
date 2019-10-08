@@ -159,36 +159,43 @@ function chart(data) {
 }
 
 function rightWingPartyDetails() {
-    var PPdiv = d3.select(".resultsViz").append("div")
+
+    // Fade out non-left wing parties
+    $(".layer").attr("opacity", 0.5)
+
+    var PPdiv = d3.select(".graphContainer").append("div")
         .classed("tooltip", true)
-        .classed("PPtooltip", true)
+        .classed("rightDetail", true)
         .style("opacity", 1);
 
     var PPrect = $(".layer[party='PP'] rect")
+        .attr("stroke-width", 3);
+
+    $(".layer[party='PP']").attr("opacity", 1)
+
 
     generateTooltips(PPrect, PPdiv)
 
-    var xPos = +PPrect.attr("x");
-    var yPos = +PPrect.attr("y") + 100;
+    var xPos = +PPrect.attr("x") + +PPrect.width();
+    var yPos = +PPrect.attr("y") + 50;
 
     PPdiv.style("top", yPos + "px")
         .style("left", xPos + "px")
 
-    console.log(PPrect.attr("y"))
-
-    var DPdiv = d3.select(".resultsViz").append("div")
+    var DPdiv = d3.select(".graphContainer").append("div")
         .classed("tooltip", true)
-        .classed("DPtooltip", true)
+        .classed("rightDetail", true)
         .style("opacity", 1);
 
     var DPrect = $(".layer[party='DP'] rect")
+        .attr("stroke-width", 3);
+
+    $(".layer[party='DP']").attr("opacity", 1);
 
     generateTooltips(DPrect, DPdiv)
 
-    console.log(DPrect)
-
-    var xPos = +DPrect.attr("x");
-    var yPos = +DPrect.attr("y") + 100;
+    var xPos = +PPrect.attr("x") + +PPrect.width();
+    var yPos = +DPrect.attr("y") + 50;
 
     DPdiv.style("top", yPos + "px")
         .style("left", xPos + "px")
@@ -228,11 +235,14 @@ $(document).ready(function () {
         })
         .on("enter", rightWingPartyDetails)
         .on("leave", function () {
-            $(".PPtooltip").remove();
-            $(".DPtooltip").remove();
+            $(".rightDetail").remove();
+            $(".layer").attr("opacity", 1);
+            $(".layer rect").attr("stroke-width", "1");
         })
         .addIndicators({
             name: "rightTooltips"
         })
         .addTo(controller);
+
+
 });
