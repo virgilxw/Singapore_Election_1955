@@ -15,15 +15,15 @@ function generateTooltips(partyRect, detailDiv) {
 
         var tooltip_content = `<p class="bold">` + partyData.full_name + `</p><p>Nominated ` + partyData.num_cand + ` candidates</p><p>Won ` + partyData.seats_won + ` seats</p><p>Won ` + formatNumber(partyData.pop_vote) + ` votes</p><p>` + partyData.vote_share + ` vote share</p>`
 
-        $(this).addClass("hover")
-        detailDiv.html(tooltip_content);
+        detailDiv.html(tooltip_content)
+        partyRect.attr("stroke-width", 3);
 
         detailDiv.transition()
             .duration(500)
             .style("opacity", 0);
         detailDiv.transition()
             .duration(200)
-            .style("opacity", .9);
+            .style("opacity", 1);
     });
 }
 
@@ -150,6 +150,8 @@ function chart(data) {
                 translateTooltips(e.pageX, e.pageY)
             })
             .on("mouseout", function (e) {
+                $(".layer rect").attr("stroke-width", "1");
+
                 div.transition()
                     .duration(500)
                     .style("opacity", 0);
@@ -161,7 +163,18 @@ function chart(data) {
 function rightWingPartyDetails() {
 
     // Fade out non-left wing parties
-    $(".layer").attr("opacity", 0.5)
+
+    $.each($(".layer"), function (key, value) {
+
+        if ($(value).attr("party") != "PP") {
+
+            if ($(value).attr("party") != "DP") {
+                TweenMax.to(value, 1, {
+                    opacity: 0.3
+                })
+            }
+        }
+    })
 
     var PPdiv = d3.select(".graphContainer").append("div")
         .classed("tooltip", true)
@@ -184,13 +197,14 @@ function rightWingPartyDetails() {
 
     var DPdiv = d3.select(".graphContainer").append("div")
         .classed("tooltip", true)
-        .classed("rightDetail", true)
-        .style("opacity", 1);
+        .classed("rightDetail", true);
 
     var DPrect = $(".layer[party='DP'] rect")
         .attr("stroke-width", 3);
 
     $(".layer[party='DP']").attr("opacity", 1);
+
+
 
     generateTooltips(DPrect, DPdiv)
 
@@ -198,6 +212,43 @@ function rightWingPartyDetails() {
     var yPos = +DPrect.attr("y") + 50;
 
     DPdiv.style("top", yPos + "px")
+        .style("left", xPos + "px")
+}
+
+function labourWins() {
+
+    $(".rightDetail").remove();
+    TweenMax.to($(".layer"), 1, {
+        opacity: 1
+    });
+    $(".layer rect").attr("stroke-width", "1");
+
+    $.each($(".layer"), function (key, value) {
+
+        if ($(value).attr("party") != "SLF") {
+            TweenMax.to(value, 1, {
+                opacity: 0.3
+            })
+        }
+    })
+
+    var LFdiv = d3.select(".graphContainer").append("div")
+        .classed("tooltip", true)
+        .classed("rightDetail", true)
+        .style("opacity", 1);
+
+    var LFrect = $(".layer[party='SLF'] rect")
+        .attr("stroke-width", 3);
+
+    $(".layer[party='SLF']").attr("opacity", 1)
+
+
+    generateTooltips(LFrect, LFdiv)
+
+    var xPos = +LFrect.attr("x") + +LFrect.width();
+    var yPos = +LFrect.attr("y") + 50;
+
+    LFdiv.style("top", yPos + "px")
         .style("left", xPos + "px")
 }
 
@@ -231,12 +282,14 @@ $(document).ready(function () {
 
     var rightTooltips = new ScrollMagic.Scene({
             triggerElement: ".rightTooltips",
-            triggerHook: 0.5
+            triggerHook: 0.5,
         })
         .on("enter", rightWingPartyDetails)
         .on("leave", function () {
             $(".rightDetail").remove();
-            $(".layer").attr("opacity", 1);
+            TweenMax.to($(".layer"), 1, {
+                opacity: 1
+            });
             $(".layer rect").attr("stroke-width", "1");
         })
         .addIndicators({
@@ -244,5 +297,20 @@ $(document).ready(function () {
         })
         .addTo(controller);
 
-
+    var LabourWins = new ScrollMagic.Scene({
+            triggerElement: ".labourWins",
+            triggerHook: 0.5
+        })
+        .on("enter", labourWins)
+        .on("leave end", function () {
+            $(".rightDetail").remove();
+            TweenMax.to($(".layer"), 1, {
+                opacity: 1
+            });
+            $(".layer rect").attr("stroke-width", "1");
+        })
+        .addIndicators({
+            name: "labourWins"
+        })
+        .addTo(controller);
 });
