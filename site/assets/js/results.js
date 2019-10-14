@@ -40,7 +40,7 @@ function chart(data) {
         align.push(d.alignment)
     })
 
-    var parties = Object.keys(data[0]).slice(2, )
+    var parties = Object.keys(data[0]).slice(1, )
 
     //Generate graph
     var margin = ({
