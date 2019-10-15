@@ -1,8 +1,8 @@
 [{
         "alignment": "Left-of-Center Parties",
-        "SLF": 0,
+        "SLF": 10,
         "PAP": 3,
-        "LP": 10,
+        "LP": 0,
         "Ind.": 0,
         "PP": 0,
         "DP": 0,
@@ -27,4 +27,4 @@
         "DP": 2,
         "SA": 3
     }
-]   
+]

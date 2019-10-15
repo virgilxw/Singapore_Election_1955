@@ -33,7 +33,7 @@ function translateTooltips(x, y) {
 }
 
 function chart(data) {
-    var speed = 1;
+    var speed = 475;
     // Generate align
     var align = []
     data.forEach(function (d) {
@@ -131,7 +131,6 @@ function chart(data) {
 
     // Remove empty rects
     $(document).ready(function () {
-        $("[height=0]").remove()
         $("text").filter(function () {
             return $(this).attr("height") < 25
         }).remove()
@@ -157,6 +156,85 @@ function chart(data) {
                     .style("opacity", 0);
                 $(this).removeClass("hover")
             });
+    })
+}
+
+function updateChart(JSON) {
+    d3.json(JSON).then(function (data) {
+        var speed = 375;
+        // Generate align
+        var align = []
+        data.forEach(function (d) {
+            align.push(d.alignment)
+        })
+
+        var parties = Object.keys(data[0]).slice(1, )
+
+        //Generate graph
+        var margin = ({
+                top: 25,
+                right: 50,
+                bottom: 50,
+                left: 50
+            }),
+            height = +$(".resultsViz").height() - margin.top - margin.bottom,
+            width = +$(".resultsViz").width() - margin.left - margin.right
+
+        // Create chart
+        const svg = d3.select(".resultsViz")
+            .select("svg")
+
+        var x = d3.scaleBand()
+            .rangeRound([margin.left, width - margin.right])
+            .padding(0.5)
+
+        var y = d3.scaleLinear()
+            .rangeRound([height - margin.bottom, margin.top])
+
+        var xAxis = svg.select("g.x-axis")
+            .attr("transform", `translate(0,${height - margin.bottom})`)
+
+        var yAxis = svg.append("g")
+            .attr("transform", `translate(${width-margin.right},0)`)
+            .attr("class", "y-axis")
+
+        data.forEach(function (d) {
+            d.total = d3.sum(parties, k => +d[k])
+        })
+
+        y.domain([0, d3.max(data, d => d.total)]).nice();
+
+        x.domain(data.map(d => d.alignment));
+
+        svg.selectAll(".y-axis").transition().duration(speed)
+            .call(d3.axisLeft(y).ticks(10).tickSize(width - margin.left - margin.right))
+
+        svg.selectAll(".x-axis").transition().duration(speed)
+            .call(d3.axisBottom(x))
+
+        var group = svg.selectAll("g.layer").data(d3.stack().keys(parties)(data))
+
+        //Remove empty elements
+        group.exit().remove()
+
+        group.enter().select("g").classed("layer", true)
+            .attr("fill", d => getColor(d.key))
+            .attr("party", d => d.key)
+
+        var bars = svg.selectAll("g.layer").selectAll("rect")
+            .data(d => d, e => e.data.align);
+
+        bars.exit().remove();
+
+        bars.enter().append("rect")
+            .attr("width", x.bandwidth())
+            .merge(bars)
+            .transition().duration(speed)
+            .attr("x", d => x(d.data.alignment))
+            .attr("y", d => y(d[1]))
+            .attr("height", d => y(d[0]) - y(d[1]))
+            .attr("stroke-width", "1")
+            .attr("stroke", "black")
     })
 }
 
@@ -217,31 +295,7 @@ function rightWingPartyDetails() {
 
 function labourWins() {
 
-    $(".rightDetail").remove();
-    TweenMax.to($(".layer"), 1, {
-        opacity: 1
-    });
-    $(".layer rect").attr("stroke-width", "1");
-
-    $.each($(".layer"), function (key, value) {
-
-        if ($(value).attr("party") != "SLF") {
-            TweenMax.to(value, 1, {
-                opacity: 0.3
-            })
-        }
-    })
-
-    var LFdiv = d3.select(".graphContainer").append("div")
-        .classed("tooltip", true)
-        .classed("rightDetail", true)
-        .style("opacity", 1);
-
-    var LFrect = $(".layer[party='SLF'] rect")
-        .attr("stroke-width", 3);
-
-    $(".layer[party='SLF']").attr("opacity", 1)
-
+    updateChart("assets/data/resultsSeats.json")
 
     generateTooltips(LFrect, LFdiv)
 
@@ -303,6 +357,8 @@ $(document).ready(function () {
         })
         .on("enter", labourWins)
         .on("leave end", function () {
+            updateChart("assets/data/resultsPopVote.json")
+
             $(".rightDetail").remove();
             TweenMax.to($(".layer"), 1, {
                 opacity: 1
