@@ -131,6 +131,7 @@ function chart(data) {
 
     // Remove empty rects
     $(document).ready(function () {
+        $("[height=0]").remove()
         $("text").filter(function () {
             return $(this).attr("height") < 25
         }).remove()
@@ -191,13 +192,6 @@ function updateChart(JSON) {
         var y = d3.scaleLinear()
             .rangeRound([height - margin.bottom, margin.top])
 
-        var xAxis = svg.select("g.x-axis")
-            .attr("transform", `translate(0,${height - margin.bottom})`)
-
-        var yAxis = svg.append("g")
-            .attr("transform", `translate(${width-margin.right},0)`)
-            .attr("class", "y-axis")
-
         data.forEach(function (d) {
             d.total = d3.sum(parties, k => +d[k])
         })
@@ -224,11 +218,13 @@ function updateChart(JSON) {
         var bars = svg.selectAll("g.layer").selectAll("rect")
             .data(d => d, e => e.data.align);
 
+        console.log(bars)
+
         bars.exit().remove();
 
         bars.enter().append("rect")
-            .attr("width", x.bandwidth())
             .merge(bars)
+            .attr("width", x.bandwidth())
             .transition().duration(speed)
             .attr("x", d => x(d.data.alignment))
             .attr("y", d => y(d[1]))
@@ -296,6 +292,13 @@ function rightWingPartyDetails() {
 function labourWins() {
 
     updateChart("assets/data/resultsSeats.json")
+
+    var LFdiv = d3.select(".graphContainer").append("div")
+        .classed("tooltip", true)
+        .classed("rightDetail", true);
+
+    var LFrect = $(".layer[party='LP'] rect")
+        .attr("stroke-width", 3);
 
     generateTooltips(LFrect, LFdiv)
 
