@@ -131,7 +131,6 @@ function chart(data) {
 
     // Remove empty rects
     $(document).ready(function () {
-        $("[height=0]").remove()
         $("text").filter(function () {
             return $(this).attr("height") < 25
         }).remove()
@@ -189,6 +188,8 @@ function updateChart(JSON) {
             .rangeRound([margin.left, width - margin.right])
             .padding(0.5)
 
+        x.domain(data.map(d => d.alignment));
+
         var y = d3.scaleLinear()
             .rangeRound([height - margin.bottom, margin.top])
 
@@ -198,46 +199,42 @@ function updateChart(JSON) {
 
         y.domain([0, d3.max(data, d => d.total)]).nice();
 
-        x.domain(data.map(d => d.alignment));
-
-        svg.selectAll(".y-axis").transition().duration(speed)
-            .call(d3.axisLeft(y).ticks(10).tickSize(width - margin.left - margin.right))
-
         svg.selectAll(".x-axis").transition().duration(speed)
             .call(d3.axisBottom(x))
 
-        var group = svg.selectAll("g.layer").data(d3.stack().keys(parties)(data))
+        var group = svg.selectAll("g.layer").data(d3.stack().keys(parties)(data), d => d.key)
 
         //Remove empty elements
         group.exit().remove()
 
-        group.enter().select("g").classed("layer", true)
+        group.enter().select("g")
+            .classed("layer", true)
             .attr("fill", d => getColor(d.key))
             .attr("party", d => d.key)
 
-        var bars = svg.selectAll("g.layer").selectAll("rect")
-            .data(d => d, e => e.data.align);
+        svg.selectAll(".y-axis").transition().duration(speed)
+            .call(d3.axisLeft(y).ticks(10).tickSize(width - margin.left - margin.right))
 
-        console.log(bars)
+        var bars = svg.selectAll("g.layer").selectAll("rect").data(d => d, e => e.data.align);
 
-        bars.exit().remove();
+        bars.exit().remove()
 
         bars.enter().append("rect")
-            .merge(bars)
             .attr("width", x.bandwidth())
-            .transition().duration(speed)
+            .merge(bars)
+            .transition()
+            .duration(800)
             .attr("x", d => x(d.data.alignment))
             .attr("y", d => y(d[1]))
             .attr("height", d => y(d[0]) - y(d[1]))
             .attr("stroke-width", "1")
             .attr("stroke", "black")
-    })
+    });
 }
 
 function rightWingPartyDetails() {
 
     // Fade out non-left wing parties
-
     $.each($(".layer"), function (key, value) {
 
         if ($(value).attr("party") != "PP") {
@@ -291,13 +288,34 @@ function rightWingPartyDetails() {
 
 function labourWins() {
 
-    updateChart("assets/data/resultsSeats.json")
+    updateChart("assets/data/resultsSeats.json");
+
+    $("p.chartTitle").text("Number of seats won by Political Alignment")
+
+    TweenMax.to($(".rightDetails"), 1, {
+        opacity: 1
+    })
+
+    // Fade out non-left wing parties
+    $.each($(".layer"), function (key, value) {
+
+        if ($(value).attr("party") == "SLF") {
+            TweenMax.to(value, 1, {
+                opacity: 1
+            })
+        } else {
+
+            TweenMax.to(value, 1, {
+                opacity: 0.3
+            })
+        }
+    })
 
     var LFdiv = d3.select(".graphContainer").append("div")
         .classed("tooltip", true)
         .classed("rightDetail", true);
 
-    var LFrect = $(".layer[party='LP'] rect")
+    var LFrect = $(".layer[party='SLF'] rect")
         .attr("stroke-width", 3);
 
     generateTooltips(LFrect, LFdiv)
@@ -362,6 +380,8 @@ $(document).ready(function () {
         .on("leave end", function () {
             updateChart("assets/data/resultsPopVote.json")
 
+            $("p.chartTitle").text("Popular Vote of Parties by Political Alignment")
+
             $(".rightDetail").remove();
             TweenMax.to($(".layer"), 1, {
                 opacity: 1
@@ -373,3 +393,5 @@ $(document).ready(function () {
         })
         .addTo(controller);
 });
+
+// updateChart("assets/data/resultsSeats.json")
