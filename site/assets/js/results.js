@@ -4,20 +4,22 @@ function generateGraph() {
 
     var margin = {
             top: 20,
-            right: 20,
+            right: 100,
             bottom: 30,
-            left: 40
+            left: 100
         },
-        windowWidth = $(window).width(),
-        windowHeight = $(window).height(),
+        windowWidth = $(window).innerWidth(),
+        windowHeight = $(window).innerHeight() - 44,
         height = windowHeight - margin.top - margin.bottom,
         width = windowWidth - margin.left - margin.right,
         svg = d3.select(".resultsViz")
         .append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-        .append("g")
+        .attr("width", windowWidth)
+        .attr("height", windowHeight),
+        g = svg.append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    console.log(windowHeight, height)
 
     // x0 =  whole graph
     var x0 = d3.scaleBand()
@@ -37,9 +39,8 @@ function generateGraph() {
 
 
     d3.csv("/assets/data/results.csv").then(function (data) {
-
         // FUTURE: Dynamically retrieve total for each data set
-        var seatsTotal = 25,
+        var seatsTotal = 32,
             votesTotal = 300199
 
         data.forEach(function (d) {
@@ -59,12 +60,48 @@ function generateGraph() {
             .padding(0.2);
 
         // NOTE: Set y-axis range. Currently mannually set.
-        y0.domain([0, 0.7]).nice();
+        y0.domain([0, 0.6]).nice();
 
         z.domain(data.map(function (d) {
             return d["Party"]
         }))
         var keys = z.domain()
+
+        // Y-axis
+        yAxis = g.append("g")
+            .attr("class", "yAxis")
+            .call(d3.axisLeft(y0).ticks(null, ".0%").tickSize(-width, 0, 0))
+            .attr("x", 2)
+            .call(g => g.selectAll(".tick:not(:first-of-type) line")
+                .attr("stroke-opacity", 0.5)
+                .attr("stroke-dasharray", "2,2")
+                 )
+            .call(function (g) {
+                // Highlight 50% line
+                g.selectAll(".tick:nth-child(12) line")
+                .attr("stroke", "red")
+                .attr("stroke-width", 3)
+                .attr("stroke-opacity", 1)
+                .attr("stroke-dasharray", 0)
+            })
+            .call(function (g) {
+                // Highlight 50% text
+                g.selectAll(".tick:nth-child(12) text")
+                .attr("fill", "red")
+                .attr("font-size", "large")
+            })
+            .append("text")
+            .attr("dy", "-1em")
+            .attr("fill", "#000")
+            .attr("font-weight", "bold")
+            .attr("text-anchor", "start")
+            .text("Percentage of Total");
+
+        // X-axis
+        xAxis = g.append("g")
+            .attr("class", "xAxis")
+            .attr("transform", "translate(0," + height + ")")
+            .call(d3.axisBottom(x0));
 
         console.log("keys", keys)
 
@@ -107,7 +144,7 @@ function generateGraph() {
 
         console.log("stackData", stackData)
 
-        var series = svg.selectAll(".series")
+        var series = g.selectAll(".series")
             .data(stackData)
             .enter().append("g")
             .attr("class", "series")
@@ -133,25 +170,6 @@ function generateGraph() {
             })
             .attr("width", x1.bandwidth())
             .attr("stroke", "black");
-
-        // X-axis
-        svg.append("g")
-            .attr("class", "axis")
-            .attr("transform", "translate(0," + height + ")")
-            .call(d3.axisBottom(x0));
-
-        // Y-axis
-        svg.append("g")
-            .attr("class", "axis")
-            .call(d3.axisLeft(y0).ticks(null, "s"))
-            .append("text")
-            .attr("x", 2)
-            .attr("y", y0(y0.ticks().pop()) + 0.5)
-            .attr("dy", "0.32em")
-            .attr("fill", "#000")
-            .attr("font-weight", "bold")
-            .attr("text-anchor", "start")
-            .text("Value");
     })
 };
 
