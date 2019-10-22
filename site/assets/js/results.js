@@ -77,8 +77,8 @@ function generateGraph() {
                 d.forEach(function (d) {
                     if (d["Chart"] == "PopVote") {
                         d2[d.Party] = d.Value / votesTotal
-                    }else if (d["Chart"] == "Seats") {
-                       d2[d.Party] = d.Value / seatsTotal
+                    } else if (d["Chart"] == "Seats") {
+                        d2[d.Party] = d.Value / seatsTotal
                     }
                 })
                 return d2;
@@ -110,7 +110,7 @@ function generateGraph() {
             .data(stackData)
             .enter().append("g")
             .attr("class", "series")
-            .attr("fill", "black")
+            .attr("fill", d => getColor(d.key));
 
         series.selectAll("rect")
             .data(function (d) {
