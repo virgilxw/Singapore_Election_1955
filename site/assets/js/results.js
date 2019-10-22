@@ -12,7 +12,7 @@ function generateGraph() {
         windowHeight = $(window).height(),
         height = windowHeight - margin.top - margin.bottom,
         width = windowWidth - margin.left - margin.right,
-        svg = d3.select(".graphContainer")
+        svg = d3.select(".resultsViz")
         .append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
@@ -38,7 +38,7 @@ function generateGraph() {
 
     d3.csv("/assets/data/results.csv").then(function (data) {
 
-        // TODO: Dynamically retrieve total for each data set
+        // FUTURE: Dynamically retrieve total for each data set
         var seatsTotal = 25,
             votesTotal = 300199
 
@@ -57,6 +57,9 @@ function generateGraph() {
             }))
             .rangeRound([0, x0.bandwidth()])
             .padding(0.2);
+
+        // NOTE: Set y-axis range. Currently mannually set.
+        y0.domain([0, 0.7]).nice();
 
         z.domain(data.map(function (d) {
             return d["Party"]
@@ -94,8 +97,6 @@ function generateGraph() {
                 if (isNaN(d[e])) {
                     d[e] = 0
                 }
-
-
             })
         })
 
@@ -130,7 +131,8 @@ function generateGraph() {
             .attr("height", function (d) {
                 return y0(d[0]) - y0(d[1]);
             })
-            .attr("width", x1.bandwidth());
+            .attr("width", x1.bandwidth())
+            .attr("stroke", "black");
 
         // X-axis
         svg.append("g")
