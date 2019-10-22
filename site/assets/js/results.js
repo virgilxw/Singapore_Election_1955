@@ -1,338 +1,108 @@
-function getRect(partyName) {
-    return $(".layer[party='" + partyName + "'] rect")
-}
+function generateGraph() {
+    // Generates an initial stacked bar chart of pop_vote
+    // Adapted from https://bl.ocks.org/SpaceActuary/6233700e7f443b719855a227f4749ee5
 
-function generateTooltips(partyRect, detailDiv) {
-    // partyRect accepts $(".layer[party='PAP'] rect")
-    // position takes two values: mousePos or rectMid
+    var margin = {
+            top: 20,
+            right: 20,
+            bottom: 30,
+            left: 40
+        },
+        windowWidth = $(window).width(),
+        windowHeight = $(window).height(),
+        height = windowHeight - margin.top - margin.bottom,
+        width = windowWidth - margin.left - margin.right;
 
-    d3.json("assets/data/tooltipDetails.json").then(function (data) {
-
-        var party = partyRect.parent().attr("party");
-        var partyData = data.filter(function (f, i) {
-            return f.party == party
-        })[0];
-
-        var tooltip_content = `<p class="bold">` + partyData.full_name + `</p><p>Nominated ` + partyData.num_cand + ` candidates</p><p>Won ` + partyData.seats_won + ` seats</p><p>Won ` + formatNumber(partyData.pop_vote) + ` votes</p><p>` + partyData.vote_share + ` vote share</p>`
-
-        detailDiv.html(tooltip_content)
-        partyRect.attr("stroke-width", 3);
-
-        detailDiv.transition()
-            .duration(500)
-            .style("opacity", 0);
-        detailDiv.transition()
-            .duration(200)
-            .style("opacity", 1);
-    });
-}
-
-function translateTooltips(x, y) {
-    d3.select("div#hoverTooltip").style("left", (x) + "px")
-        .style("top", (y - 28) + "px")
-}
-
-function chart(data) {
-    var speed = 475;
-    // Generate align
-    var align = []
-    data.forEach(function (d) {
-        align.push(d.alignment)
-    })
-
-    var parties = Object.keys(data[0]).slice(1, )
-
-    //Generate graph
-    var margin = ({
-            top: 25,
-            right: 50,
-            bottom: 50,
-            left: 50
-        }),
-        height = +$(".resultsViz").height() - margin.top - margin.bottom,
-        width = +$(".resultsViz").width() - margin.left - margin.right
-
-    // Create chart
-    const svg = d3.select(".resultsViz")
+    d3.select(".graphContainer")
         .append("svg")
-        .attr("height", height)
-        .attr("width", width)
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    var x = d3.scaleBand()
-        .rangeRound([margin.left, width - margin.right])
-        .padding(0.5)
+    // x0 =  whole graph
+    var x0 = d3.scaleBand()
+        .rangeRound([0, width])
+        .paddingInner(0.1);
 
-    var y = d3.scaleLinear()
-        .rangeRound([height - margin.bottom, margin.top])
+    // x1 = specific x-groups
+    var x1 = d3.scaleBand()
+        .padding(0.05);
 
-    var xAxis = svg.append("g")
-        .attr("transform", `translate(0,${height - margin.bottom})`)
-        .attr("class", "x-axis")
+    // y1 = whole graph
+    var y0 = d3.scaleLinear()
+        .rangeRound([height, 0]);
 
-    var yAxis = svg.append("g")
-        .attr("transform", `translate(${width-margin.right},0)`)
-        .attr("class", "y-axis")
+    // y1 = specific y-stacks
+    var y1 = d3.scaleBand();
 
-    data.forEach(function (d) {
-        d.total = d3.sum(parties, k => +d[k])
-    })
-
-    y.domain([0, d3.max(data, d => d.total)]).nice();
-
-    x.domain(data.map(d => d.alignment));
-
-    svg.selectAll(".y-axis").transition().duration(speed)
-        .call(d3.axisLeft(y).ticks(10).tickSize(width - margin.left - margin.right))
-
-    svg.selectAll(".x-axis").transition().duration(speed)
-        .call(d3.axisBottom(x))
-
-    var group = svg.selectAll("g.layer").data(d3.stack().keys(parties)(data))
-
-    //Remove empty elements
-    group.exit().remove()
-
-    group.enter().append("g").classed("layer", true)
-        .attr("fill", d => getColor(d.key))
-        .attr("party", d => d.key)
-        .text("Something went wrong")
+    // z = specific rectangles
+    var z = d3.scaleOrdinal();
 
 
-    var party_label = svg.selectAll("g.layer").selectAll(".text")
-        .data(d => d, e => e.data.align);
-
-    party_label.exit().remove();
-
-    party_label.enter()
-        .append("text")
-        .text(function (d) {
-            return $(this).parent().attr("party")
-        })
-        .classed("party_name", true)
-        .transition().duration(speed)
-        .attr("x", d => x(d.data.alignment) - 40)
-        .attr("y", d => y(d[1]) + 20)
-        .attr("height", d => y(d[0]) - y(d[1]))
-
-    var bars = svg.selectAll("g.layer").selectAll("rect")
-        .data(d => d, e => e.data.align);
-
-    bars.exit().remove();
-
-    bars.enter().append("rect")
-        .attr("width", x.bandwidth())
-        .merge(bars)
-        .transition().duration(speed)
-        .attr("x", d => x(d.data.alignment))
-        .attr("y", d => y(d[1]))
-        .attr("height", d => y(d[0]) - y(d[1]))
-        .attr("stroke-width", "1")
-        .attr("stroke", "black")
-
-    // Remove empty rects
-    $(document).ready(function () {
-        $("text").filter(function () {
-            return $(this).attr("height") < 25
-        }).remove()
-
-        // Define the div for the tooltip
-        var div = d3.select("body").append("div")
-            .attr("class", "tooltip")
-            .attr("id", "hoverTooltip")
-            .style("opacity", 0);
-
-        $(".layer rect").on("mouseover", function (e) {
-                generateTooltips($(this), div);
-                translateTooltips(e.pageX, e.pageY)
-            })
-            .on("mousemove", function (e) {
-                translateTooltips(e.pageX, e.pageY)
-            })
-            .on("mouseout", function (e) {
-                $(".layer rect").attr("stroke-width", "1");
-
-                div.transition()
-                    .duration(500)
-                    .style("opacity", 0);
-                $(this).removeClass("hover")
-            });
-    })
-}
-
-function updateChart(JSON) {
-    d3.json(JSON).then(function (data) {
-        var speed = 375;
-        // Generate align
-        var align = []
-        data.forEach(function (d) {
-            align.push(d.alignment)
-        })
-
-        var parties = Object.keys(data[0]).slice(1, )
-
-        //Generate graph
-        var margin = ({
-                top: 25,
-                right: 50,
-                bottom: 50,
-                left: 50
-            }),
-            height = +$(".resultsViz").height() - margin.top - margin.bottom,
-            width = +$(".resultsViz").width() - margin.left - margin.right
-
-        // Create chart
-        const svg = d3.select(".resultsViz")
-            .select("svg")
-
-        var x = d3.scaleBand()
-            .rangeRound([margin.left, width - margin.right])
-            .padding(0.5)
-
-        x.domain(data.map(d => d.alignment));
-
-        var y = d3.scaleLinear()
-            .rangeRound([height - margin.bottom, margin.top])
+    d3.csv("/assets/data/results.csv").then(function (data) {
 
         data.forEach(function (d) {
-            d.total = d3.sum(parties, k => +d[k])
+            d["Value"] = +d["Value"];
         })
 
-        y.domain([0, d3.max(data, d => d.total)]).nice();
+        console.log("loaded CSV:", data)
 
-        svg.selectAll(".x-axis").transition().duration(speed)
-            .call(d3.axisBottom(x))
+        x0.domain(data.map(function (d) {
+            return d["Category"]
+        }))
 
-        var group = svg.selectAll("g.layer").data(d3.stack().keys(parties)(data), d => d.key)
+        x1.domain(data.map(function (d) {
+                return d["Align"]
+            }))
+            .rangeRound([0, x0.bandwidth()])
+            .padding(0.2);
 
-        //Remove empty elements
-        group.exit().remove()
+        z.domain(data.map(function (d) {
+            return d["Party"]
+        }))
+        var keys = z.domain()
 
-        group.enter().select("g")
-            .classed("layer", true)
-            .attr("fill", d => getColor(d.key))
-            .attr("party", d => d.key)
+        console.log("keys", keys)
 
-        svg.selectAll(".y-axis").transition().duration(speed)
-            .call(d3.axisLeft(y).ticks(10).tickSize(width - margin.left - margin.right))
-
-        var bars = svg.selectAll("g.layer").selectAll("rect").data(d => d, e => e.data.align);
-
-        bars.exit().remove()
-
-        bars.enter().append("rect")
-            .attr("width", x.bandwidth())
-            .merge(bars)
-            .transition()
-            .duration(800)
-            .attr("x", d => x(d.data.alignment))
-            .attr("y", d => y(d[1]))
-            .attr("height", d => y(d[0]) - y(d[1]))
-            .attr("stroke-width", "1")
-            .attr("stroke", "black")
-    });
-}
-
-function rightWingPartyDetails() {
-
-    // Fade out non-left wing parties
-    $.each($(".layer"), function (key, value) {
-
-        if ($(value).attr("party") != "PP") {
-
-            if ($(value).attr("party") != "DP") {
-                TweenMax.to(value, 1, {
-                    opacity: 0.3
+        var groupData = d3.nest()
+            .key(function (d) {
+                return d.Chart + d.Align;
+            })
+            .rollup(function (d, i) {
+                var d2 = {
+                    Chart: d[0].Chart,
+                    Align: d[0].Align
+                }
+                d.forEach(function (d) {
+                    d2[d.Party] = d.Value
                 })
-            }
-        }
-    })
-
-    var PPdiv = d3.select(".graphContainer").append("div")
-        .classed("tooltip", true)
-        .classed("rightDetail", true)
-        .style("opacity", 1);
-
-    var PPrect = $(".layer[party='PP'] rect")
-        .attr("stroke-width", 3);
-
-    $(".layer[party='PP']").attr("opacity", 1)
-
-
-    generateTooltips(PPrect, PPdiv)
-
-    var xPos = +PPrect.attr("x") + +PPrect.width();
-    var yPos = +PPrect.attr("y") + 50;
-
-    PPdiv.style("top", yPos + "px")
-        .style("left", xPos + "px")
-
-    var DPdiv = d3.select(".graphContainer").append("div")
-        .classed("tooltip", true)
-        .classed("rightDetail", true);
-
-    var DPrect = $(".layer[party='DP'] rect")
-        .attr("stroke-width", 3);
-
-    $(".layer[party='DP']").attr("opacity", 1);
-
-
-
-    generateTooltips(DPrect, DPdiv)
-
-    var xPos = +PPrect.attr("x") + +PPrect.width();
-    var yPos = +DPrect.attr("y") + 50;
-
-    DPdiv.style("top", yPos + "px")
-        .style("left", xPos + "px")
-}
-
-function labourWins() {
-
-    updateChart("assets/data/resultsSeats.json");
-
-    $("p.chartTitle").text("Number of seats won by Political Alignment")
-
-    TweenMax.to($(".rightDetails"), 1, {
-        opacity: 1
-    })
-
-    // Fade out non-left wing parties
-    $.each($(".layer"), function (key, value) {
-
-        if ($(value).attr("party") == "SLF") {
-            TweenMax.to(value, 1, {
-                opacity: 1
+                console.log("rollup d", d, d2);
+                return d2;
             })
-        } else {
+            .entries(data)
+            .map(function (d) {
+                return d.value;
+            });
 
-            TweenMax.to(value, 1, {
-                opacity: 0.3
-            })
-        }
+        console.log("groupData", groupData)
+
+        var stackData = d3.stack()
+            .keys(keys)(groupData)
+
+        console.log("stackData", stackData)
+
+        console.log("keys", keys)
     })
+};
 
-    var LFdiv = d3.select(".graphContainer").append("div")
-        .classed("tooltip", true)
-        .classed("rightDetail", true);
-
-    var LFrect = $(".layer[party='SLF'] rect")
-        .attr("stroke-width", 3);
-
-    generateTooltips(LFrect, LFdiv)
-
-    var xPos = +LFrect.attr("x") + +LFrect.width();
-    var yPos = +LFrect.attr("y") + 50;
-
-    LFdiv.style("top", yPos + "px")
-        .style("left", xPos + "px")
-}
 
 $(document).ready(function () {
-    d3.json("assets/data/resultsPopVote.json").then(d => chart(d));
 
-    // Scrollmagic
+    // Scrollmagic controller
     var controller = new ScrollMagic.Controller();
 
+    // reveal text on scroll
     var revealP = new ScrollMagic.Scene({
             triggerElement: ".reveal1",
             triggerHook: 0.5,
@@ -344,54 +114,5 @@ $(document).ready(function () {
         })
         .addTo(controller);
 
-    var pinChart = new ScrollMagic.Scene({
-            triggerElement: ".graphContainer",
-            duration: 500,
-            triggerHook: 0
-        })
-        .setPin(".graphContainer")
-        .addIndicators({
-            name: "Pin Chart"
-        })
-        .addTo(controller);
-
-    var rightTooltips = new ScrollMagic.Scene({
-            triggerElement: ".rightTooltips",
-            triggerHook: 0.5,
-        })
-        .on("enter", rightWingPartyDetails)
-        .on("leave", function () {
-            $(".rightDetail").remove();
-            TweenMax.to($(".layer"), 1, {
-                opacity: 1
-            });
-            $(".layer rect").attr("stroke-width", "1");
-        })
-        .addIndicators({
-            name: "rightTooltips"
-        })
-        .addTo(controller);
-
-    var LabourWins = new ScrollMagic.Scene({
-            triggerElement: ".labourWins",
-            triggerHook: 0.5
-        })
-        .on("enter", labourWins)
-        .on("leave end", function () {
-            updateChart("assets/data/resultsPopVote.json")
-
-            $("p.chartTitle").text("Popular Vote of Parties by Political Alignment")
-
-            $(".rightDetail").remove();
-            TweenMax.to($(".layer"), 1, {
-                opacity: 1
-            });
-            $(".layer rect").attr("stroke-width", "1");
-        })
-        .addIndicators({
-            name: "labourWins"
-        })
-        .addTo(controller);
+    generateGraph()
 });
-
-// updateChart("assets/data/resultsSeats.json")
