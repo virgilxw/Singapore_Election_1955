@@ -179,16 +179,26 @@ $(document).ready(function () {
     // Scrollmagic controller
     var controller = new ScrollMagic.Controller();
 
-    // reveal text on scroll
-    var revealP = new ScrollMagic.Scene({
+    // Scene 1
+    var scene1 = new ScrollMagic.Scene({
             triggerElement: ".reveal1",
             triggerHook: 0.5,
             offset: 250
         })
         .setClassToggle(".reveal1", "visible")
         .addIndicators({
-            name: "reveal text"
+            name: "Scene1"
         })
+        .addTo(controller);
+
+    // Scene 2 pin
+    var scene2Pin = new ScrollMagic.Scene({
+            triggerElement: ".resultsViz",
+            triggerHook: 0,
+            offset: 0
+        })
+        .setPin(".resultsViz")
+        .addIndicators({name: "Scene 2 Pin"})
         .addTo(controller);
 
     generateGraph()
