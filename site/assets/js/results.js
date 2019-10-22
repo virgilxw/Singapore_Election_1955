@@ -11,9 +11,8 @@ function generateGraph() {
         windowWidth = $(window).width(),
         windowHeight = $(window).height(),
         height = windowHeight - margin.top - margin.bottom,
-        width = windowWidth - margin.left - margin.right;
-
-    d3.select(".graphContainer")
+        width = windowWidth - margin.left - margin.right,
+        svg = d3.select(".graphContainer")
         .append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
@@ -29,18 +28,19 @@ function generateGraph() {
     var x1 = d3.scaleBand()
         .padding(0.05);
 
-    // y1 = whole graph
+    // y0 = whole graph
     var y0 = d3.scaleLinear()
         .rangeRound([height, 0]);
-
-    // y1 = specific y-stacks
-    var y1 = d3.scaleBand();
 
     // z = specific rectangles
     var z = d3.scaleOrdinal();
 
 
     d3.csv("/assets/data/results.csv").then(function (data) {
+
+        // TODO: Dynamically retrieve total for each data set
+        var seatsTotal = 25,
+            votesTotal = 300199
 
         data.forEach(function (d) {
             d["Value"] = +d["Value"];
@@ -49,7 +49,7 @@ function generateGraph() {
         console.log("loaded CSV:", data)
 
         x0.domain(data.map(function (d) {
-            return d["Category"]
+            return d["Chart"]
         }))
 
         x1.domain(data.map(function (d) {
@@ -75,15 +75,29 @@ function generateGraph() {
                     Align: d[0].Align
                 }
                 d.forEach(function (d) {
-                    d2[d.Party] = d.Value
+                    if (d["Chart"] == "PopVote") {
+                        d2[d.Party] = d.Value / votesTotal
+                    }else if (d["Chart"] == "Seats") {
+                       d2[d.Party] = d.Value / seatsTotal
+                    }
                 })
-                console.log("rollup d", d, d2);
                 return d2;
             })
             .entries(data)
             .map(function (d) {
                 return d.value;
             });
+
+        // Add in 0 for values without entries
+        groupData.forEach(function (d) {
+            keys.forEach(function (e) {
+                if (isNaN(d[e])) {
+                    d[e] = 0
+                }
+
+
+            })
+        })
 
         console.log("groupData", groupData)
 
@@ -92,7 +106,50 @@ function generateGraph() {
 
         console.log("stackData", stackData)
 
-        console.log("keys", keys)
+        var series = svg.selectAll(".series")
+            .data(stackData)
+            .enter().append("g")
+            .attr("class", "series")
+            .attr("fill", "black")
+
+        series.selectAll("rect")
+            .data(function (d) {
+                return d;
+            })
+            .enter().append("rect")
+            .attr("class", "series-rect")
+            .attr("transform", function (d) {
+                return "translate(" + x0(d["data"]["Chart"]) + ",0)";
+            })
+            .attr("x", function (d) {
+                return x1(d.data["Align"]);
+            })
+            .attr("y", function (d) {
+                return y0(d[1]);
+            })
+            .attr("height", function (d) {
+                return y0(d[0]) - y0(d[1]);
+            })
+            .attr("width", x1.bandwidth());
+
+        // X-axis
+        svg.append("g")
+            .attr("class", "axis")
+            .attr("transform", "translate(0," + height + ")")
+            .call(d3.axisBottom(x0));
+
+        // Y-axis
+        svg.append("g")
+            .attr("class", "axis")
+            .call(d3.axisLeft(y0).ticks(null, "s"))
+            .append("text")
+            .attr("x", 2)
+            .attr("y", y0(y0.ticks().pop()) + 0.5)
+            .attr("dy", "0.32em")
+            .attr("fill", "#000")
+            .attr("font-weight", "bold")
+            .attr("text-anchor", "start")
+            .text("Value");
     })
 };
 
