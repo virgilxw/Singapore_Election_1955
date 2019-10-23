@@ -1,14 +1,14 @@
 Chart,Align,Party,Value
-PopVote,Left,SLF,42300
-PopVote,Left,PAP,13634
-PopVote,Left,LP,1325
-PopVote,Indi,Ind.,15098
-PopVote,Right,PP,38695
-PopVote,Right,DP,32115
-PopVote,Right,SA,13157
-Seats,Left,SLF,10
-Seats,Left,PAP,3
-Seats,Indi,Ind.,3
-Seats,Right,PP,4
-Seats,Right,DP,2
-Seats,Right,SA,3
+Popular Vote,Left,SLF,42300
+Popular Vote,Left,PAP,13634
+Popular Vote,Left,LP,1325
+Popular Vote,Indi,Ind.,15098
+Popular Vote,Right,PP,38695
+Popular Vote,Right,DP,32115
+Popular Vote,Right,SA,13157
+Seats Won,Left,SLF,10
+Seats Won,Left,PAP,3
+Seats Won,Indi,Ind.,3
+Seats Won,Right,PP,4
+Seats Won,Right,DP,2
+Seats Won,Right,SA,3

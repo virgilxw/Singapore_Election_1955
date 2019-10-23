@@ -1,28 +1,3 @@
-function generateTooltips(partyRect, detailDiv) {
-    // partyRect accepts $(".layer[party='PAP'] rect")
-    // position takes two values: mousePos or rectMid
-
-    d3.json("assets/data/tooltipDetails.json").then(function (data) {
-
-        var party = partyRect.parent().attr("party");
-        var partyData = data.filter(function (f, i) {
-            return f.party == party
-        })[0];
-
-        var tooltip_content = `<p class="bold">` + partyData.full_name + `</p><p>Nominated ` + partyData.num_cand + ` candidates</p><p>Won ` + partyData.seats_won + ` seats</p><p>Won ` + formatNumber(partyData.pop_vote) + ` votes</p><p>` + partyData.vote_share + ` vote share</p>`
-
-        detailDiv.html(tooltip_content)
-        partyRect.attr("stroke-width", 3);
-
-        detailDiv.transition()
-            .duration(500)
-            .style("opacity", 0);
-        detailDiv.transition()
-            .duration(200)
-            .style("opacity", 1);
-    });
-}
-
 function generateGraph() {
     // Generates an initial stacked bar chart of pop_vote
     // Adapted from https://bl.ocks.org/SpaceActuary/6233700e7f443b719855a227f4749ee5
@@ -61,9 +36,16 @@ function generateGraph() {
 
 
     d3.csv("/assets/data/results.csv").then(function (data) {
+
         // FUTURE: Dynamically retrieve total for each data set
         var seatsTotal = 32,
             votesTotal = 156324
+
+        // div for tooltips
+        var div = d3.select("body")
+            .append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0)
 
         data.forEach(function (d) {
             d["Value"] = +d["Value"];
@@ -144,9 +126,9 @@ function generateGraph() {
                     Align: d[0].Align
                 }
                 d.forEach(function (d) {
-                    if (d["Chart"] == "PopVote") {
+                    if (d["Chart"] == "Popular Vote") {
                         d2[d.Party] = d.Value / votesTotal
-                    } else if (d["Chart"] == "Seats") {
+                    } else if (d["Chart"] == "Seats Won") {
                         d2[d.Party] = d.Value / seatsTotal
                     }
                 })
@@ -177,7 +159,29 @@ function generateGraph() {
             .data(stackData)
             .enter().append("g")
             .attr("class", "series")
-            .attr("fill", d => getColor(d.key));
+            .attr("fill", d => getColor(d.key))
+            .attr("party", d => d["key"])
+            .on("mouseover", function (d) {
+                div.transition().duration(100).style("opacity", 1)
+
+                generateTooltip(d["key"], div)
+
+                div.style("visibility", "visible")
+                    .style("left", (d3.event.pageX - 20) + "px")
+                    .style("top", (d3.event.pageY - 130) + "px")
+
+                $(this).addClass("hover");
+            })
+            .on("mousemove", function (d) {
+                div.style("left", (d3.event.pageX - 20) + "px")
+                    .style("top", (d3.event.pageY - 130) + "px")
+            })
+            .on("mouseout", function (d) {
+                div.transition()
+                    .duration(500)
+                div.style("visibility", "hidden")
+                $(this).removeClass("hover");
+            });
 
         series.selectAll("rect")
             .data(function (d) {
@@ -198,32 +202,30 @@ function generateGraph() {
                 return y0(d[0]) - y0(d[1]);
             })
             .attr("width", x1.bandwidth())
-            .attr("stroke", "black");
+            .attr("stroke", "black")
     })
-
-    // Define the div for the tooltip
-    var div = d3.select("body").append("div")
-        .attr("class", "tooltip")
-        .attr("id", "hoverTooltip")
-        .style("opacity", 0);
-
-    $(".layer rect").on("mouseover", function (e) {
-            generateTooltips($(this), div);
-            translateTooltips(e.pageX, e.pageY)
-        })
-        .on("mousemove", function (e) {
-            translateTooltips(e.pageX, e.pageY)
-        })
-        .on("mouseout", function (e) {
-            $(".layer rect").attr("stroke-width", "1");
-
-            div.transition()
-                .duration(500)
-                .style("opacity", 0);
-            $(this).removeClass("hover")
-        });
 };
 
+function generateTooltip(party, div) {
+
+    // Generate Tooltips with party detail
+
+    div.style("border-color", getColor(party))
+        .style("border-width", "5px")
+        .style("border-style", "solid")
+
+
+    d3.json("./assets/data/tooltipDetails.json").then(function (d) {
+
+        d = d.filter(d=> (d.party==party))[0]
+        console.log(d)
+
+       var htmlString = `<p class="bold">` + d.full_name + `</p><p>Nominated ` + d.num_cand + ` candidates</p><p>Won ` + d.seats_won + ` seats</p><p>Won ` + formatNumber(d.pop_vote) + ` votes</p><p>` + d.vote_share + ` vote share</p>`
+
+
+        div.html(htmlString)
+    })
+}
 
 $(document).ready(function () {
 
