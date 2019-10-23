@@ -1,11 +1,36 @@
+function generateTooltips(partyRect, detailDiv) {
+    // partyRect accepts $(".layer[party='PAP'] rect")
+    // position takes two values: mousePos or rectMid
+
+    d3.json("assets/data/tooltipDetails.json").then(function (data) {
+
+        var party = partyRect.parent().attr("party");
+        var partyData = data.filter(function (f, i) {
+            return f.party == party
+        })[0];
+
+        var tooltip_content = `<p class="bold">` + partyData.full_name + `</p><p>Nominated ` + partyData.num_cand + ` candidates</p><p>Won ` + partyData.seats_won + ` seats</p><p>Won ` + formatNumber(partyData.pop_vote) + ` votes</p><p>` + partyData.vote_share + ` vote share</p>`
+
+        detailDiv.html(tooltip_content)
+        partyRect.attr("stroke-width", 3);
+
+        detailDiv.transition()
+            .duration(500)
+            .style("opacity", 0);
+        detailDiv.transition()
+            .duration(200)
+            .style("opacity", 1);
+    });
+}
+
 function generateGraph() {
     // Generates an initial stacked bar chart of pop_vote
     // Adapted from https://bl.ocks.org/SpaceActuary/6233700e7f443b719855a227f4749ee5
 
     var margin = {
-            top: 20,
+            top: 40,
             right: 100,
-            bottom: 30,
+            bottom: 70,
             left: 100
         },
         windowWidth = $(window).innerWidth(),
@@ -23,12 +48,9 @@ function generateGraph() {
 
     // x0 =  whole graph
     var x0 = d3.scaleBand()
-        .rangeRound([0, width])
-        .paddingInner(0.1);
 
     // x1 = specific x-groups
-    var x1 = d3.scaleBand()
-        .padding(0.05);
+    var x1 = d3.scaleBand();
 
     // y0 = whole graph
     var y0 = d3.scaleLinear()
@@ -41,7 +63,7 @@ function generateGraph() {
     d3.csv("/assets/data/results.csv").then(function (data) {
         // FUTURE: Dynamically retrieve total for each data set
         var seatsTotal = 32,
-            votesTotal = 300199
+            votesTotal = 156324
 
         data.forEach(function (d) {
             d["Value"] = +d["Value"];
@@ -50,14 +72,16 @@ function generateGraph() {
         console.log("loaded CSV:", data)
 
         x0.domain(data.map(function (d) {
-            return d["Chart"]
-        }))
+                return d["Chart"]
+            }))
+            .rangeRound([0, width])
+            .paddingInner(0.3);
 
         x1.domain(data.map(function (d) {
                 return d["Align"]
             }))
             .rangeRound([0, x0.bandwidth()])
-            .padding(0.2);
+            .padding(0.5)
 
         // NOTE: Set y-axis range. Currently mannually set.
         y0.domain([0, 0.6]).nice();
@@ -75,22 +99,23 @@ function generateGraph() {
             .call(g => g.selectAll(".tick:not(:first-of-type) line")
                 .attr("stroke-opacity", 0.5)
                 .attr("stroke-dasharray", "2,2")
-                 )
+            )
             .call(function (g) {
                 // Highlight 50% line
                 g.selectAll(".tick:nth-child(12) line")
-                .attr("stroke", "red")
-                .attr("stroke-width", 3)
-                .attr("stroke-opacity", 1)
-                .attr("stroke-dasharray", 0)
+                    .attr("stroke", "red")
+                    .attr("stroke-width", 3)
+                    .attr("stroke-opacity", 1)
+                    .attr("stroke-dasharray", 0)
             })
             .call(function (g) {
                 // Highlight 50% text
                 g.selectAll(".tick:nth-child(12) text")
-                .attr("fill", "red")
-                .attr("font-size", "large")
+                    .attr("fill", "red")
+                    .attr("font-size", "large")
             })
             .append("text")
+            .attr("dx", "1em")
             .attr("dy", "-1em")
             .attr("fill", "#000")
             .attr("font-weight", "bold")
@@ -102,6 +127,10 @@ function generateGraph() {
             .attr("class", "xAxis")
             .attr("transform", "translate(0," + height + ")")
             .call(d3.axisBottom(x0));
+
+        // Increase font size of x-axis
+        d3.select(".xAxis").selectAll("text")
+            .attr("font-size", "large")
 
         console.log("keys", keys)
 
@@ -171,6 +200,28 @@ function generateGraph() {
             .attr("width", x1.bandwidth())
             .attr("stroke", "black");
     })
+
+    // Define the div for the tooltip
+    var div = d3.select("body").append("div")
+        .attr("class", "tooltip")
+        .attr("id", "hoverTooltip")
+        .style("opacity", 0);
+
+    $(".layer rect").on("mouseover", function (e) {
+            generateTooltips($(this), div);
+            translateTooltips(e.pageX, e.pageY)
+        })
+        .on("mousemove", function (e) {
+            translateTooltips(e.pageX, e.pageY)
+        })
+        .on("mouseout", function (e) {
+            $(".layer rect").attr("stroke-width", "1");
+
+            div.transition()
+                .duration(500)
+                .style("opacity", 0);
+            $(this).removeClass("hover")
+        });
 };
 
 
@@ -193,12 +244,14 @@ $(document).ready(function () {
 
     // Scene 2 pin
     var scene2Pin = new ScrollMagic.Scene({
-            triggerElement: ".resultsViz",
+            triggerElement: ".graphContainer",
             triggerHook: 0,
             offset: 0
         })
-        .setPin(".resultsViz")
-        .addIndicators({name: "Scene 2 Pin"})
+        .setPin(".graphContainer")
+        .addIndicators({
+            name: "Scene 2 Pin"
+        })
         .addTo(controller);
 
     generateGraph()
