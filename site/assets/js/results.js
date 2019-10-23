@@ -232,29 +232,37 @@ $(document).ready(function () {
     // Scrollmagic controller
     var controller = new ScrollMagic.Controller();
 
-    // Scene 1
-    var scene1 = new ScrollMagic.Scene({
-            triggerElement: ".reveal1",
+    // Prelude
+    var prelude = new ScrollMagic.Scene({
+            triggerElement: "#prelude",
             triggerHook: 0.5,
             offset: 250
         })
-        .setClassToggle(".reveal1", "visible")
+        .setClassToggle(".reveal", "visible")
         .addIndicators({
-            name: "Scene1"
+            name: "prelude"
         })
         .addTo(controller);
 
-    // Scene 2 pin
-    var scene2Pin = new ScrollMagic.Scene({
+    // Act 1 pin chart
+    var act1ChartPin = new ScrollMagic.Scene({
             triggerElement: ".graphContainer",
             triggerHook: 0,
             offset: 0
         })
         .setPin(".graphContainer")
         .addIndicators({
-            name: "Scene 2 Pin"
+            name: "Act 1 Chart Pin"
         })
         .addTo(controller);
+
+    // Act 1 Scene 1
+    var act1Scene1 = new ScrollMagic.Scene({
+        triggerElement: "#s1a1",
+            triggerHook: 0.5,
+            offset: 250
+    })
+    .
 
     generateGraph()
 });

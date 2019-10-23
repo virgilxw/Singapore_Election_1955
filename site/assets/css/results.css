@@ -26,6 +26,10 @@ section {
     background-color: #E2D8B2
 }
 
+#Scene2 {
+    margin-top: 60vh;
+}
+
 .inner {
     display: flex;
     flex-direction: column;
@@ -106,7 +110,7 @@ p {
     align-items: center;
 }
 
-.reveal1 {
+.reveal {
     opacity: 0;
     -webkit-transition: all 1s ease-in-out;
     -moz-transition: all 1s ease-in-out;
@@ -115,7 +119,7 @@ p {
     transition: all 1s ease-in-out;
 }
 
-.reveal1.visible {
+.reveal.visible {
     opacity: 1;
     -webkit-transform: none;
     -moz-transform: none;
