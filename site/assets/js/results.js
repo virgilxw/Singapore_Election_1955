@@ -19,8 +19,6 @@ function generateGraph(data) {
         g = svg.append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    console.log(windowHeight, height)
-
     // x0 =  whole graph
     var x0 = d3.scaleBand()
 
@@ -47,8 +45,6 @@ function generateGraph(data) {
     data.forEach(function (d) {
         d["Value"] = +d["Value"];
     })
-
-    console.log("loaded CSV:", data)
 
     x0.domain(data.map(function (d) {
             return d["Chart"]
@@ -111,8 +107,6 @@ function generateGraph(data) {
     d3.select(".xAxis").selectAll("text")
         .attr("font-size", "large")
 
-    console.log("keys", keys)
-
     var groupData = d3.nest()
         .key(function (d) {
             return d.Chart + d.Align;
@@ -145,12 +139,8 @@ function generateGraph(data) {
         })
     })
 
-    console.log("groupData", groupData)
-
     var stackData = d3.stack()
         .keys(keys)(groupData)
-
-    console.log("stackData", stackData)
 
     var series = g.selectAll(".series")
         .data(stackData)
@@ -215,7 +205,6 @@ function generateTooltip(party, div) {
     d3.json("./assets/data/tooltipDetails.json").then(function (d) {
 
         d = d.filter(d => (d.party == party))[0]
-        console.log(d)
 
         var htmlString = `<p class="bold">` + d.full_name + `</p><p>Nominated ` + d.num_cand + ` candidates</p><p>Won ` + d.seats_won + ` seats</p><p>Won ` + formatNumber(d.pop_vote) + ` votes</p><p>` + d.vote_share + ` vote share</p>`
 
@@ -224,7 +213,22 @@ function generateTooltip(party, div) {
     })
 }
 
+function generateDonuts(data) {
+
+
+    data = data.filter(d => d.year == "1955")
+    var nested_data = d3.nest().key(d=> d.constituency).entries(data)
+
+   console.log(nested_data)
+
+    d3.stack()
+        .keys
+    d3.select("svg.graphContainer.donuts").selectAll("svg")
+}
+
 $(document).ready(function () {
+
+    //filter data
 
     // Scrollmagic controller
     var controller = new ScrollMagic.Controller();
@@ -255,8 +259,6 @@ $(document).ready(function () {
                 name: "Scene 1 Chart Pin"
             })
             .addTo(controller);
-
-        console.log($(".Left"))
 
         var s1tween = new TimelineMax()
             .from("rect.Seats.Won", 3, {
@@ -367,4 +369,6 @@ $(document).ready(function () {
             })
             .addTo(controller)
     })
+
+    $.when(d3.csv("/assets/data/datagov.csv").then(data => generateDonuts(data)))
 });

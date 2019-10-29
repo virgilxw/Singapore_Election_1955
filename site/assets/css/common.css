@@ -59,7 +59,6 @@ ol {
     background-color: #347EBF;
     line-height: 1.5;
     width: 100%;
-    z-index: -1;
 }
 
 .solid.alt {
@@ -75,7 +74,7 @@ ol {
     background-size: 100% 100%;
     background-repeat: no-repeat;
     transform: scale(1, -1) translate(0, -90px);
-    z-index: 1;
+    z-index: 10;
 }
 
 .solid.alt::after {
@@ -87,7 +86,7 @@ ol {
     background-size: 100% 100%;
     background-repeat: no-repeat;
     transform: scale(-1, -1) translate(0, -90px);
-    z-index: 1;
+    z-index: 10;
 }
 
 .inner {
@@ -212,4 +211,8 @@ text {
     background-repeat: no-repeat;
     transform: scale(1, -1) translate(0, -90px);
     z-index: 100;
+}
+
+.act2 {
+    padding-top: 0;
 }
