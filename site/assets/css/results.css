@@ -28,6 +28,7 @@ section {
 
 #Scene2 {
     margin-top: 60vh;
+    padding-top:100vh
 }
 
 .inner {
@@ -68,6 +69,9 @@ p {
     z-index: 10;
 }
 
+.act1 {
+    margin-bottom: 1000px;
+}
 #headerImage img {
     width: 100%
 }

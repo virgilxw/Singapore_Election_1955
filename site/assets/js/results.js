@@ -244,20 +244,21 @@ $(document).ready(function () {
             .addTo(controller);
 
         // Act 1 pin chart
-        var act1ChartPin = new ScrollMagic.Scene({
+        var s1ChartPin = new ScrollMagic.Scene({
                 triggerElement: ".graphContainer",
                 triggerHook: 0,
-                offset: 0
+                offset: 0,
+                duration: 1000
             })
             .setPin(".graphContainer")
             .addIndicators({
-                name: "Act 1 Chart Pin"
+                name: "Scene 1 Chart Pin"
             })
             .addTo(controller);
 
         console.log($(".Left"))
 
-        var a1s1tween = new TimelineMax()
+        var s1tween = new TimelineMax()
             .from("rect.Seats.Won", 3, {
                 opacity: 1
             })
@@ -266,34 +267,103 @@ $(document).ready(function () {
                 ease: Power2.easeOut
             });
 
-        var a1s1 = new ScrollMagic.Scene({
-                triggerElement: "#s1a1",
+        var s1 = new ScrollMagic.Scene({
+                triggerElement: "#s1",
                 triggerHook: 0.5,
                 duration: 100,
                 offset: "-150"
-            }).setTween(a1s1tween)
+            }).setTween(s1tween)
             .addIndicators({
-                name: "Act 1 Scene 1"
+                name: "Scene 1"
             })
             .addTo(controller)
 
 
-        var a1s2tween = new TimelineMax()
-            .from("rect.Right.Popular.Vote", 3, {
-            })
+        var s2tween = new TimelineMax()
+            .from("rect.Right.Popular.Vote", 3, {})
             .to("rect.Right.Popular.Vote", 3, {
                 strokeWidth: 10,
                 stroke: "rgba(255, 0, 0, 0.6)",
                 ease: Power2.easeOut
             });
 
-        var a1s2 = new ScrollMagic.Scene({
-                triggerElement: "#s1a1",
+        var s2 = new ScrollMagic.Scene({
+                triggerElement: "#s1",
                 triggerHook: 0.5,
-                duration: 100
-            }).setTween(a1s2tween)
+                duration: 50
+            }).setTween(s2tween)
             .addIndicators({
-                name: "Act 1 Scene 2"
+                name: "Scene 2"
+            })
+            .addTo(controller)
+
+        var s3tween = new TimelineMax()
+            .from("rect.Popular.Vote", 3, {
+                opacity: 1
+            })
+            .to("rect.Popular.Vote", 3, {
+                opacity: 0.1,
+                ease: Power2.easeOut
+            }).from("rect.Seats.Won", 3, {
+                opacity: 0.1
+            })
+            .to("rect.Seats.Won", 3, {
+                opacity: 1,
+                ease: Power2.easeOut
+            });;
+
+
+        var s3 = new ScrollMagic.Scene({
+                triggerElement: "#s3",
+                triggerHook: 0.5,
+                duration: 100,
+                offset: "-150"
+            }).setTween(s3tween)
+            .addIndicators({
+                name: "Scene 3"
+            })
+            .addTo(controller)
+
+
+        var s4tween = new TimelineMax()
+            .from("rect.Left.Seats.Won", 3, {})
+            .to("rect.Left.Seats.Won", 3, {
+                strokeWidth: 10,
+                stroke: "rgba(255, 0, 0, 0.6)",
+                ease: Power2.easeOut
+            });
+
+        var s4 = new ScrollMagic.Scene({
+                triggerElement: "#s3",
+                triggerHook: 0.5,
+                duration: 50
+            }).setTween(s4tween)
+            .addIndicators({
+                name: "Scene 4"
+            })
+            .addTo(controller)
+
+        var s5tween = new TimelineMax()
+            .from("rect", 3, {
+                opacity: 0.1
+            })
+            .to("rect", 3, {
+                opacity: 1,
+                ease: Power2.easeOut
+            }).from("rect", 3, {})
+            .to("rect", 3, {
+                strokeWidth: 1,
+                stroke: "black",
+                ease: Power2.easeOut
+            });
+
+        var s5 = new ScrollMagic.Scene({
+                triggerElement: "#s5",
+                triggerHook: 0.5,
+                duration: 50
+            }).setTween(s5tween)
+            .addIndicators({
+                name: "Scene 5"
             })
             .addTo(controller)
     })
