@@ -164,3 +164,19 @@ div.rightDetail .bold {
     font-size: 1.1em;
     margin-bottom: 10px;
 }
+
+.graphContainer.donuts {
+    max-width: 90vw;
+    overflow: hidden;
+    position: absolute;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    justify-content: space-around;
+
+}
+
+.act2 {
+    padding-top: 0;
+}

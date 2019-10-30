@@ -215,16 +215,45 @@ function generateTooltip(party, div) {
 
 function generateDonuts(data) {
 
+    var width = 200,
+        height = 200,
+        margin = 25
 
-    data = data.filter(d => d.year == "1955")
-    var nested_data = d3.nest().key(d=> d.constituency).entries(data)
+    var radius = Math.min(width, height) / 2 - margin
 
-   console.log(nested_data)
+    data = data.filter(d => d.year == "1955");
+    var nested_data = d3.nest().key(d => d.constituency).rollup(function (v) {
+        var v3 = []
 
-    d3.stack()
-        .keys
-    d3.select("svg.graphContainer.donuts").selectAll("svg")
-}
+        v.forEach(function (v2) {
+            v3[v2.party] = v2.vote_count
+        })
+        return v3;
+    }).entries(data)
+
+    d3.select("div.graphContainer.donuts")
+        .selectAll("svg")
+        .data(nested_data).enter()
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .each(function (d) {
+
+            var pie = d3.pie().value(d => d.value)
+            var pie_data = pie(d3.entries(d.value))
+            d3.select(this).append("g")
+                .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
+                .selectAll("path")
+                .data(pie_data).enter()
+                .append("path")
+                .attr("d", d3.arc().innerRadius(50)
+                    .outerRadius(radius))
+                .attr("class", d => d.key)
+        });
+
+    // Resize background to fit
+    $(".inner.content.act2").css("min-height", $(".graphContainer.donuts").height())
+};
 
 $(document).ready(function () {
 
@@ -249,12 +278,12 @@ $(document).ready(function () {
 
         // Act 1 pin chart
         var s1ChartPin = new ScrollMagic.Scene({
-                triggerElement: ".graphContainer",
+                triggerElement: ".graphContainer.Votes",
                 triggerHook: 0,
                 offset: 0,
                 duration: 1000
             })
-            .setPin(".graphContainer")
+            .setPin(".graphContainer.Votes")
             .addIndicators({
                 name: "Scene 1 Chart Pin"
             })

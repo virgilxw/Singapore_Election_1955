@@ -212,7 +212,3 @@ text {
     transform: scale(1, -1) translate(0, -90px);
     z-index: 100;
 }
-
-.act2 {
-    padding-top: 0;
-}
