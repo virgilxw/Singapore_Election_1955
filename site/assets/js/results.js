@@ -235,6 +235,7 @@ function generateDonuts(data) {
         .selectAll("svg")
         .data(nested_data).enter()
         .append("svg")
+        .attr("class", d => d.key)
         .attr("width", width)
         .attr("height", height)
         .each(function (d) {
@@ -248,7 +249,13 @@ function generateDonuts(data) {
                 .append("path")
                 .attr("d", d3.arc().innerRadius(50)
                     .outerRadius(radius))
-                .attr("class", d => d.key)
+                .attr("class", d => d.data.key)
+                .attr('fill', function (d) {
+                    return (getColor(d.data.key))
+                })
+                .attr("stroke", "black")
+                .style("stroke-width", "2px")
+                .style("opacity", 0.7)
         });
 
     // Resize background to fit
