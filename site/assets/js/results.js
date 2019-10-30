@@ -215,8 +215,8 @@ function generateTooltip(party, div) {
 
 function generateDonuts(data) {
 
-    var width = 200,
-        height = 200,
+    var width = 300,
+        height = 300,
         margin = 25
 
     var radius = Math.min(width, height) / 2 - margin
@@ -234,12 +234,11 @@ function generateDonuts(data) {
     d3.select("div.graphContainer.donuts")
         .selectAll("svg")
         .data(nested_data).enter()
-        .append("svg")
+        .insert("svg", ":first-child")
         .attr("class", d => d.key)
         .attr("width", width)
         .attr("height", height)
         .each(function (d) {
-
             var pie = d3.pie().value(d => d.value)
             var pie_data = pie(d3.entries(d.value))
             d3.select(this).append("g")
@@ -247,19 +246,29 @@ function generateDonuts(data) {
                 .selectAll("path")
                 .data(pie_data).enter()
                 .append("path")
-                .attr("d", d3.arc().innerRadius(50)
+                .attr("d", d3.arc().innerRadius(90)
                     .outerRadius(radius))
-                .attr("class", d => d.data.key)
+                .attr("class", function (d, i) {
+                    return d.data.key, i
+                })
                 .attr('fill', function (d) {
                     return (getColor(d.data.key))
                 })
                 .attr("stroke", "black")
                 .style("stroke-width", "2px")
-                .style("opacity", 0.7)
-        });
+                .style("opacity", 0.8)
+        }).append("text")
+        .text(d => d.key)
+        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
+        .attr("text-anchor", "middle")
+        .attr("dominant-baseline", "central");
 
     // Resize background to fit
     $(".inner.content.act2").css("min-height", $(".graphContainer.donuts").height())
+
+    // Highlight winners
+    $(".graphContainer.donuts path.0")
+        .attr("stroke", "yellow")
 };
 
 $(document).ready(function () {
@@ -404,7 +413,29 @@ $(document).ready(function () {
                 name: "Scene 5"
             })
             .addTo(controller)
-    })
+    });
 
-    $.when(d3.csv("/assets/data/datagov.csv").then(data => generateDonuts(data)))
+    $.when(d3.csv("/assets/data/datagov.csv").then(data => generateDonuts(data))).done(function () {
+        console.log("test")
+
+        var s6tween = new TimelineMax()
+            .from("#s6", 3, {
+                opacity: 1
+            })
+            .to("#s6", 3, {
+                opacity: 0.1,
+                ease: Power2.easeOut
+            });
+
+        var s6 = new ScrollMagic.Scene({
+                triggerElement: "#s6",
+                triggerHook: 0.5,
+                duration: 100
+            }).setTween(s6tween)
+            .addIndicators({
+                name: "Scene 6"
+            })
+            .addTo(controller)
+    });
+
 });
