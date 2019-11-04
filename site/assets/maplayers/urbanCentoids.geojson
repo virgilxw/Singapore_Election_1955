@@ -1,0 +1,18 @@
+{
+"type": "FeatureCollection",
+"name": "urbanCentoids",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "ogc_fid": 1, "name": "Tanjong Pagar", "Type": "Urban", "Winner": "PAP", "wards1955 wardsv2_ogc_fid": 1, "wards1955 wardsv2_Type": "Urban", "wards1955 wardsv2_Winner": "PAP" }, "geometry": { "type": "Point", "coordinates": [ 103.844503232775978, 1.275642775220095 ] } },
+{ "type": "Feature", "properties": { "ogc_fid": 2, "name": "Telok Ayer", "Type": "Urban", "Winner": "Ind.", "wards1955 wardsv2_ogc_fid": 2, "wards1955 wardsv2_Type": "Urban", "wards1955 wardsv2_Winner": "Ind." }, "geometry": { "type": "Point", "coordinates": [ 103.848934161147838, 1.281678606226688 ] } },
+{ "type": "Feature", "properties": { "ogc_fid": 3, "name": "Tiong Bahru", "Type": "Urban", "Winner": "DP", "wards1955 wardsv2_ogc_fid": 3, "wards1955 wardsv2_Type": "Urban", "wards1955 wardsv2_Winner": "DP" }, "geometry": { "type": "Point", "coordinates": [ 103.830944740359428, 1.279893737108725 ] } },
+{ "type": "Feature", "properties": { "ogc_fid": 4, "name": "Havelock", "Type": "Urban", "Winner": "SLF", "wards1955 wardsv2_ogc_fid": 4, "wards1955 wardsv2_Type": "Urban", "wards1955 wardsv2_Winner": "SLF" }, "geometry": { "type": "Point", "coordinates": [ 103.834824450297248, 1.288159019713477 ] } },
+{ "type": "Feature", "properties": { "ogc_fid": 5, "name": "Stamford", "Type": "Urban", "Winner": "SLF", "wards1955 wardsv2_ogc_fid": 5, "wards1955 wardsv2_Type": "Urban", "wards1955 wardsv2_Winner": "SLF" }, "geometry": { "type": "Point", "coordinates": [ 103.850910243787339, 1.295469523901455 ] } },
+{ "type": "Feature", "properties": { "ogc_fid": 6, "name": "Rochore", "Type": "Urban", "Winner": "SLF", "wards1955 wardsv2_ogc_fid": 6, "wards1955 wardsv2_Type": "Urban", "wards1955 wardsv2_Winner": "SLF" }, "geometry": { "type": "Point", "coordinates": [ 103.862012935126572, 1.303509459764918 ] } },
+{ "type": "Feature", "properties": { "ogc_fid": 7, "name": "Cairnhill", "Type": "Urban", "Winner": "SLF", "wards1955 wardsv2_ogc_fid": 7, "wards1955 wardsv2_Type": "Urban", "wards1955 wardsv2_Winner": "SLF" }, "geometry": { "type": "Point", "coordinates": [ 103.839968100237513, 1.304682606814869 ] } },
+{ "type": "Feature", "properties": { "ogc_fid": 8, "name": "Farrer Park", "Type": "Urban", "Winner": "SLF", "wards1955 wardsv2_ogc_fid": 8, "wards1955 wardsv2_Type": "Urban", "wards1955 wardsv2_Winner": "SLF" }, "geometry": { "type": "Point", "coordinates": [ 103.84951619937695, 1.317132705953617 ] } },
+{ "type": "Feature", "properties": { "ogc_fid": 9, "name": "Kampong Kapor", "Type": "Urban", "Winner": "SLF", "wards1955 wardsv2_ogc_fid": 9, "wards1955 wardsv2_Type": "Urban", "wards1955 wardsv2_Winner": "SLF" }, "geometry": { "type": "Point", "coordinates": [ 103.861562000128558, 1.312321620157387 ] } },
+{ "type": "Feature", "properties": { "ogc_fid": 11, "name": "Katong", "Type": "Urban", "Winner": "SLF", "wards1955 wardsv2_ogc_fid": 11, "wards1955 wardsv2_Type": "Urban", "wards1955 wardsv2_Winner": "SLF" }, "geometry": { "type": "Point", "coordinates": [ 103.901445945235679, 1.308089248430153 ] } },
+{ "type": "Feature", "properties": { "ogc_fid": 12, "name": "Geylang", "Type": "Urban", "Winner": "SLF", "wards1955 wardsv2_ogc_fid": 12, "wards1955 wardsv2_Type": "Urban", "wards1955 wardsv2_Winner": "SLF" }, "geometry": { "type": "Point", "coordinates": [ 103.880141172393735, 1.312686863268579 ] } }
+]
+}

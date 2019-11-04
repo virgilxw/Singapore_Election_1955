@@ -471,7 +471,7 @@ $(document).ready(function () {
             fillColor: getColor(feature.properties.Winner),
             weight: 0.7,
             color: 'black',
-            fillOpacity: 0.7,
+            fillOpacity: opacity,
             opacity: 1
         };
     }
@@ -489,11 +489,11 @@ $(document).ready(function () {
         .setPin("#mapCont")
         .addIndicators({
             name: "Pin Map"
-        }) // add indicators (requires plugin)
+        })
         .addTo(controller);
 
     var s7 = new ScrollMagic.Scene({
-            triggerElement: "#s8",
+            triggerElement: "#s9",
             triggerHook: 0.5,
             offset: -(window.innerHeight / 2) + 100
         }).on("enter", d => map.addLayer(Layer1955Div))
@@ -501,6 +501,37 @@ $(document).ready(function () {
         .addIndicators({
             name: "Scene 7"
         }).addTo(controller)
+
+    // Basemaps
+    var tileLayer1953Topo = L.tileLayer('https://libmaps.nus.edu.sg/gis/rest/services/Sing_Hist_Maps/1953/MapServer/tile/{z}/{y}/{x}', {
+        "layers": "11,12,13,14,15,16,17,18,19,20,21,22",
+        attribution: '<a href="https://libmaps.nus.edu.sg/">National University of Singapore<a>'
+    })
+    var tileLayer1953Aerial = L.tileLayer("https://libmaps.nus.edu.sg/gis/rest/services/Sing_Hist_Maps/1953/MapServer/tile/{z}/{y}/{x}", {
+        "layers": "11,12,13,14,15,16,17,18,19,20,21,22",
+        attribution: '<a href="https://libmaps.nus.edu.sg/">National University of Singapore<a>'
+    });
+
+    function s8Enter(map) {
+        map.flyTo([1.35, 103.82], 12)
+        map.addLayer(tileLayer1953Topo);
+    }
+
+    function s8Exit(map) {
+        map.flyTo([1.35, 103.82], 11)
+        map.removeLayer(tileLayer1953Topo);
+    }
+
+    var s8 = new ScrollMagic.Scene({
+            triggerElement: "#s8",
+            triggerHook: 0.5,
+            duration: $("#s8").height() + 200
+        }).on("enter", d => s8Enter(map))
+        .on("leave", d => s8Exit(map))
+        .addIndicators({
+            name: "Scene 8"
+        }).addTo(controller)
+
 
     function TypeStyle(feature) {
         return {
@@ -513,26 +544,110 @@ $(document).ready(function () {
 
     var Layer1955Type = new L.GeoJSON.AJAX("assets/maplayers/wardsType1955.geojson", {
         style: TypeStyle
-    });
+    }).setZIndex(5);
 
-    function s8Enter(map) {
-        map.flyTo([1.35, 103.82], 12);
+    function s9Enter(map) {
         map.removeLayer(Layer1955Div)
         map.addLayer(Layer1955Type)
     }
 
-    function s8Exit(map) {
-        map.flyTo([1.35, 103.82], 11)
+    function s9Exit(map) {
         map.addLayer(Layer1955Div)
         map.removeLayer(Layer1955Type)
     }
 
-    var s8 = new ScrollMagic.Scene({
-            triggerElement: "#s8",
+    var s9 = new ScrollMagic.Scene({
+            triggerElement: "#s9",
             triggerHook: 0.5
-        }).on("enter", d => s8Enter(map))
-        .on("leave", d => s8Exit(map))
+        }).on("enter", d => s9Enter(map))
+        .on("leave", d => s9Exit(map))
         .addIndicators({
-            name: "Scene 7"
+            name: "Scene 9"
+        }).addTo(controller)
+
+    function s10Enter(map) {
+        map.flyTo([1.306, 103.8674], 14);
+        map.removeLayer(Layer1955Div)
+        map.addLayer(Layer1955Type)
+        $("[stroke='#E41A1C']").fadeTo(400, 0)
+    }
+
+    function s10Exit(map) {
+        map.flyTo([1.35, 103.82], 12)
+        map.addLayer(Layer1955Div)
+        map.removeLayer(Layer1955Type)
+        $("[stroke='#E41A1C']").fadeTo(400, 0.7)
+    }
+
+    var s10 = new ScrollMagic.Scene({
+            triggerElement: "#s11",
+            triggerHook: 0.5,
+            offset: -(window.innerHeight / 2) + 100
+        }).on("enter", d => s10Enter(map))
+        .on("leave", d => s10Exit(map))
+        .addIndicators({
+            name: "Scene 10"
+        }).addTo(controller)
+
+    function DivStyleLowOpacity(feature) {
+        return {
+            fillColor: getColor(feature.properties.Winner),
+            weight: 0.7,
+            color: 'black',
+            fillOpacity: 0.5,
+            opacity: 1
+        };
+    }
+    var Layer1955DivLowOpacity = new L.GeoJSON.AJAX("assets/maplayers/wards1955.geojson", {
+        attribution: 'Data.gov.sg',
+        style: DivStyleLowOpacity,
+        onEachFeature: function (feature, layer) {
+        }
+    }).setZIndex(3)
+
+
+    function s11Enter(map) {
+        map.addLayer(Layer1955DivLowOpacity)
+    }
+
+    function s11Exit(map) {
+        map.removeLayer(Layer1955DivLowOpacity)
+    }
+
+    var s11 = new ScrollMagic.Scene({
+            triggerElement: "#s11",
+            triggerHook: 0.5
+        }).on("enter", d => s11Enter(map))
+        .on("leave", d => s11Exit(map))
+        .addIndicators({
+            name: "Scene 11"
+        }).addTo(controller)
+
+
+    var LayerUrbanCentoids = new L.GeoJSON.AJAX("assets/maplayers/urbanCentoids.geojson", {
+        attribution: 'Data.gov.sg',
+        style: divStyle,
+        onEachFeature: function (feature, layer) {
+
+        }
+    })
+
+
+    function s12Enter(map) {
+        map.addLayer(LayerUrbanCentoids)
+    }
+
+    function s12Exit(map) {
+        map.removeLayer(LayerUrbanCentoids)
+    }
+
+    var s12 = new ScrollMagic.Scene({
+            triggerElement: "#s11",
+            triggerHook: 0.5,
+            offset: (window.innerHeight)
+        }).on("enter", d => s12Enter(map))
+        .on("leave", d => s12Exit(map))
+        .addIndicators({
+            name: "Scene 12"
         }).addTo(controller)
 });
