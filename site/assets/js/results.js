@@ -269,7 +269,27 @@ function generateDonuts(data) {
     // Highlight winners
     $(".graphContainer.donuts path.0")
         .attr("stroke", "yellow")
+        .append("polyLine")
 };
+
+function generateMap() {
+
+    // Initiates Map
+    var map = L.map('map', {
+        zoomControl: false
+    }).setView([1.35, 103.82], 11);
+    // Disable user controls
+    map.touchZoom.disable();
+    map.doubleClickZoom.disable();
+    map.scrollWheelZoom.disable();
+
+    // Basemaps
+    var LayerOneMapSG_Default = L.tileLayer('https://api.mapbox.com/styles/v1/virgilwxw/ck06ksmvx2axs1ctqea2zqt77/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoidmlyZ2lsd3h3IiwiYSI6ImNqYmhrN25rZTNoNWgyeHBlNnY0N3Z6dDAifQ.KCzg-gN0vwIeQNoQyjWVXg', {
+        attribution: '© <a href="https://apps.mapbox.com/feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    return map;
+}
 
 $(document).ready(function () {
 
@@ -306,7 +326,7 @@ $(document).ready(function () {
             .addTo(controller);
 
         var s1tween = new TimelineMax()
-            .from("rect.Seats.Won", 3, {
+            .from("rect.Seats.Won", 0, {
                 opacity: 1
             })
             .to("rect.Seats.Won", 3, {
@@ -345,13 +365,13 @@ $(document).ready(function () {
             .addTo(controller)
 
         var s3tween = new TimelineMax()
-            .from("rect.Popular.Vote", 3, {
+            .from("rect.Popular.Vote", 0, {
                 opacity: 1
             })
             .to("rect.Popular.Vote", 3, {
                 opacity: 0.1,
                 ease: Power2.easeOut
-            }).from("rect.Seats.Won", 3, {
+            }).from("rect.Seats.Won", 0, {
                 opacity: 0.1
             })
             .to("rect.Seats.Won", 3, {
@@ -391,13 +411,13 @@ $(document).ready(function () {
             .addTo(controller)
 
         var s5tween = new TimelineMax()
-            .from("rect", 3, {
+            .from("rect", 0, {
                 opacity: 0.1
             })
             .to("rect", 3, {
                 opacity: 1,
                 ease: Power2.easeOut
-            }).from("rect", 3, {})
+            }).from("rect", 0, {})
             .to("rect", 3, {
                 strokeWidth: 1,
                 stroke: "black",
@@ -416,10 +436,8 @@ $(document).ready(function () {
     });
 
     $.when(d3.csv("/assets/data/datagov.csv").then(data => generateDonuts(data))).done(function () {
-        console.log("test")
-
         var s6tween = new TimelineMax()
-            .from("#s6", 3, {
+            .from("#s6", 0, {
                 opacity: 1
             })
             .to("#s6", 3, {
@@ -438,4 +456,83 @@ $(document).ready(function () {
             .addTo(controller)
     });
 
+    var map = generateMap();
+
+    // Invalidate Size to make it responsive
+    setTimeout(function () {
+        map.invalidateSize()
+    }, 300);
+    $(window).resize(function () {
+        map.invalidateSize()
+    });
+
+    function divStyle(feature) {
+        return {
+            fillColor: getColor(feature.properties.Winner),
+            weight: 0.7,
+            color: 'black',
+            fillOpacity: 0.7,
+            opacity: 1
+        };
+    }
+
+    var Layer1955Div = new L.GeoJSON.AJAX("assets/maplayers/wards1955.geojson", {
+        attribution: 'Data.gov.sg',
+        style: divStyle,
+        onEachFeature: function (feature, layer) {}
+    })
+
+    var pinMap = new ScrollMagic.Scene({
+            triggerElement: "#mapCont",
+            triggerHook: 0
+        })
+        .setPin("#mapCont")
+        .addIndicators({
+            name: "Pin Map"
+        }) // add indicators (requires plugin)
+        .addTo(controller);
+
+    var s7 = new ScrollMagic.Scene({
+            triggerElement: "#s8",
+            triggerHook: 0.5,
+            offset: -(window.innerHeight / 2) + 100
+        }).on("enter", d => map.addLayer(Layer1955Div))
+        .on("leave", d => map.removeLayer(Layer1955Div))
+        .addIndicators({
+            name: "Scene 7"
+        }).addTo(controller)
+
+    function TypeStyle(feature) {
+        return {
+            weight: 2,
+            color: getColor(feature.properties.Type),
+            fillColor: getColor(feature.properties.Type),
+            fillOpacity: 0.9
+        };
+    }
+
+    var Layer1955Type = new L.GeoJSON.AJAX("assets/maplayers/wardsType1955.geojson", {
+        style: TypeStyle
+    });
+
+    function s8Enter(map) {
+        map.flyTo([1.35, 103.82], 12);
+        map.removeLayer(Layer1955Div)
+        map.addLayer(Layer1955Type)
+    }
+
+    function s8Exit(map) {
+        map.flyTo([1.35, 103.82], 11)
+        map.addLayer(Layer1955Div)
+        map.removeLayer(Layer1955Type)
+    }
+
+    var s8 = new ScrollMagic.Scene({
+            triggerElement: "#s8",
+            triggerHook: 0.5
+        }).on("enter", d => s8Enter(map))
+        .on("leave", d => s8Exit(map))
+        .addIndicators({
+            name: "Scene 7"
+        }).addTo(controller)
 });

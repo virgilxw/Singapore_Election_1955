@@ -19,48 +19,113 @@ layout: default
     <section class="solid buffer" id="headerImage">
         <img class="pinImage1" src="assets/img/billboard.jpg">
         <div class="inner content reveal" id="prelude">
-            <p>The Legislative Assembly Elections of 1955 were Singapore's first elections to feature universal suffrage. Voter turnout was high. The election was closely fought by charismatic and spirited candidates representing a dazzling diversity of political positions and ideologies.<br><br>1955 was the first foray into electoral politics for many of the political titans which will shape Singaporean politics and lead Singapore's fight for independence. Amongst them, David Marshall, Lim Chin Siong, and Lee Kuan Yew.</p>
+            <span>
+                <p>The Legislative Assembly Elections of 1955 were Singapore's first elections to feature universal suffrage. Voter turnout was high. The election was closely fought by charismatic and spirited candidates representing a dazzling diversity of political positions and ideologies.</p>
+                <p>1955 was the first foray into electoral politics for many of the political titans which will shape Singaporean politics and lead Singapore's fight for independence. Amongst them, David Marshall, Lim Chin Siong, and Lee Kuan Yew.</p>
+            </span>
         </div>
     </section>
     <section class="solid">
 
         <div class="graphContainer Votes">
             <div class="resultsViz">
-                <p class="chartTitle">Popular Vote of Parties by Political Alignment</p>
+                <span class="chartTitle">Popular Vote of Parties by Political Alignment</span>
             </div>
         </div>
         <div class="inner content act1">
-            <p id="s1">Right wing parties won over 50% of the popular vote; they argued for a slow, measured approach to the question of independence.</p>
-            <p id="s3">But the two major right wing parties, the Democrat and Progressive Parties, split the vote between them.
-                <br><br>
-                This allowed the parties of the Left Wing to win big.</p>
-            <p id="s5">Mouse over the graph to find out how many votes each party won.</p>
+            <span id="s1">
+                <p>Right wing parties won over 50% of the popular vote; they argued for a slow, measured approach to the question of independence.</p>
+            </span>
+            <span id="s3">
+                <p>But the two major right wing parties, the Democrat and Progressive Parties, split the vote between them.</p>
+                <p>
+                    This allowed the parties of the Left Wing to win big.</p>
+            </span>
+            <span id="s5">
+                <p>Mouse over the graph to find out how many votes each party won.</p>
+            </span>
         </div>
     </section>
     <section class="solid alt">
         <div class="inner content act2">
-            <div class="graphContainer donuts"></div>
-            <p>Here are how the results look by constituency. The winners are highlighted in a yellow outline.</p>
-            <p id="s6">13 out of the 25 seats were won with less than 50% of the vote.
-                <br><br>
-                These charts are sorted, in descending order, by the popular vote of the winning party. You can identify the "minority winners" as the last 13 charts in this collection.</p>
+            <div class="graphContainer donuts chart"></div>
+            <span>
+                <p>Here are how the results look by constituency. The winners are highlighted in a yellow outline.</p>
+            </span>
+            <span id="s6">
+                <p>13 out of the 25 seats were won with less than 50% of the vote.
+                </p>
+                <p> These charts are sorted, in descending order, by the popular vote of the winning party. You can identify the "minority winners" as the last 13 charts in this collection.</p>
+            </span>
         </div>
     </section>
+    <div id="mapCont">
+        <div id="map" class="chart"></div>
+    </div>
+    <section class="act3Cont">
+        <div class="inner content act3">
+            <span id="s8">
+                <p>To protect the interest of rural residents, the Electoral Commission divided Singapore into 3 types of electoral divisions.</p>
+                <p>
+                    Urban voters were disadvantaged. Urban electoral divisions had, on average, twice as many eligible voters than rural electoral divisions As a result, their votes were diluted.
+                </p>
 
-    <section>
-        <p>The Labour Front, however, did not win a majority of the parliamentary seats. This was expected due to the high number of unelected Legislative Assembly seats</p>
-        <ul>
-            <li>Three “ex-officio” members: British-appointed civil servants from the Colonial Office are Members of the Legislative Assembly by virtue of their post: the Attorney General, Chief Secretary, and Financial Secretary.</li>
-            <li>The governor appoints four nominated Members of Legislative Assembly to represent minority and sectoral interests</li>
-        </ul>
-
-        <p>Governor John Nicoll accounted for this by pledging ex-officio support for whichever party won the most seats. That, however, only made up 13 of 31 seats.</p>
-        <p>The leader of Labour Front, David Marshall, proposed that governor Nicoll give all four non-elect nominated seats to Labour Front cadres. This would give the Labour Front-ex-officio coalition a razor thin legislative assembly of 16 of 31 seats. Nicoll, however, rejected it. Nominated Seats are meant to represent unelected minority interests, not the governing party.</p>
-        <p>Under pressure from Governor Nicoll, David Marshall agreed to a coalition with the Singapore chapter of the Malayan Alliance. The Singapore Alliance is the precursor alliance to the Barisan Nasional and is an alliance party between the United Malays National Organisation (UMNO), Malayan Chinese Association (MCA), and Malay Union. This increased the Labour Front-led coalition to 18 of 31 legislative seats.</p>
+                <table class="data">
+                    <tr>
+                        <th>Constituency Type</th>
+                        <th>Total Voters</th>
+                        <th>Voters per Constituency</th>
+                        <th>No. of Constituencies</th>
+                    </tr>
+                    <tr>
+                        <td>Urban</td>
+                        <td>669,599</td>
+                        <td>55,800</td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>Mixed</td>
+                        <td>187,700</td>
+                        <td>37,400</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>Rural</td>
+                        <td>257,500</td>
+                        <td>32,200</td>
+                        <td>8</td>
+                    </tr>
+                </table>
+                <table class="legend">
+                    <tr>
+                        <td>
+                            <p>Urban Zone</p>
+                        </td>
+                        <td>
+                            <i style="background:#E41A1C"></i></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Mixed Zone</p>
+                        </td>
+                        <td>
+                            <i style="background:#377EB8"></i></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Rural Zone</p>
+                        </td>
+                        <td>
+                            <i style="background:#4DAF4A"></i></td>
+                    </tr>
+                </table>
+            </span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </section>
 </div>
-</section>
-
 
 <link rel="stylesheet" href="/assets/css/results.css">
 <script src="/assets/js/results.js"></script>
-</div>

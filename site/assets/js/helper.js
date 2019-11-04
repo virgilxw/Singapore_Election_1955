@@ -1,5 +1,5 @@
 function getColor(i) {
-    return i == "PP" ? "#DA70D6" : i == "DP" ? "#5F9EA0" : i == "SLF" ? "#8B4513" : i == "Ind." ? "#2F4F4F" : i == "SA" ? "#191970" : i == "PAP" ? "#FFFAFA" : i == "LP" ? "#DC143C" : i == "British Appointee" ? "#00000" : "#00FF00"
+    return i == "PP" ? "#DA70D6" : i == "DP" ? "#5F9EA0" : i == "SLF" ? "#8B4513" : i == "Ind." ? "#2F4F4F" : i == "SA" ? "#191970" : i == "PAP" ? "#FFFAFA" : i == "LP" ? "#DC143C" : i == "British Appointee" ? "#00000" : i == "Urban" ? "#E41A1C" : i == "Mixed" ? "#377EB8": i == "Rural" ? "#4DAF4A": "#00FF00"
 }
 
 function getFullPartyName(i) {
