@@ -626,9 +626,9 @@ $(document).ready(function () {
 
     var LayerUrbanCentoids = new L.GeoJSON.AJAX("assets/maplayers/urbanCentoids.geojson", {
         attribution: 'Data.gov.sg',
-        style: divStyle,
         onEachFeature: function (feature, layer) {
-
+            console.log(feature.properties.name)
+            console.log(feature/geometry.coordinates)
         }
     })
 
