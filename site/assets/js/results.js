@@ -472,7 +472,8 @@ $(document).ready(function () {
             weight: 0.7,
             color: 'black',
             fillOpacity: opacity,
-            opacity: 1
+            opacity: 1,
+            className: "test"
         };
     }
 
@@ -574,7 +575,9 @@ $(document).ready(function () {
 
     function s10Exit(map) {
         map.flyTo([1.35, 103.82], 12)
-        map.addLayer(Layer1955Div)
+        map.addLayer(Layer1955Div, {
+            onEachFeature: function (layer, feature) {}
+        })
         map.removeLayer(Layer1955Type)
         $("[stroke='#E41A1C']").fadeTo(400, 0.7)
     }
@@ -595,14 +598,14 @@ $(document).ready(function () {
             weight: 0.7,
             color: 'black',
             fillOpacity: 0.5,
-            opacity: 1
+            opacity: 1,
+            className: feature.properties.Name
         };
     }
     var Layer1955DivLowOpacity = new L.GeoJSON.AJAX("assets/maplayers/wards1955.geojson", {
         attribution: 'Data.gov.sg',
         style: DivStyleLowOpacity,
-        onEachFeature: function (feature, layer) {
-        }
+        onEachFeature: function (feature, layer) {}
     }).setZIndex(3)
 
 
@@ -612,6 +615,7 @@ $(document).ready(function () {
 
     function s11Exit(map) {
         map.removeLayer(Layer1955DivLowOpacity)
+        map.flyTo([1.306, 103.8674], 14);
     }
 
     var s11 = new ScrollMagic.Scene({
@@ -625,26 +629,38 @@ $(document).ready(function () {
 
 
     var LayerUrbanCentoids = new L.GeoJSON.AJAX("assets/maplayers/urbanCentoids.geojson", {
-        attribution: 'Data.gov.sg',
-        onEachFeature: function (feature, layer) {
-            console.log(feature.properties.name)
-            console.log(feature/geometry.coordinates)
-        }
-    })
+            attribution: 'Data.gov.sg',
+            onEachFeature: function (feature) {
+                console.log(feature)
+                L.marker(polygonCenter)
+                    .bindLabel(feature.properties['NAME'], {
+                        noHide: true
+                    })
+                    .addTo(map);
+            }
+        })
+        .setZIndex(9)
 
 
     function s12Enter(map) {
         map.addLayer(LayerUrbanCentoids)
+        $(".Tanjong.Pagar.leaflet-interactive").attr("stroke", "yellow")
+            .attr("stroke-width", 15)
+
+        map.flyTo([1.2756, 103.8440], 16)
     }
 
     function s12Exit(map) {
         map.removeLayer(LayerUrbanCentoids)
+        $(".Tanjong.Pagar.leaflet-interactive").attr("stroke", "black")
+            .attr("stroke-width", 0.7)
+
+        map.flyTo([1.306, 103.8674], 14);
     }
 
     var s12 = new ScrollMagic.Scene({
-            triggerElement: "#s11",
-            triggerHook: 0.5,
-            offset: (window.innerHeight)
+            triggerElement: "#s12",
+            triggerHook: 0.5
         }).on("enter", d => s12Enter(map))
         .on("leave", d => s12Exit(map))
         .addIndicators({

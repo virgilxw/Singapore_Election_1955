@@ -226,13 +226,15 @@ div.rightDetail .bold {
     border-spacing: 0;
     border: 1px solid #ccc;
     display: table;
+    width: 100%
 }
 
 .data td,
 .data th {
+    width: 100%;
     padding: 10px 15px;
     text-align: center;
-    width: 25%;
+    width: auto;
 }
 
 .data th {
@@ -268,7 +270,11 @@ div.rightDetail .bold {
     margin-top: 700px;
 }
 
-h2, h3, h4, h5 {
+h2,
+h3,
+h4,
+h5,
+h6{
     color: black;
     margin-bottom: 0;
 }
@@ -277,7 +283,32 @@ h2 {
     font-size: 1.5em;
 }
 
+h4 {
+    margin: 15px;
+
+}
+
 blockquote {
     font: 0.9em 'Muli', sans-serif;
-    margin: 15px 40px;
+    margin: 15px 40px 0 40px;
+}
+
+.attribution {
+    font: 0.9em 'Muli', sans-serif;
+    margin: 5px 40px 15px 40px;
+    padding: 0;
+    text-align:right
+}
+
+.highlightPolygon {
+    stroke: yellow;
+}
+
+.aside {
+    position: absolute;
+    background-color: white;
+    left: 75%;
+    transform: translate(0, -700px);
+    outline: 3px solid black;
+    font: 0.8em 'Muli', sans-serif;
 }

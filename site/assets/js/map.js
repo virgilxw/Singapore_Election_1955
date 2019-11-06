@@ -2,7 +2,7 @@
 function resultsPopup(element) {
     data = jQuery.getJSON("data/constituencies1955.json", function (data) {
         var popup = L.popup();
-        var wardName = element.target.feature.properties.name;
+        var wardName = element.target.feature.properties.Name;
 
         var htmlString = ("<h1>").concat(wardName, "</h1><table class='result-table'><tr><th>Party</th><th>Candidate</th><th colspan='2'>Votes</th></tr>");
 
