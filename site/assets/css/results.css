@@ -258,6 +258,8 @@ div.rightDetail .bold {
     float: left;
     margin-right: 8px;
     opacity: 0.9;
+    border-style: solid;
+    border-width: 1px;
 }
 
 .legend p {
@@ -297,7 +299,7 @@ blockquote {
     font: 0.9em 'Muli', sans-serif;
     margin: 5px 40px 15px 40px;
     padding: 0;
-    text-align:right
+    text-align:right;
 }
 
 .highlightPolygon {

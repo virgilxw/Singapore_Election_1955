@@ -62,14 +62,12 @@ var Layer1955Wards = new L.GeoJSON.AJAX("assets/maplayers/wards1955.geojson", {
                     var layer = e.target;
                     layer.setStyle({
                         stroke: '#347ebf',
-                        fillOpacity: 1
+                        fillOpacity: 0
                     });
                     if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
                         layer.bringToFront();
                     }
-                } // Remove highlighted style once mouse leaves
-
-                ,
+                },
             mouseout: function (e) {
                 Layer1955Wards.resetStyle(e.target);
             },

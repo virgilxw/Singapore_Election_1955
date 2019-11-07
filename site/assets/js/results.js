@@ -493,16 +493,6 @@ $(document).ready(function () {
         })
         .addTo(controller);
 
-    var s7 = new ScrollMagic.Scene({
-            triggerElement: "#s9",
-            triggerHook: 0.5,
-            offset: -(window.innerHeight / 2) + 100
-        }).on("enter", d => map.addLayer(Layer1955Div))
-        .on("leave", d => map.removeLayer(Layer1955Div))
-        .addIndicators({
-            name: "Scene 7"
-        }).addTo(controller)
-
     // Basemaps
     var tileLayer1953Topo = L.tileLayer('https://libmaps.nus.edu.sg/gis/rest/services/Sing_Hist_Maps/1953/MapServer/tile/{z}/{y}/{x}', {
         "layers": "11,12,13,14,15,16,17,18,19,20,21,22",
@@ -578,8 +568,7 @@ $(document).ready(function () {
         map.addLayer(Layer1955Div, {
             onEachFeature: function (layer, feature) {}
         })
-        map.removeLayer(Layer1955Type)
-        $("[stroke='#E41A1C']").fadeTo(400, 0.7)
+        $("[stroke='#E41A1C']").fadeTo(400, 0.9)
     }
 
     var s10 = new ScrollMagic.Scene({
@@ -602,19 +591,19 @@ $(document).ready(function () {
             className: feature.properties.Name
         };
     }
-    var Layer1955DivLowOpacity = new L.GeoJSON.AJAX("assets/maplayers/wards1955.geojson", {
+    var urbanDivs = new L.GeoJSON.AJAX("assets/maplayers/urbanDivs.geojson", {
         attribution: 'Data.gov.sg',
         style: DivStyleLowOpacity,
         onEachFeature: function (feature, layer) {}
     }).setZIndex(3)
 
-
     function s11Enter(map) {
-        map.addLayer(Layer1955DivLowOpacity)
+        map.addLayer(urbanDivs)
     }
 
     function s11Exit(map) {
-        map.removeLayer(Layer1955DivLowOpacity)
+        map.removeLayer(urbanDivs)
+        map.addLayer(Layer1955Type)
         map.flyTo([1.306, 103.8674], 14);
     }
 
@@ -639,7 +628,7 @@ $(document).ready(function () {
                     .addTo(map);
             }
         })
-        .setZIndex(9)
+        .setZIndex(3)
 
 
     function s12Enter(map) {
@@ -666,4 +655,75 @@ $(document).ready(function () {
         .addIndicators({
             name: "Scene 12"
         }).addTo(controller)
+
+    var mixedDivs = new L.GeoJSON.AJAX("assets/maplayers/mixedDivs.geojson", {
+        attribution: 'Data.gov.sg',
+        style: DivStyleLowOpacity,
+        onEachFeature: function (feature, layer) {}
+    }).setZIndex(3)
+
+    function s13Enter(map) {
+        $(".Tanjong.Pagar.leaflet-interactive").attr("stroke", "black")
+            .attr("stroke-width", 0.7)
+
+        map.removeLayer(urbanDivs)
+        map.addLayer(mixedDivs)
+
+        $("[stroke='#E41A1C']").fadeTo(400, 1)
+        $("[stroke='#377EB8']").fadeTo(1200, 0)
+
+        map.flyTo([1.306, 103.8674], 13)
+    }
+
+    function s13Exit(map) {
+        map.addLayer(urbanDivs)
+        $(".Tanjong.Pagar.leaflet-interactive").attr("stroke", "black")
+            .attr("stroke-width", 0.7)
+
+        $(".Tanjong.Pagar.leaflet-interactive").attr("stroke", "yellow")
+            .attr("stroke-width", 15)
+
+        map.removeLayer(mixedDivs)
+
+        map.flyTo([1.2756, 103.8440], 16)
+
+        $("[stroke='#377EB8']").fadeTo(400, 1)
+        $("[stroke='#E41A1C']").fadeTo(400, 0)
+    }
+
+    var s13 = new ScrollMagic.Scene({
+            triggerElement: "#s13",
+            triggerHook: 0.5
+        }).on("enter", d => s13Enter(map))
+        .on("leave", d => s13Exit(map))
+        .addIndicators({
+            name: "Scene 13"
+        }).addTo(controller)
+
+
+    function s14Enter(map) {
+        map.addLayer(LayerUrbanCentoids)
+        $(".Queenstown.leaflet-interactive").attr("stroke", "yellow")
+            .attr("stroke-width", 15)
+
+        map.flyTo([1.2940, 103.8100], 15)
+    }
+
+    function s14Exit(map) {
+        map.removeLayer(LayerUrbanCentoids)
+        $(".Queenstown.leaflet-interactive").attr("stroke", "black")
+            .attr("stroke-width", 0.7)
+
+        map.flyTo([1.306, 103.8674], 13);
+    }
+
+    var s14 = new ScrollMagic.Scene({
+            triggerElement: "#s14",
+            triggerHook: 0.5
+        }).on("enter", d => s14Enter(map))
+        .on("leave", d => s14Exit(map))
+        .addIndicators({
+            name: "Scene 12"
+        }).addTo(controller)
+
 });
