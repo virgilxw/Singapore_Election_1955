@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:28761d6d2a84830bff4823dd784ac8268603808e32e48654f90d3cbd9d9bf507
-size 836
+{
+  "name": "ism",
+  "version": "1.0.0",
+  "description": "https://www.colourlovers.com/palette/28/1950s\r Green: 68,175,105\r Red: 212,67,84\r Yellow: 255,241,96\r Blue: 118,175,186\r Orange: 230,85,64\r White: 255, 250, 240",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/virgilxw/Singapore_Election_1955.git"
+  },
+  "author": "Reuben X. Wang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/virgilxw/Singapore_Election_1955/issues"
+  },
+  "homepage": "https://github.com/virgilxw/Singapore_Election_1955#readme",
+  "devDependencies": {
+    "d3": "^5.9.7",
+    "jquery": "^3.4.1",
+    "leaflet": "^1.5.1",
+    "leaflet-ajax": "^2.1.0",
+    "leaflet.wms": "^0.2.0"
+  },
+  "dependencies": {}
+}

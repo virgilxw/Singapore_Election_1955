@@ -557,7 +557,7 @@ $(document).ready(function () {
         }).addTo(controller)
 
     function s10Enter(map) {
-        map.flyTo([1.306, 103.8674], 14);
+        map.flyTo([1.306, 103.8575], 14);
         map.removeLayer(Layer1955Div)
         map.addLayer(Layer1955Type)
         $("[stroke='#E41A1C']").fadeTo(400, 0)
@@ -604,7 +604,7 @@ $(document).ready(function () {
     function s11Exit(map) {
         map.removeLayer(urbanDivs)
         map.addLayer(Layer1955Type)
-        map.flyTo([1.306, 103.8674], 14);
+        map.flyTo([1.306, 103.8575], 14);
     }
 
     var s11 = new ScrollMagic.Scene({
@@ -644,7 +644,7 @@ $(document).ready(function () {
         $(".Tanjong.Pagar.leaflet-interactive").attr("stroke", "black")
             .attr("stroke-width", 0.7)
 
-        map.flyTo([1.306, 103.8674], 14);
+        map.flyTo([1.306, 103.8575], 14);
     }
 
     var s12 = new ScrollMagic.Scene({
@@ -672,7 +672,7 @@ $(document).ready(function () {
         $("[stroke='#E41A1C']").fadeTo(400, 1)
         $("[stroke='#377EB8']").fadeTo(1200, 0)
 
-        map.flyTo([1.306, 103.8674], 13)
+        map.flyTo([1.306, 103.8575], 13)
     }
 
     function s13Exit(map) {
@@ -714,7 +714,7 @@ $(document).ready(function () {
         $(".Queenstown.leaflet-interactive").attr("stroke", "black")
             .attr("stroke-width", 0.7)
 
-        map.flyTo([1.306, 103.8674], 13);
+        map.flyTo([1.306, 103.8575], 13);
     }
 
     var s14 = new ScrollMagic.Scene({
@@ -723,7 +723,41 @@ $(document).ready(function () {
         }).on("enter", d => s14Enter(map))
         .on("leave", d => s14Exit(map))
         .addIndicators({
-            name: "Scene 12"
+            name: "Scene 14"
         }).addTo(controller)
+    
+       var ruralDivs = new L.GeoJSON.AJAX("assets/maplayers/ruralDivs.geojson", {
+        attribution: 'Data.gov.sg',
+        style: DivStyleLowOpacity,
+        onEachFeature: function (feature, layer) {}
+    }).setZIndex(3)
+    
+    function s15Enter(map) {
+        map.flyTo([1.35, 103.82], 12)
+        $(".Queenstown.leaflet-interactive").attr("stroke", "black")
+            .attr("stroke-width", 0.7)
+        
+        
+        $("[stroke='#377EB8']").fadeTo(400, 1)
+        $("[stroke='#4DAF4A']").fadeTo(400, 0)
+        
+        map.removeLayer(mixedDivs)
+        map.addLayer(ruralDivs)
+    }
 
+    function s15Exit(map) {
+        map.flyTo([1.2940, 103.8100], 15)
+        
+        map.addLayer(mixedDivs)
+        map.removeLayer(ruralDivs)
+    }
+
+    var s15 = new ScrollMagic.Scene({
+            triggerElement: "#s15",
+            triggerHook: 0.5
+        }).on("enter", d => s15Enter(map))
+        .on("leave", d => s15Exit(map))
+        .addIndicators({
+            name: "Scene 15"
+        }).addTo(controller)
 });
