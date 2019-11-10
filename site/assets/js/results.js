@@ -854,4 +854,15 @@ $(document).ready(function () {
         .addIndicators({
             name: "Scene 16"
         }).addTo(controller)
+
+            // Prelude
+        var prelude = new ScrollMagic.Scene({
+                triggerElement: "#epilogue span",
+                triggerHook: 0.5
+            })
+            .setClassToggle(".reveal", "visible")
+            .addIndicators({
+                name: "prelude"
+            })
+            .addTo(controller);
 });

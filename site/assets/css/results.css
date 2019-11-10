@@ -18,6 +18,10 @@ p {
     border-radius: 10px;
 }
 
+div {
+    pointer-events: none;
+}
+
 #one::before {
     content: "";
     display: block;
