@@ -193,12 +193,31 @@ function generateGraph(data) {
         .attr("class", d => d["data"]["Align"].concat(" ", d["data"]["Chart"]))
 };
 
-function generateTooltip(party, div, ward) {
+function generateTooltip(party, div, ward, data, e) {
 
-    if (ward) {
-        console.log(ward)
+    if (data) {
 
-        d3.json("./")
+        var entry = data.filter(function (d) {
+            return d.candidates == party
+        })[0]
+
+        // Generate Tooltips with party detail
+        div.style("border-color", getColor(entry.party))
+            .style("border-width", "5px")
+            .style("border-style", "solid")
+
+        if (e == 0) {
+            e = "WON"
+        } else {
+            e = "LOST"
+        }
+
+        var htmlString = `<p class="bold">` + entry.candidates + `</p><p>` + getFullPartyName(entry.party) + `</p><p>Votes: ` + (entry.vote_percentage * 100).toFixed(1) + `% </p><p> (` + formatNumber(entry.vote_count) + ` votes)</p><B class="bold">` + e + `</p>`
+
+
+        div.html(htmlString)
+
+        return div
     }
 
     // Generate Tooltips with party detail
@@ -231,12 +250,12 @@ function generateDonuts(data) {
         var v3 = []
 
         v.forEach(function (v2) {
-            v3[v2.party] = v2.vote_count
+            v3[v2.candidates] = v2.vote_count
         })
         return v3;
     }).entries(data)
 
-     // div for tooltips
+    // div for tooltips
     var div = d3.select("body")
         .append("div")
         .attr("class", "tooltip")
@@ -263,15 +282,16 @@ function generateDonuts(data) {
                     return d.data.key, i
                 })
                 .attr('fill', function (d) {
-                    return (getColor(d.data.key))
-                })
-                .attr("stroke", "black")
+                    return getColor(data.filter(function (e) {
+                        return e.candidates == d.data.key
+                    })[0].party)
+                }).attr("stroke", "black")
                 .style("stroke-width", "2px")
                 .style("opacity", 0.8)
                 .on("mouseover", function (d, e) {
                     div.transition().duration(100).style("opacity", 1)
 
-                    generateTooltip(d.data.key, div, $(this).parent().parent().attr("class"))
+                    generateTooltip(d.data.key, div, $(this).parent().parent().attr("class"), data, e)
 
                     div.style("visibility", "visible")
                         .style("left", (d3.event.pageX - 20) + "px")
