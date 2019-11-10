@@ -193,10 +193,13 @@ function generateGraph(data) {
         .attr("class", d => d["data"]["Align"].concat(" ", d["data"]["Chart"]))
 };
 
-function generateTooltip(party, div) {
+function generateTooltip(party, div, ward) {
+
+    if (ward != null) {
+        console.log(ward)
+    }
 
     // Generate Tooltips with party detail
-
     div.style("border-color", getColor(party))
         .style("border-width", "5px")
         .style("border-style", "solid")
@@ -231,6 +234,13 @@ function generateDonuts(data) {
         return v3;
     }).entries(data)
 
+     // div for tooltips
+    var div = d3.select("body")
+        .append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0)
+
+
     d3.select("div.graphContainer.donuts")
         .selectAll("svg")
         .data(nested_data).enter()
@@ -257,6 +267,28 @@ function generateDonuts(data) {
                 .attr("stroke", "black")
                 .style("stroke-width", "2px")
                 .style("opacity", 0.8)
+                .on("mouseover", function (d) {
+                    div.transition().duration(100).style("opacity", 1)
+
+                    generateTooltip(d.data.key, div)
+
+                    div.style("visibility", "visible")
+                        .style("left", (d3.event.pageX - 20) + "px")
+                        .style("top", (d3.event.pageY - 130) + "px")
+
+                    $(this).addClass("hover");
+                })
+                .on("mousemove", function (d) {
+                    div.style("left", (d3.event.pageX - 20) + "px")
+                        .style("top", (d3.event.pageY - 130) + "px")
+                })
+                .on("mouseout", function (d) {
+                    div.transition()
+                        .duration(500)
+                    div.style("visibility", "hidden")
+                    $(this).removeClass("hover");
+                });
+
         }).append("text")
         .text(d => d.key)
         .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
@@ -782,7 +814,7 @@ $(document).ready(function () {
         $(".Southern.Islands.leaflet-interactive").attr("stroke", "yellow")
             .attr("stroke-width", 5)
 
-        map.flyTo([1.230,103.7460], 13)
+        map.flyTo([1.230, 103.7460], 13)
     }
 
     function s17Exit(map) {

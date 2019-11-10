@@ -1,6 +1,9 @@
 section {
     position: relative;
-    pointer-events: none;
+}
+
+svg {
+    pointer-events: all;
 }
 
 p {
@@ -150,11 +153,17 @@ div.tooltip {
     border: 0px;
     border-radius: 8px;
     pointer-events: none;
+    z-index: 100;
 }
 
 div.tooltip span {
     padding: 0;
     font-size: 0.9em;
+}
+
+div.tooltip p{
+    padding: 0;
+    font-size:0.9em;
 }
 
 div.rightDetail {
@@ -205,6 +214,7 @@ div.rightDetail .bold {
     width: 100%;
     position: relative;
     z-index: -1;
+    pointer-events: auto;
 }
 
 #map {
