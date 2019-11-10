@@ -738,6 +738,9 @@ $(document).ready(function () {
     function s15Exit(map) {
         map.flyTo([1.2940, 103.8100], 15)
 
+        $("[stroke='#377EB8']").fadeTo(400, 0)
+        $("[stroke='#4DAF4A']").fadeTo(400, 1)
+
         map.addLayer(mixedDivs)
         map.removeLayer(ruralDivs)
     }
@@ -749,5 +752,30 @@ $(document).ready(function () {
         .on("leave", d => s15Exit(map))
         .addIndicators({
             name: "Scene 15"
+        }).addTo(controller)
+
+    function s16Enter(map) {
+        map.addLayer(LayerUrbanCentoids)
+        $(".Sembawang.leaflet-interactive").attr("stroke", "yellow")
+            .attr("stroke-width", 5)
+
+        map.flyTo([1.41,103.8290], 13)
+    }
+
+    function s16Exit(map) {
+
+        $(".Sembawang.leaflet-interactive").attr("stroke", "yellow")
+            .attr("stroke-width", 0.7)
+
+        map.flyTo([1.35, 103.82], 12)
+    }
+
+    var s16 = new ScrollMagic.Scene({
+            triggerElement: "#s16",
+            triggerHook: 0.5
+        }).on("enter", d => s16Enter(map))
+        .on("leave", d => s16Exit(map))
+        .addIndicators({
+            name: "Scene 16"
         }).addTo(controller)
 });

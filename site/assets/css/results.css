@@ -319,3 +319,11 @@ blockquote {
 .scrollmagic-pin-spacer{
     pointer-events: none;
 }
+
+.buffer {
+    z-index: 5;
+}
+
+.solid {
+    z-index: 10;
+}
