@@ -755,16 +755,14 @@ $(document).ready(function () {
         }).addTo(controller)
 
     function s16Enter(map) {
-        map.addLayer(LayerUrbanCentoids)
         $(".Sembawang.leaflet-interactive").attr("stroke", "yellow")
             .attr("stroke-width", 5)
 
-        map.flyTo([1.41,103.8290], 13)
+        map.flyTo([1.41, 103.8290], 13)
     }
 
     function s16Exit(map) {
-
-        $(".Sembawang.leaflet-interactive").attr("stroke", "yellow")
+        $(".Sembawang.leaflet-interactive").attr("stroke", "black")
             .attr("stroke-width", 0.7)
 
         map.flyTo([1.35, 103.82], 12)
@@ -775,6 +773,31 @@ $(document).ready(function () {
             triggerHook: 0.5
         }).on("enter", d => s16Enter(map))
         .on("leave", d => s16Exit(map))
+        .addIndicators({
+            name: "Scene 16"
+        }).addTo(controller)
+
+    function s17Enter(map) {
+        map.addLayer(LayerUrbanCentoids)
+        $(".Southern.Islands.leaflet-interactive").attr("stroke", "yellow")
+            .attr("stroke-width", 5)
+
+        map.flyTo([1.230,103.7460], 13)
+    }
+
+    function s17Exit(map) {
+
+        $(".Southern.Islands.leaflet-interactive").attr("stroke", "black")
+            .attr("stroke-width", 0.7)
+
+        map.flyTo([1.41, 103.8290], 13)
+    }
+
+    var s17 = new ScrollMagic.Scene({
+            triggerElement: "#s17",
+            triggerHook: 0.5
+        }).on("enter", d => s17Enter(map))
+        .on("leave", d => s17Exit(map))
         .addIndicators({
             name: "Scene 16"
         }).addTo(controller)
