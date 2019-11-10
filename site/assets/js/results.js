@@ -195,8 +195,10 @@ function generateGraph(data) {
 
 function generateTooltip(party, div, ward) {
 
-    if (ward != null) {
+    if (ward) {
         console.log(ward)
+
+        d3.json("./")
     }
 
     // Generate Tooltips with party detail
@@ -240,7 +242,6 @@ function generateDonuts(data) {
         .attr("class", "tooltip")
         .style("opacity", 0)
 
-
     d3.select("div.graphContainer.donuts")
         .selectAll("svg")
         .data(nested_data).enter()
@@ -267,10 +268,10 @@ function generateDonuts(data) {
                 .attr("stroke", "black")
                 .style("stroke-width", "2px")
                 .style("opacity", 0.8)
-                .on("mouseover", function (d) {
+                .on("mouseover", function (d, e) {
                     div.transition().duration(100).style("opacity", 1)
 
-                    generateTooltip(d.data.key, div)
+                    generateTooltip(d.data.key, div, $(this).parent().parent().attr("class"))
 
                     div.style("visibility", "visible")
                         .style("left", (d3.event.pageX - 20) + "px")
