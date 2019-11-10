@@ -283,10 +283,22 @@ function generateMap() {
     map.doubleClickZoom.disable();
     map.scrollWheelZoom.disable();
 
+    map.createPane('left');
+    map.createPane('right');
+
+
     // Basemaps
-    var LayerOneMapSG_Default = L.tileLayer('https://api.mapbox.com/styles/v1/virgilwxw/ck06ksmvx2axs1ctqea2zqt77/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoidmlyZ2lsd3h3IiwiYSI6ImNqYmhrN25rZTNoNWgyeHBlNnY0N3Z6dDAifQ.KCzg-gN0vwIeQNoQyjWVXg', {
+    var Base_Default = L.tileLayer('https://api.mapbox.com/styles/v1/virgilwxw/ck06ksmvx2axs1ctqea2zqt77/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoidmlyZ2lsd3h3IiwiYSI6ImNqYmhrN25rZTNoNWgyeHBlNnY0N3Z6dDAifQ.KCzg-gN0vwIeQNoQyjWVXg', {
         attribution: '© <a href="https://apps.mapbox.com/feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
+
+    // Basemaps
+    var tileLayer1953Topo = L.tileLayer('https://libmaps.nus.edu.sg/gis/rest/services/Sing_Hist_Maps/1953/MapServer/tile/{z}/{y}/{x}', {
+        "layers": "11,12,13,14,15,16,17,18,19,20,21,22",
+        attribution: '<a href="https://libmaps.nus.edu.sg/">National University of Singapore<a>'
+    }).addTo(map);
+
+    L.control.sideBySide(Base_Default, tileLayer1953Topo).addTo(map);
 
     return map;
 }
@@ -477,12 +489,6 @@ $(document).ready(function () {
         };
     }
 
-    var Layer1955Div = new L.GeoJSON.AJAX("assets/maplayers/wards1955.geojson", {
-        attribution: 'Data.gov.sg',
-        style: divStyle,
-        onEachFeature: function (feature, layer) {}
-    })
-
     var pinMap = new ScrollMagic.Scene({
             triggerElement: "#mapCont",
             triggerHook: 0
@@ -493,24 +499,12 @@ $(document).ready(function () {
         })
         .addTo(controller);
 
-    // Basemaps
-    var tileLayer1953Topo = L.tileLayer('https://libmaps.nus.edu.sg/gis/rest/services/Sing_Hist_Maps/1953/MapServer/tile/{z}/{y}/{x}', {
-        "layers": "11,12,13,14,15,16,17,18,19,20,21,22",
-        attribution: '<a href="https://libmaps.nus.edu.sg/">National University of Singapore<a>'
-    })
-    var tileLayer1953Aerial = L.tileLayer("https://libmaps.nus.edu.sg/gis/rest/services/Sing_Hist_Maps/1953/MapServer/tile/{z}/{y}/{x}", {
-        "layers": "11,12,13,14,15,16,17,18,19,20,21,22",
-        attribution: '<a href="https://libmaps.nus.edu.sg/">National University of Singapore<a>'
-    });
-
     function s8Enter(map) {
         map.flyTo([1.35, 103.82], 12)
-        map.addLayer(tileLayer1953Topo);
     }
 
     function s8Exit(map) {
         map.flyTo([1.35, 103.82], 11)
-        map.removeLayer(tileLayer1953Topo);
     }
 
     var s8 = new ScrollMagic.Scene({
@@ -538,12 +532,10 @@ $(document).ready(function () {
     }).setZIndex(5);
 
     function s9Enter(map) {
-        map.removeLayer(Layer1955Div)
         map.addLayer(Layer1955Type)
     }
 
     function s9Exit(map) {
-        map.addLayer(Layer1955Div)
         map.removeLayer(Layer1955Type)
     }
 
@@ -558,7 +550,6 @@ $(document).ready(function () {
 
     function s10Enter(map) {
         map.flyTo([1.306, 103.8575], 14);
-        map.removeLayer(Layer1955Div)
         map.addLayer(Layer1955Type)
         $("[stroke='#E41A1C']").fadeTo(400, 0)
     }
@@ -620,7 +611,6 @@ $(document).ready(function () {
     var LayerUrbanCentoids = new L.GeoJSON.AJAX("assets/maplayers/urbanCentoids.geojson", {
             attribution: 'Data.gov.sg',
             onEachFeature: function (feature) {
-                console.log(feature)
                 L.marker(polygonCenter)
                     .bindLabel(feature.properties['NAME'], {
                         noHide: true
@@ -725,29 +715,29 @@ $(document).ready(function () {
         .addIndicators({
             name: "Scene 14"
         }).addTo(controller)
-    
-       var ruralDivs = new L.GeoJSON.AJAX("assets/maplayers/ruralDivs.geojson", {
+
+    var ruralDivs = new L.GeoJSON.AJAX("assets/maplayers/ruralDivs.geojson", {
         attribution: 'Data.gov.sg',
         style: DivStyleLowOpacity,
         onEachFeature: function (feature, layer) {}
     }).setZIndex(3)
-    
+
     function s15Enter(map) {
         map.flyTo([1.35, 103.82], 12)
         $(".Queenstown.leaflet-interactive").attr("stroke", "black")
             .attr("stroke-width", 0.7)
-        
-        
+
+
         $("[stroke='#377EB8']").fadeTo(400, 1)
         $("[stroke='#4DAF4A']").fadeTo(400, 0)
-        
+
         map.removeLayer(mixedDivs)
         map.addLayer(ruralDivs)
     }
 
     function s15Exit(map) {
         map.flyTo([1.2940, 103.8100], 15)
-        
+
         map.addLayer(mixedDivs)
         map.removeLayer(ruralDivs)
     }

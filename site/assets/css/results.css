@@ -1,5 +1,6 @@
 section {
     position: relative;
+    pointer-events: none;
 }
 
 p {
@@ -313,4 +314,8 @@ blockquote {
     transform: translate(0, -700px);
     outline: 3px solid black;
     font: 0.8em 'Muli', sans-serif;
+}
+
+.scrollmagic-pin-spacer{
+    pointer-events: none;
 }
