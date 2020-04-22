@@ -16,12 +16,9 @@
 title: "Self-Determination: Singapore's 1955 Election"
 email: "reubenwxw@gmail.com"
 author: "Reuben X. Wang"
-description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+description: "In 1955, Singaporeans went to the polls to elect their first democratically elected government.The election saw different visions of Singapore competing to capture the imaginations of Singaporeans. This is an exploration of what transpired, and what could had been."
+baseurl: ""
+url: "ge1955.rxw.sg"
 github_username:  virgilxw
 
 # Build settings
