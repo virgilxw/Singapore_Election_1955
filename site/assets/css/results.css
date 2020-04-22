@@ -1,290 +1,290 @@
 section {
-    position: relative;
+	position: relative;
 }
 
 svg {
-    pointer-events: all;
+	pointer-events: all;
 }
 
 p {
-    color: black;
+	color: black;
 }
 
 .content span {
-    width: 70%;
-    margin-top: 250px;
-    background-color: rgba(255, 255, 255, 0.9);
-    color: rgb(41, 41, 41);
-    border-radius: 10px;
+	width: 70%;
+	margin-top: 250px;
+	background-color: rgba(255, 255, 255, 0.9);
+	color: rgb(41, 41, 41);
+	border-radius: 10px;
 }
 
 div {
-    pointer-events: none;
+	pointer-events: none;
 }
 
 #one::before {
-    content: "";
-    display: block;
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%23E2D8B2%3B' /%3E%3C/svg%3E");
-    height: 90px;
-    width: 100%;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    transform: scale(-1, 1) translate(0, -90px);
+	content: "";
+	display: block;
+	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%23E2D8B2%3B' /%3E%3C/svg%3E");
+	height: 90px;
+	width: 100%;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	transform: scale(-1, 1) translate(0, -90px);
 }
 
 #one {
-    height: 500vh;
-    background-color: #E2D8B2
+	height: 500vh;
+	background-color: #E2D8B2
 }
 
 #Scene2 {
-    margin-top: 60vh;
-    padding-top: 100vh
+	margin-top: 60vh;
+	padding-top: 100vh
 }
 
 .inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
 }
 
 span {
-    z-index: 10;
-    color: black;
-    padding: 10px;
-    margin: 0;
+	z-index: 10;
+	color: black;
+	padding: 10px;
+	margin: 0;
 }
 
 .x-axis text {
-    font: 18px 'Muli', sans-serif;
-    margin-top: 25px;
-    color: black;
+	font: 18px 'Muli', sans-serif;
+	margin-top: 25px;
+	color: black;
 }
 
 .chartTitle {
-    text-align: center;
-    margin: 0 auto;
-    top: 50px;
+	text-align: center;
+	margin: 0 auto;
+	top: 50px;
 }
 
 .tick line {
-    z-index: -1;
+	z-index: -1;
 }
 
 .hover {
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    stroke-width: 5px;
-    stroke: #e9ff3d;
-    z-index: 10;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	stroke-width: 5px;
+	stroke: #e9ff3d;
+	z-index: 10;
 }
 
 .act1 {
-    margin-bottom: 700px;
+	margin-bottom: 700px;
 }
 
 #headerImage img {
-    width: 100%
+	width: 100%
 }
 
 #headerImage::after {
-    height: 0;
+	height: 0;
 }
 
 #headerImage {
-    height: 65vw;
+	height: 65vw;
 }
 
 #headerImage span {
-    margin-top: 0;
+	margin-top: 0;
 }
 
 #headerImage div {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 
 .graphContainer {
-    width: 100%;
-    position: absolute;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+	width: 100%;
+	position: absolute;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .resultsViz {
-    height: 100vh;
-    max-width: 1000px;
-    width: 100%;
-    margin: 0 10%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+	height: 100vh;
+	max-width: 1000px;
+	width: 100%;
+	margin: 0 10%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .reveal {
-    opacity: 0;
-    -webkit-transition: all 1s ease-in-out;
-    -moz-transition: all 1s ease-in-out;
-    -ms-transition: all 1s ease-in-out;
-    -o-transition: all 1s ease-in-out;
-    transition: all 1s ease-in-out;
+	opacity: 0;
+	-webkit-transition: all 1s ease-in-out;
+	-moz-transition: all 1s ease-in-out;
+	-ms-transition: all 1s ease-in-out;
+	-o-transition: all 1s ease-in-out;
+	transition: all 1s ease-in-out;
 }
 
 .reveal.visible {
-    opacity: 1;
-    -webkit-transform: none;
-    -moz-transform: none;
-    -ms-transform: none;
-    -o-transform: none;
-    transform: none;
+	opacity: 1;
+	-webkit-transform: none;
+	-moz-transform: none;
+	-ms-transform: none;
+	-o-transform: none;
+	transform: none;
 }
 
 div.tooltip {
-    position: absolute;
-    text-align: center;
-    width: 170px;
-    height: 100px;
-    padding: 2px;
-    font-size: 0.9em;
-    background-color: lightsteelblue;
-    border: 0px;
-    border-radius: 8px;
-    pointer-events: none;
-    z-index: 100;
+	position: absolute;
+	text-align: center;
+	width: 170px;
+	height: 100px;
+	padding: 2px;
+	font-size: 0.9em;
+	background-color: lightsteelblue;
+	border: 0px;
+	border-radius: 8px;
+	pointer-events: none;
+	z-index: 100;
 }
 
 div.tooltip span {
-    padding: 0;
-    font-size: 0.9em;
+	padding: 0;
+	font-size: 0.9em;
 }
 
-div.tooltip p{
-    padding: 0;
-    font-size:0.9em;
+div.tooltip p {
+	padding: 0;
+	font-size: 0.9em;
 }
 
 div.rightDetail {
-    border-style: solid;
-    border-width: 3px;
-    border-color: black;
-    width: 180px;
-    height: 140px;
-    font-size: 1em;
+	border-style: solid;
+	border-width: 3px;
+	border-color: black;
+	width: 180px;
+	height: 140px;
+	font-size: 1em;
 }
 
 div.rightDetail .bold {
-    font-weight: bold;
-    font-size: 1.1em;
-    margin-bottom: 10px;
+	font-weight: bold;
+	font-size: 1.1em;
+	margin-bottom: 10px;
 }
 
 .graphContainer.chart {
-    max-width: 90vw;
-    overflow: hidden;
-    position: absolute;
-    margin: auto;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap-reverse;
-    justify-content: space-around;
+	max-width: 90vw;
+	overflow: hidden;
+	position: absolute;
+	margin: auto;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap-reverse;
+	justify-content: space-around;
 
 }
 
 .act2 {
-    padding-top: 0;
+	padding-top: 0;
 }
 
 #headerImage::after {
-    content: "";
-    display: block;
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%23347EBF%3B' /%3E%3C/svg%3E");
-    height: 90px;
-    width: 100%;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    transform: scale(1, 1) translate(0, -150px);
-    z-index: 100;
+	content: "";
+	display: block;
+	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%23347EBF%3B' /%3E%3C/svg%3E");
+	height: 90px;
+	width: 100%;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	transform: scale(1, 1) translate(0, -90px);
+	z-index: 100;
 }
 
 #mapCont {
-    height: 100vh;
-    width: 100%;
-    position: relative;
-    z-index: -1;
-    pointer-events: auto;
+	height: 100vh;
+	width: 100%;
+	position: relative;
+	z-index: -1;
+	pointer-events: auto;
 }
 
 #map {
-    position: absolutE;
-    height: 100%;
-    width: 100%;
+	position: absolutE;
+	height: 100%;
+	width: 100%;
 }
 
 .act3 {
-    padding-top: 0;
+	padding-top: 0;
 }
 
 .act3Cont {
-    top: -50vh;
+	top: -50vh;
 }
 
 .data table {
-    margin: 15px 50px;
-    border-collapse: collapse;
-    border-spacing: 0;
-    border: 1px solid #ccc;
-    display: table;
-    width: 100%
+	margin: 15px 50px;
+	border-collapse: collapse;
+	border-spacing: 0;
+	border: 1px solid #ccc;
+	display: table;
+	width: 100%
 }
 
 .data td,
 .data th {
-    width: 100%;
-    padding: 10px 15px;
-    text-align: center;
-    width: auto;
+	width: 100%;
+	padding: 10px 15px;
+	text-align: center;
+	width: auto;
 }
 
 .data th {
-    background-color: rgba(255, 111, 97, 0.9);
-    font-family: "Candara";
+	background-color: rgba(255, 111, 97, 0.9);
+	font-family: "Candara";
 }
 
 .data tr:nth-child(odd) {
-    background-color: rgba(188, 188, 188, 0.79);
+	background-color: rgba(188, 188, 188, 0.79);
 }
 
 .legend {
-    line-height: 18px;
-    color: #555;
-    float: right;
+	line-height: 18px;
+	color: #555;
+	float: right;
 }
 
 .legend i {
-    width: 18px;
-    height: 18px;
-    float: left;
-    margin-right: 8px;
-    opacity: 0.9;
-    border-style: solid;
-    border-width: 1px;
+	width: 18px;
+	height: 18px;
+	float: left;
+	margin-right: 8px;
+	opacity: 0.9;
+	border-style: solid;
+	border-width: 1px;
 }
 
 .legend p {
-    padding: 0;
-    font-size: 10px;
-    margin-right: 8px;
+	padding: 0;
+	font-size: 10px;
+	margin-right: 8px;
 }
 
 .act3Cont span {
-    margin-top: 700px;
+	margin-top: 700px;
 }
 
 h2,
@@ -292,79 +292,79 @@ h3,
 h4,
 h5,
 h6 {
-    color: black;
-    margin-bottom: 0;
+	color: black;
+	margin-bottom: 0;
 }
 
 h2 {
-    font-size: 1.5em;
+	font-size: 1.5em;
 }
 
 h4 {
-    margin: 15px;
+	margin: 15px;
 
 }
 
 blockquote {
-    font: 0.9em 'Muli', sans-serif;
-    margin: 15px 40px 0 40px;
+	font: 0.9em 'Muli', sans-serif;
+	margin: 15px 40px 0 40px;
 }
 
 .attribution {
-    font: 0.9em 'Muli', sans-serif;
-    margin: 5px 40px 15px 40px;
-    padding: 0;
-    text-align: right;
+	font: 0.9em 'Muli', sans-serif;
+	margin: 5px 40px 15px 40px;
+	padding: 0;
+	text-align: right;
 }
 
 .highlightPolygon {
-    stroke: yellow;
+	stroke: yellow;
 }
 
 .aside {
-    position: absolute;
-    background-color: white;
-    left: 75%;
-    transform: translate(0, -700px);
-    outline: 3px solid black;
-    font: 0.8em 'Muli', sans-serif;
+	position: absolute;
+	background-color: white;
+	left: 75%;
+	transform: translate(0, -700px);
+	outline: 3px solid black;
+	font: 0.8em 'Muli', sans-serif;
 }
 
 .scrollmagic-pin-spacer {
-    pointer-events: none;
+	pointer-events: none;
 }
 
 .buffer {
-    z-index: 5;
+	z-index: 5;
 }
 
 .solid {
-    z-index: 10;
+	z-index: 10;
 }
 
 .footer::after {
-    display: none;
+	display: none;
 }
 
 .footer {
-    width: 100%;
-    position: relative;
+	width: 100%;
+	position: relative;
 }
 
 #EndImage::after {
-    display: none;
+	display: none;
 }
 
 .pinImage2 {
-    position: ABSOLUTE;
-    width: 100%;
+	position: ABSOLUTE;
+	width: 100%;
 }
 
 .EndImage div {
-    padding-top: 0;
+	padding-top: 0;
 }
 
-a{
-    text-decoration: underline;
-    pointer-events: all;
+a {
+	text-decoration: underline;
+	pointer-events: all;
 }
