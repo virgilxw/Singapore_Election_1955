@@ -501,6 +501,27 @@ $(document).ready(function () {
 	});
 
 	$.when(d3.csv("/assets/data/datagov.csv").then(data => generateDonuts(data))).done(function () {
+		var s55tween = new TimelineMax()
+			.from("#s5.5", 0, {
+				opacity: 1
+			})
+			.to("#s5.5", 3, {
+				opacity: 0.1,
+				ease: Power2.easeOut
+			});
+
+		var s55 = new ScrollMagic.Scene({
+				triggerElement: "#s5.5",
+				triggerhook: 0.4,
+				duration: 100
+			}).setTween(s6tween)
+			.addIndicators({
+				name: "Scene 5.5"
+			})
+			.addTo(controller)
+	});
+
+	$.when(d3.csv("/assets/data/datagov.csv").then(data => generateDonuts(data))).done(function () {
 		var s6tween = new TimelineMax()
 			.from("#s6", 0, {
 				opacity: 1
