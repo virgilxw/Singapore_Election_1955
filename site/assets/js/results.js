@@ -505,8 +505,7 @@ $(document).ready(function () {
 		var s5atween = new TimelineMax()
 			.from("#s5a", 0, {
 				opacity: 1
-			})
-			.to("#s5a", 3, {
+			}).to("#s5a", 3, {
 				opacity: 0.1,
 				ease: Power2.easeOut
 			});
