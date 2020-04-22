@@ -501,6 +501,26 @@ $(document).ready(function () {
 	});
 
 	$.when(d3.csv("/assets/data/datagov.csv").then(data => generateDonuts(data))).done(function () {
+
+		var s5atween = new TimelineMax()
+			.from("#s5a", 0, {
+				opacity: 1
+			})
+			.to("#s5a", 3, {
+				opacity: 0.1,
+				ease: Power2.easeOut
+			});
+
+		var s5a = new ScrollMagic.Scene({
+				triggerElement: "#s5a",
+				triggerhook: 0.4,
+				duration: 100
+			}).setTween(s5atween)
+			.addIndicators({
+				name: "Scene 5a"
+			})
+			.addTo(controller)
+
 		var s6tween = new TimelineMax()
 			.from("#s6", 0, {
 				opacity: 1
