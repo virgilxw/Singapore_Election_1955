@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"> <meta charset="utf-8">
 <title>Self-Determination: Singapore's 1955 Election</title>
-<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
+<meta name="description" content="In 1955, Singaporeans went to the polls to elect their first democratically elected government.The election saw different visions of Singapore competing to capture the imaginations of Singaporeans. This is an exploration of what transpired, and what could had been.">
 <meta name="author" content="Reuben X. Wang">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -28,8 +28,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js" integrity="sha256-lPE3wjN2a7ABWHbGz7+MKBJaykyzqCbU96BJWjio86U=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.js" integrity="sha256-ZTEnMVwBY082yM/d9tFkglZux9pVgwfOAg6HD4reObU=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js" integrity="sha256-+9YNuItWuR4sbqeaNiJOxG0BvptYz4fbUXbIZoH5Jwo=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.js" integrity="sha256-31FC/OT6XpfjAhj9FuXjw5/wPXXawCAjJQ29E23/XPk=" crossorigin="anonymous"></script>
-
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.js" integrity="sha256-31FC/OT6XpfjAhj9FuXjw5/wPXXawCAjJQ29E23/XPk=" crossorigin="anonymous"></script>
+ -->
 <!--D3.js-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.12.0/d3.min.js" integrity="sha256-+9Mf3cAVmxxudDsr1XwXUeRZFtvdWVYdq5/vcgiYyNU=" crossorigin="anonymous"></script>
 
@@ -42,6 +42,21 @@
 
 <!--Google Fonts-->
 <link href="https://fonts.googleapis.com/css?family=Farro|Libre+Baskerville|Muli&display=swap" rel="stylesheet">
+
+<!-- Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-33064470-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-33064470-2');
+</script>
+
+<!-- Metadata -->
+<meta property="og:image" content="http://localhost:4000/assets/img/story.png" />
+<meta property="og:description" content="In 1955, Singaporeans went to the polls to elect their first democratically elected government. The election saw different visions of Singapore competing to capture the imaginations of Singaporeans. This is an exploration of what transpired, and what could had been." />
 
 
 <body>
@@ -78,22 +93,18 @@
 	<section class="solid" id="one">
 		<div class="inner">
 			<h2>Welcome to the Singapore of 1955</h2>
-			<p>
-				The first public housing estates of Queenstown and Toa Payoh are currently being developed. Most people lived in slum conditions within the city centre, while most places outside Singapore's modern downtown core were still rural, consisting of kampungs, plantations, and small scale farms.
-			</p>
-			<p>
-				We were still governed by the British. As the dominant political parties in Singapore were syncopathic towards British aims, governor John Nicoll felt that it was safe to permit universal suffrage in Singapore's 1955 elections.
-			</p>
-			<p>
-				The electionsa of 1955 would be the liveliest election in Singapore election. Political party and candidates of all stripes offered their visions of what Singapore's future may be.
-			</p>
+			<p>The first public housing estates of Queenstown and Toa Payoh were currently being developed. Most Singaporeans still lived in slum conditions within the city centre, while Singapore still had a rural hinterland consisting of kampungs, plantations, and small scale farms.</p>
+
+			<p>We were still governed by the British. As the dominant political parties in Singapore were sycophantic towards British aims, governor John Nicoll felt that it was safe to permit universal suffrage in Singapore's 1955 elections.</p>
+
+			<p>The elections of 1955 would be the liveliest election in Singapore history. Political party and candidates of all stripes offered their visions of what Singapore's future may be. At what pace should independence be pursued? Socialism or liberalism? Should we merge with Malaysia? Should Singapore fully urbanise or should the countryside be protected?</p>
 		</div>
 	</section>
 
 	<section class="two alt solid">
 		<div class="inner row">
 			<img class="thumbnail" src="/assets/img/story.png">
-			<a href="map.html">
+			<a href="results.html">
 				<h2>Explore the story</h2>
 			</a>
 			<p>
@@ -106,11 +117,11 @@
 				Explore the detailed election results in your own time with a interactive web map that overlays the constituencies over old and new maps of Singapore.
 			</p>
 			<div>
-				<a href="results.html">
+				<a href="map.html">
 					<h2>Explore the map</h2>
 				</a>
 			</div>
-			<img class="thumbnail" src="/assets/img/story.png">
+			<img class="thumbnail" src="/assets/img/thumbnail_map.png">
 		</div>
 	</section>
 
